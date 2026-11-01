@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+.vercel/
+.openai/
+.env
+.env.*
+*.log
+*-check.png
+icons-contact.png
+qa-*
+.vercel
