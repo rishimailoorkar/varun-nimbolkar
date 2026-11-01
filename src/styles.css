@@ -267,3 +267,8 @@
 .home-interlude-caption{transform:none}
 @media(max-width:760px){.home-interlude-stage>img{inset:-15% 0 auto;height:130%}}
 @media(prefers-reduced-motion:reduce){.home-interlude-stage>img{inset:0;height:100%;transform:none}}
+/* Recognition figures pick up the site's colour on hover. */
+@media(hover:hover){
+  .home-stats strong{background:linear-gradient(95deg,#a53bee 0%,#df42bf 32%,#fa5e4a 68%,#f79d09 100%);background-size:100% 100%;background-clip:text;-webkit-background-clip:text;transition:color .25s ease}
+  .home-stats>div:hover strong{color:transparent;-webkit-text-fill-color:transparent}
+}
