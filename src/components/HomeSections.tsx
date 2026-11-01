@@ -21,7 +21,7 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
       if (scene) {
         const bounds = scene.getBoundingClientRect();
         const progress = Math.max(0, Math.min(1, (innerHeight - bounds.top) / (innerHeight + bounds.height)));
-        scene.style.setProperty('--scene-progress', String(progress));
+        scene.style.setProperty('--image-shift', `${((0.5 - progress) * bounds.height * 0.28).toFixed(1)}px`);
       }
       const center = innerHeight / 2;
       for (const element of elements) {
@@ -39,7 +39,10 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     const setup = () => {
-      if (media.matches) elements.forEach(element => element.style.removeProperty('--parallax-y'));
+      if (media.matches) {
+        elements.forEach(element => element.style.removeProperty('--parallax-y'));
+        scene?.style.removeProperty('--image-shift');
+      }
       else schedule();
     };
     const change = () => { cancelAnimationFrame(frame); frame = 0; setup(); };

@@ -261,3 +261,9 @@
 @media(hover:hover){.home-about-image-wrap:hover img,.home-album:hover>img{transform:scale(1.035)}}
 @media(max-width:760px){.home-interlude{height:clamp(480px,76svh,700px)}.home-interlude-stage>img{inset:-14% 0 auto;height:128%;object-position:center}.home-interlude-caption{bottom:7%;left:6%;right:6%}}
 @media(prefers-reduced-motion:reduce){.home-interlude{height:clamp(480px,68vw,960px)}.home-interlude-stage{position:relative;height:100%}.home-interlude-stage>img{position:absolute;inset:0;height:100%;transform:none;will-change:auto}.home-interlude-caption{position:absolute;bottom:8%;margin:0 0 0 0}.scroll-reveal{opacity:1;transform:none;transition:none}.home-about-image-wrap img,.home-album>img{transition:none}}
+
+/* Keep the performance image moving through the fixed clipped frame. */
+.home-interlude-stage>img{inset:-15% 0 auto;height:130%;transform:translate3d(0,var(--image-shift,0px),0)}
+.home-interlude-caption{transform:none}
+@media(max-width:760px){.home-interlude-stage>img{inset:-15% 0 auto;height:130%}}
+@media(prefers-reduced-motion:reduce){.home-interlude-stage>img{inset:0;height:100%;transform:none}}
