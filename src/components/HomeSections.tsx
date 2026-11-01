@@ -115,6 +115,6 @@ export function HomeSections() {
       </div>
     </section>
 
-    <section className="home-press-placeholder" id="press" aria-labelledby="press-title"><div className="temporary-press"><span className="home-kicker home-kicker--plain" data-parallax="0.03">PRESS &amp; MEDIA</span><h2 id="press-title" data-parallax="0.055">In the press.</h2><p data-parallax="0.04">Explore the stories and sounds behind Varun’s music.</p><a href="/varun-nimbolkar-epk.pdf" download data-parallax="0.03">DOWNLOAD PRESS KIT <ArrowUpRight width={19} height={19} aria-hidden="true"/></a></div></section>
+    <section className="home-press-placeholder" id="press" aria-labelledby="press-title"><div className="temporary-press"><span className="home-kicker home-kicker--plain" data-parallax="0.03">PRESS &amp; MEDIA</span><h2 id="press-title" data-parallax="0.055">In the press.</h2><p data-parallax="0.04">Explore the stories and sounds behind Varun’s music.</p><div style={{display:'flex',gap:'16px',justifyContent:'center',flexWrap:'wrap',marginTop:'35px'}}><a href="/press" data-parallax="0.03" style={{display:'inline-flex',alignItems:'center',gap:'12px',padding:'15px 25px',background:'#fff',color:'#111',borderRadius:'40px',fontSize:'12px',letterSpacing:'.1em',textDecoration:'none',fontWeight:500}}>VIEW PRESS COVERAGE <ArrowUpRight width={19} height={19} aria-hidden="true"/></a><a href="/varun-nimbolkar-epk.pdf" download data-parallax="0.03" style={{marginTop:0}}>DOWNLOAD PRESS KIT <ArrowUpRight width={19} height={19} aria-hidden="true"/></a></div></div></section>
   </div>;
 }
