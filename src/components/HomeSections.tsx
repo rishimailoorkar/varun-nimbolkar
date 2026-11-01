@@ -20,7 +20,7 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
       if (media.matches) return;
       if (scene) {
         const bounds = scene.getBoundingClientRect();
-        const progress = Math.max(0, Math.min(1, -bounds.top / Math.max(1, bounds.height - innerHeight)));
+        const progress = Math.max(0, Math.min(1, (innerHeight - bounds.top) / (innerHeight + bounds.height)));
         scene.style.setProperty('--scene-progress', String(progress));
       }
       const center = innerHeight / 2;
@@ -93,7 +93,6 @@ export function HomeSections() {
     <section className="home-interlude" id="live" aria-label="Varun Nimbolkar performing live">
       <div className="home-interlude-stage">
         <img src="/images/home/performance-parallax.png" width="1440" height="961" loading="lazy" alt="Varun Nimbolkar and a fellow musician performing on stage" />
-        <div className="home-interlude-story"><span>IN THE MOMENT</span><p>Classical roots.<br/><em>Electric soul.</em></p></div>
         <div className="home-interlude-caption"><span>SITARIST / COMPOSER / PRODUCER</span><span>CLASSICAL ROOTS. ELECTRIC SOUL.</span></div>
       </div>
     </section>
