@@ -15,15 +15,37 @@ import { ContactCTA } from './components/ContactCTA';
 const inverted = location.pathname.startsWith("/color");
 document.documentElement.classList.toggle("color-home", inverted);
 
+function isPressRoute(pathname: string, hash: string): boolean {
+  const p = pathname.toLowerCase();
+  const h = hash.toLowerCase();
+  return (
+    p.startsWith('/press') ||
+    p.startsWith('/presspage') ||
+    p.startsWith('/press-release') ||
+    p.startsWith('/press-and-media') ||
+    h === '#press' ||
+    h === '#presspage'
+  );
+}
+
 function App() {
   const [path, setPath] = useState(location.pathname);
+  const [hash, setHash] = useState(location.hash);
+
   useEffect(() => {
-    const handlePop = () => setPath(location.pathname);
+    const handlePop = () => {
+      setPath(location.pathname);
+      setHash(location.hash);
+    };
     window.addEventListener('popstate', handlePop);
-    return () => window.removeEventListener('popstate', handlePop);
+    window.addEventListener('hashchange', handlePop);
+    return () => {
+      window.removeEventListener('popstate', handlePop);
+      window.removeEventListener('hashchange', handlePop);
+    };
   }, []);
 
-  if (path.startsWith("/press")) return <PressPage/>;
+  if (isPressRoute(path, hash)) return <PressPage/>;
   if (path.startsWith("/music")) return <MusicPage/>;
   return <><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>
     <HomeSections/>
