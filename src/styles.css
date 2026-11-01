@@ -272,3 +272,13 @@
   .home-stats strong{background:linear-gradient(95deg,#a53bee 0%,#df42bf 32%,#fa5e4a 68%,#f79d09 100%);background-size:100% 100%;background-clip:text;-webkit-background-clip:text;transition:color .25s ease}
   .home-stats>div:hover strong{color:transparent;-webkit-text-fill-color:transparent}
 }
+/* One ring cursor across the site, with contrast matched to each surface. */
+:root{
+  --cursor-on-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='19' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='24' r='2' fill='%23fff'/%3E%3C/svg%3E") 24 24,crosshair;
+  --cursor-on-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='19' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='24' r='2' fill='%23000'/%3E%3C/svg%3E") 24 24,crosshair;
+}
+@media(hover:hover) and (pointer:fine){
+  body,.hero,.navbar,.home-interlude,.home-press-placeholder,.site-footer,.contact-cta-section,.contact-cta-panel,.music-page-navbar,.music-preloader{cursor:var(--cursor-on-dark)}
+  .home-about,.home-recognition,.home-gallery-placeholder,.home-discography,.music-page-hero,.music-player-section,.contact-cta-section--light{cursor:var(--cursor-on-light)}
+  .contact-cta-section--light .contact-cta-panel{cursor:var(--cursor-on-dark)}
+}
