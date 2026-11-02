@@ -24,16 +24,24 @@ export function MusicPage() {
    finish();
   };
   el?.addEventListener('load', loaded); loaded();
-  const minimumTimer = window.setTimeout(() => { minimumElapsed = true; finish(); }, 900);
+  const minimumTimer = window.setTimeout(() => { minimumElapsed = true; finish(); }, 2200);
   const fallbackTimer = window.setTimeout(() => setLoading(false), 5000);
   return () => { observer?.disconnect(); el?.removeEventListener('load', loaded); clearTimeout(minimumTimer); clearTimeout(fallbackTimer); };
  }, []);
+ useEffect(() => {
+  if (!loading) return;
+  const previous = document.body.style.overflow;
+  document.body.style.overflow = 'hidden';
+  return () => { document.body.style.overflow = previous; };
+ }, [loading]);
  return <main className="music-page-shell" id="top">
-  {loading && <div className="music-preloader" role="status" aria-live="polite"><span>ENTERING INTO THE MUSIC ROOM</span><i/></div>}
+  {loading && <div className="music-preloader" role="status" aria-live="polite"><div className="loader-record" aria-hidden="true"><div className="loader-label"><img src="/images/music-room-portrait.jpeg" alt="" fetchPriority="high" /></div><div className="loader-spindle"/></div><span className="loader-eyebrow">LOADING EXPERIENCE</span><p className="loader-title">Entering the music room</p><div className="loader-progress" aria-hidden="true"><span/></div></div>}
+  <div inert={loading} aria-hidden={loading || undefined}>
   <header className="music-page-navbar"><a href="/" className="music-home-link" aria-label="Return to homepage">VARUN<br/>NIMBOLKAR</a><span className="music-navbar-label">THE LISTENING ROOM</span><a href="/" className="music-exit">EXIT <ArrowUpRight width={20} height={20} aria-hidden="true" /></a></header>
   <section className="music-page-hero" aria-labelledby="music-page-heading"><span className="music-page-kicker">VARUN NIMBOLKAR / MUSIC</span><h1 id="music-page-heading">Discover the <em>Soul</em><br/>of My <span>Music</span></h1><p>Where classical strings meet a restless electric spirit.</p><a className="music-scroll" href="#music-player">SCROLL TO LISTEN <ArrowDown width={20} height={20} aria-hidden="true" /></a></section>
   <section id="music-player" className="music-player-section"><iframe ref={frame} title="Interactive turntable and Spotify player" src="/music-turntable.html" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" /></section>
   <ContactCTA light />
   <SiteFooter />
+  </div>
  </main>;
 }

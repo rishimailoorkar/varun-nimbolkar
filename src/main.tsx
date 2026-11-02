@@ -57,27 +57,32 @@ function App() {
       frame = 0;
       if (media.matches) return;
       const height = innerHeight;
+      let unsettled = false;
       targets.forEach(el => {
         const shift = parseFloat(el.style.getPropertyValue('--text-shift')) || 0;
         const top = el.getBoundingClientRect().top - shift;
         const item = el.closest('.home-stats > div, .press-item');
         const index = item ? Array.from(item.parentElement?.children || []).indexOf(item) : 0;
         const delay = Math.min(index, 3) * 0.035;
-        const progress = Math.max(0, Math.min(1, ((height - top) / Math.max(1, height * .55) - delay) / (1 - delay)));
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const distance = el.matches('h1, h2') ? 58 : el.matches('strong, h3') ? 42 : 28;
-        const drift = Math.max(0, Math.min(1, (height * .55 - top) / height)) * 10;
-        el.style.setProperty('--text-shift', `${((1 - eased) * distance - drift).toFixed(1)}px`);
-        el.style.setProperty('--text-opacity', String(.25 + eased * .75));
+        const mobile = innerWidth < 760;
+        const progress = Math.max(0, Math.min(1, (height - top) / (height * 1.1)));
+        const strength = el.matches('h1, h2') ? 150 : el.matches('strong, h3') ? 100 : 65;
+        const desired = ((.58 - progress) * strength + delay * 100) * (mobile ? .65 : 1);
+        const next = Math.abs(desired - shift) < .1 ? desired : shift + (desired - shift) * .16;
+        if (Math.abs(desired - next) > .1) unsettled = true;
+        el.style.setProperty('--text-shift', `${next.toFixed(2)}px`);
+        const reveal = Math.max(0, Math.min(1, (height - top) / (height * .3)));
+        el.style.setProperty('--text-opacity', String(.3 + reveal * .7));
       });
       if (portrait) {
         const bounds = portrait.parentElement!.getBoundingClientRect();
         const progress = Math.max(0, Math.min(1, (height - bounds.top) / (height + bounds.height)));
         portrait.style.setProperty('--portrait-shift', `${((.5 - progress) * 7).toFixed(2)}%`);
       }
+      if (unsettled) frame = requestAnimationFrame(update);
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    const setup = () => { reset(); if (!media.matches) { targets.forEach(el => el.classList.add('text-scroll-motion')); update(); } };
+    const setup = () => { cancelAnimationFrame(frame); frame = 0; reset(); if (!media.matches) { targets.forEach(el => el.classList.add('text-scroll-motion')); update(); } };
     setup();
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', schedule);
