@@ -5,7 +5,7 @@ export default async function handler(req, res) {
  const ready = Boolean(url?.startsWith('https://') && token);
  if (req.method === 'GET') return res.status(200).json({ ready });
  if (req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return res.status(405).json({ error: 'Method not allowed.' }); }
- if (!ready) return res.status(503).json({ error: 'Online enquiries are not yet available. Please contact Varun on Instagram.' });
+ if (!ready) return res.status(503).json({ error: 'Online enquiries are not yet available. Please email varun.nimbolkar@gmail.com.' });
  if (!req.headers['content-type']?.includes('application/json')) return res.status(415).json({ error: 'Use a JSON request.' });
  const payload = req.body;
  if (!payload || typeof payload !== 'object' || Buffer.byteLength(JSON.stringify(payload)) > 12000) return res.status(400).json({ error: 'Invalid enquiry.' });
