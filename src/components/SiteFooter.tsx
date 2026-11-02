@@ -4,7 +4,7 @@ export function SiteFooter() {
   return <footer className="site-footer">
     <div className="footer-main">
       <div className="footer-identity"><a className="footer-wordmark" href="/">VARUN<br/>NIMBOLKAR</a><p>Sitarist · Composer · Producer</p></div>
-      <nav className="footer-nav" aria-label="Footer navigation"><span>EXPLORE</span><a href="/#about">About</a><a href="/music">Music</a><a href="/#gallery">Gallery</a><a href="/#live">Live</a><a href="/contact">Contact / Book Varun</a><a href="/press">Press</a></nav>
+      <nav className="footer-nav" aria-label="Footer navigation"><span>EXPLORE</span><a href="/#about">About</a><a href="/music">Music</a><a href="/#gallery">Gallery</a><a href="/press">Press</a></nav>
       <nav className="footer-nav" aria-label="Music and social profiles"><span>CONNECT</span>{[
         ['Spotify', 'https://open.spotify.com/artist/3dmI9UkzIOZZeHcdLJfXZs'],
         ['Apple Music', 'https://music.apple.com/in/artist/varun-nimbolkar/1566186954'],
