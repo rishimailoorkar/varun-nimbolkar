@@ -373,7 +373,10 @@
 }
 
 .home-journey-card {
+  display: block;
   flex: 0 0 auto;
+  cursor: pointer;
+  text-decoration: none;
   width: 185px;
   height: 288px;
   border-radius: 10px;
