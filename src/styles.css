@@ -483,7 +483,7 @@
 @media(prefers-reduced-motion:reduce){.home-about-image-wrap img{scale:none;translate:none;will-change:auto}}
 /* Vinyl loading experience, exclusive to the music route. */
 .music-preloader{z-index:100;background:#faf8f5;color:#191919;gap:0;padding:32px 20px;letter-spacing:normal;animation:loader-arrive .3s ease both}
-.loader-record{position:relative;flex:none;width:min(48vh,60vw,440px);aspect-ratio:1;border-radius:50%;border:3px solid #282828;box-shadow:0 22px 35px #211a1738;background:repeating-radial-gradient(circle,#111 0px,#111 1px,#272727 2px,#151515 3px);animation:record-turn 6s linear infinite}
+.loader-record{position:relative;flex:none;width:min(34vh,48vw,290px);aspect-ratio:1;border-radius:50%;border:3px solid #282828;box-shadow:0 22px 35px #211a1738;background:repeating-radial-gradient(circle,#111 0px,#111 1px,#272727 2px,#151515 3px);animation:record-turn 6s linear infinite}
 .loader-record::before{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,transparent,#ffffff28 45deg,transparent 90deg,transparent 180deg,#ffffff30 225deg,transparent 275deg)}
 .loader-label{position:absolute;inset:26%;border-radius:50%;overflow:hidden;border:2px solid #333;background:#111}
 .loader-label img{width:100%;height:100%;object-fit:cover;object-position:45% 30%}
@@ -491,13 +491,13 @@
 .loader-eyebrow{display:flex;align-items:center;gap:18px;margin-top:38px;font-size:11px;letter-spacing:.28em;color:#68635f}
 .loader-eyebrow::before,.loader-eyebrow::after{content:'';width:36px;height:1px;background:#aaa}
 .loader-title{margin:20px 0 30px;font:italic 400 clamp(30px,4.2vw,58px)/1.12 Tinos,serif;letter-spacing:-.025em;max-width:90vw}
-.loader-progress{width:min(300px,65vw);height:3px;overflow:hidden;border-radius:4px;background:#d9d5d0}
-.loader-progress span{display:block;width:45%;height:100%;background:#242424;animation:loader-progress 1.4s ease-in-out infinite}
+.loader-progress{width:100%;height:5px;overflow:hidden;border-radius:4px;background:#d9d5d0}
+.loader-progress span{display:block;width:100%;height:100%;background:linear-gradient(90deg,#933aff,#d747de 40%,#f16b65 70%,#ff9600);transform-origin:left;transition:transform .15s linear}
 @keyframes record-turn{to{transform:rotate(360deg)}}
-@keyframes loader-progress{from{transform:translateX(-110%)}to{transform:translateX(330%)}}
+
 @keyframes loader-arrive{from{opacity:0}to{opacity:1}}
-@media(max-width:600px){.loader-record{width:min(66vw,40vh)}.loader-title{max-width:320px}.loader-eyebrow{font-size:9px;gap:10px}}
-@media(prefers-reduced-motion:reduce){.music-preloader,.loader-record,.loader-progress span{animation:none}.loader-progress span{width:100%}}
+@media(max-width:600px){.loader-record{width:min(48vw,30vh,220px)}.loader-title{max-width:320px}.loader-eyebrow{font-size:9px;gap:10px}}
+@media(prefers-reduced-motion:reduce){.music-preloader,.loader-record,.loader-progress span{animation:none}.loader-progress span{transition:none}}
 /* A larger portrait label makes the artist clear on every page entrance. */
 .loader-label{inset:23%}
 .loader-label img{object-position:42% 28%;transform:scale(1.25);transform-origin:42% 28%}
@@ -522,3 +522,7 @@
 @media(max-width:760px){.booking-intro,.booking-layout{width:88%}.booking-intro{padding:65px 0 45px}.booking-layout{grid-template-columns:1fr;gap:55px;padding:50px 0 75px}.booking-aside>img{max-width:240px}.booking-form{gap:22px 15px}.selected-work{padding:65px 0}.selected-work-heading{grid-template-columns:1fr;gap:28px}.selected-work-credit{flex-direction:column}.selected-work-collaborators{gap:20px 30px}.selected-work-collaborators>span:first-child{width:100%}}
 @media(max-width:480px){.booking-form{grid-template-columns:1fr}.booking-intro h1{font-size:58px}}
 .booking-email{display:flex;justify-content:flex-start;overflow-wrap:anywhere;max-width:100%}
+
+.loader-meter{width:min(300px,65vw)}
+.loader-percentage{display:block;margin-top:12px;text-align:right;font-size:13px;font-variant-numeric:tabular-nums;letter-spacing:.08em;color:#68635f}
+.loader-percentage>span{margin-left:3px;font-size:10px}
