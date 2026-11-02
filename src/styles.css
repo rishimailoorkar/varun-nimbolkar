@@ -497,3 +497,6 @@
 @keyframes loader-arrive{from{opacity:0}to{opacity:1}}
 @media(max-width:600px){.loader-record{width:min(66vw,40vh)}.loader-title{max-width:320px}.loader-eyebrow{font-size:9px;gap:10px}}
 @media(prefers-reduced-motion:reduce){.music-preloader,.loader-record,.loader-progress span{animation:none}.loader-progress span{width:100%}}
+/* A larger portrait label makes the artist clear on every page entrance. */
+.loader-label{inset:23%}
+.loader-label img{object-position:42% 28%;transform:scale(1.25);transform-origin:42% 28%}

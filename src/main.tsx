@@ -11,6 +11,7 @@ import { HeroSection } from './components/HeroSection';
 import { HomeSections } from './components/HomeSections';
 import { SiteFooter } from './components/SiteFooter';
 import { ContactCTA } from './components/ContactCTA';
+import { PagePreloader } from './components/PagePreloader';
 
 const inverted = location.pathname.startsWith("/color");
 document.documentElement.classList.toggle("color-home", inverted);
@@ -90,11 +91,11 @@ function App() {
     return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
   }, [path, hash]);
 
-  if (isPressRoute(path, hash)) return <PressPage/>;
-  if (path.startsWith("/music")) return <MusicPage/>;
-  return <><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>
+  if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
+  if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
+  return <PagePreloader key={path}><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>
     <HomeSections/>
     <ContactCTA/>
-  </main><SiteFooter/></>;
+  </main><SiteFooter/></PagePreloader>;
 }
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
