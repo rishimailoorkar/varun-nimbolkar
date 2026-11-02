@@ -12,7 +12,7 @@ export function ContactCTA({ light = false }: { light?: boolean }) {
       </div>
       <div className="contact-cta-action">
         <p>Bring your vision for the stage, film, or collaboration. Let's find its sound.</p>
-        <a href="https://www.instagram.com/varun_nimbolkar/" target="_blank" rel="noopener noreferrer">BOOK VARUN <ArrowUpRight width={24} height={24} aria-hidden="true" /></a>
+        <a href="/contact">BOOK VARUN <ArrowUpRight width={24} height={24} aria-hidden="true" /></a>
       </div>
     </div>
   </section>;

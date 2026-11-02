@@ -10,6 +10,7 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { HomeSections } from './components/HomeSections';
 import { SiteFooter } from './components/SiteFooter';
+import { ContactPage } from './components/ContactPage';
 import { ContactCTA } from './components/ContactCTA';
 import { PagePreloader } from './components/PagePreloader';
 
@@ -50,7 +51,7 @@ function App() {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
       'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong, .site-footer h2, .site-footer p'
-    )).filter(el => !el.closest('.music-preloader, .home-interlude-caption'));
+    )).filter(el => !el.closest('.music-preloader, .home-interlude-caption, .booking-form-wrap'));
     const portrait = document.querySelector<HTMLElement>('.home-about-image-wrap img');
     let frame = 0;
     const reset = () => { targets.forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); }); portrait?.style.removeProperty('--portrait-shift'); };
@@ -91,6 +92,7 @@ function App() {
     return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
   }, [path, hash]);
 
+  if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;
   if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
   if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
   return <PagePreloader key={path}><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>

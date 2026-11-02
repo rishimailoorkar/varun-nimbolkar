@@ -500,3 +500,23 @@
 /* A larger portrait label makes the artist clear on every page entrance. */
 .loader-label{inset:23%}
 .loader-label img{object-position:42% 28%;transform:scale(1.25);transform-origin:42% 28%}
+.contact-page{background:#fff;color:#171717;cursor:var(--cursor-on-light)}
+.contact-page>.navbar{position:relative;background:#080808;color:#fff}
+.booking-intro,.booking-layout{width:min(84%,1250px);margin:auto}
+.booking-intro{padding:100px 0 80px;border-bottom:1px solid #dedad6}
+.booking-intro h1{font:400 clamp(62px,7.5vw,112px)/.98 Tinos,serif;letter-spacing:-.04em;margin:32px 0}
+.booking-intro h1 em{font-weight:400;background:linear-gradient(100deg,#a53bee,#df42bf 35%,#fa5e4a 70%,#f79d09);background-clip:text;-webkit-text-fill-color:transparent}
+.booking-intro p{font-size:17px;line-height:1.8;color:#706c69}
+.booking-layout{display:grid;grid-template-columns:1fr 1.65fr;gap:clamp(48px,8vw,120px);padding:85px 0 120px}
+.booking-aside>img{display:block;width:100%;max-width:320px;aspect-ratio:4/5;object-fit:cover;margin-bottom:35px;border-radius:8px}
+.booking-aside h2,.booking-form-wrap h2{font:400 clamp(32px,3vw,46px)/1.1 Tinos,serif;letter-spacing:-.025em;margin:24px 0}
+.booking-aside p{font-size:15px;line-height:1.8;color:#706c69;max-width:320px}
+.booking-download,.booking-social,.enquiry-submit{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;border-radius:99px;font-size:13px;letter-spacing:.03em}
+.booking-download{border:1px solid #222;padding:12px 22px;margin-top:15px}.booking-download:hover{background:#111;color:#fff}.booking-social{margin-top:15px}
+.booking-form{display:grid;grid-template-columns:1fr 1fr;gap:26px 20px;margin-top:35px}.enquiry-field{display:flex;flex-direction:column;gap:10px;font-size:12px;letter-spacing:.02em}.enquiry-wide{grid-column:1/-1}
+.enquiry-field input,.enquiry-field select,.enquiry-field textarea{font:400 16px/1.5 'Plus Jakarta Sans',sans-serif;color:#171717;border:1px solid #d8d3ce;border-radius:6px;background:#fbfaf8;min-width:0;width:100%;padding:13px 14px;min-height:48px}.enquiry-field textarea{resize:vertical}.enquiry-field :focus-visible{outline:2px solid #a53bee;outline-offset:2px}
+.enquiry-consent{display:flex;align-items:start;gap:12px;font-size:12px;line-height:1.6;color:#5f5a57}.enquiry-consent input{width:18px;height:18px;accent-color:#171717;flex:none}
+.enquiry-submit{background:#171717;color:#fff;padding:15px 26px}.enquiry-submit:hover{background:#383038}.enquiry-submit:disabled{opacity:.5;cursor:not-allowed}.enquiry-trap{position:absolute;left:-10000px}.enquiry-notice{margin:0;padding:16px;background:#f5f1eb;font-size:13px!important;line-height:1.7}.enquiry-notice a{text-decoration:underline}
+.selected-work{padding:100px 0 90px;background:#fff;color:#171717;cursor:var(--cursor-on-light)}.selected-work-heading{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;margin-bottom:45px}.selected-work h2{font:400 clamp(60px,6vw,90px)/1 Tinos,serif;letter-spacing:-.04em;margin:25px 0 0}.selected-work-heading>p{color:#706c69;font-size:16px;line-height:1.8;margin:0}.selected-work-player{aspect-ratio:16/9;min-height:200px;background:#151515;border-radius:12px;overflow:hidden}.selected-work-player iframe{display:block;width:100%;height:100%;border:0}.selected-work-credit{display:flex;justify-content:space-between;gap:20px;padding:20px 0;color:#706c69;font-size:11px;letter-spacing:.08em}.selected-work-credit a{display:inline-flex;align-items:center;gap:10px;color:#171717;letter-spacing:0;font-size:13px}.selected-work-collaborators{border-top:1px solid #dedad6;display:flex;gap:clamp(25px,5vw,80px);align-items:center;flex-wrap:wrap;padding-top:30px;margin-top:15px;font-size:14px}.selected-work-collaborators>span:first-child{font-size:10px;letter-spacing:.18em;color:#777}
+@media(max-width:760px){.booking-intro,.booking-layout{width:88%}.booking-intro{padding:65px 0 45px}.booking-layout{grid-template-columns:1fr;gap:55px;padding:50px 0 75px}.booking-aside>img{max-width:240px}.booking-form{gap:22px 15px}.selected-work{padding:65px 0}.selected-work-heading{grid-template-columns:1fr;gap:28px}.selected-work-credit{flex-direction:column}.selected-work-collaborators{gap:20px 30px}.selected-work-collaborators>span:first-child{width:100%}}
+@media(max-width:480px){.booking-form{grid-template-columns:1fr}.booking-intro h1{font-size:58px}}

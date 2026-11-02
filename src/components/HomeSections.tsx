@@ -1,5 +1,6 @@
 import { useEffect, useRef, type RefObject } from 'react';
 import { ArrowUpRight, Play } from './Icons';
+import { SelectedWork } from './SelectedWork';
 import { InstagramJourneySection } from './InstagramJourneySection';
 
 const releases = [
@@ -71,14 +72,7 @@ export function HomeSections() {
       </div>
     </section>
 
-    <section className="home-gallery-placeholder" id="gallery" aria-labelledby="gallery-title">
-      <div className="temporary-gallery">
-        <span className="home-kicker home-kicker--plain">A COLLECTION IN THE MAKING</span>
-        <h2 id="gallery-title" data-parallax="0.055">Selected Art Work</h2>
-        <p>Live moments, collaborations and visual stories. Coming soon.</p>
-        <div className="selected-work-placeholder" aria-label="Selected artwork placeholder"><span>01 — SELECTED WORK</span><span>New stories<br/><em>taking shape.</em></span><span>COLLECTION COMING SOON</span></div>
-      </div>
-    </section>
+    <SelectedWork />
 
     <section className="home-interlude" id="live" aria-label="Varun Nimbolkar performing live">
       <div className="home-interlude-stage">

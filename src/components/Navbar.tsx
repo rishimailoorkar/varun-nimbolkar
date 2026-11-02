@@ -60,11 +60,11 @@ export function Navbar() {
       <div className="more-wrap">
         <button ref={moreButton} aria-expanded={more} aria-controls="more-navigation" onClick={() => setMore(!more)}>MORE <NavArrowDown width={18} height={18} aria-hidden="true"/></button>
         {more && <div id="more-navigation" className="dropdown">{['Live', 'Press', 'Contact'].map(label => {
-          const href = label === 'Music' ? '/music' : label === 'Press' ? '/press' : `/#${label.toLowerCase()}`;
+          const href = label === 'Music' ? '/music' : label === 'Press' ? '/press' : label === 'Contact' ? '/contact' : `/#${label.toLowerCase()}`;
           return <a key={label} href={href} className={isCurrent(label) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(href); }}>{label}</a>;
         })}</div>}
       </div>
     </nav>
-    <a className="book-button" href="/#contact" onClick={e => { e.preventDefault(); navigate('/#contact'); }}>BOOK VARUN <ArrowUpRight width={20} height={20} aria-hidden="true" /></a>
+    <a className="book-button" href="/contact" onClick={e => { e.preventDefault(); navigate('/contact'); }}>BOOK VARUN <ArrowUpRight width={20} height={20} aria-hidden="true" /></a>
   </header>;
 }
