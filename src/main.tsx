@@ -48,20 +48,33 @@ function App() {
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
-      'main h1, main h2, main h3, main p, .site-footer h2, .site-footer p'
+      'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong, .site-footer h2, .site-footer p'
     )).filter(el => !el.closest('.music-preloader, .home-interlude-caption'));
+    const portrait = document.querySelector<HTMLElement>('.home-about-image-wrap img');
     let frame = 0;
-    const reset = () => targets.forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); });
+    const reset = () => { targets.forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); }); portrait?.style.removeProperty('--portrait-shift'); };
     const update = () => {
       frame = 0;
       if (media.matches) return;
+      const height = innerHeight;
       targets.forEach(el => {
         const shift = parseFloat(el.style.getPropertyValue('--text-shift')) || 0;
         const top = el.getBoundingClientRect().top - shift;
-        const progress = Math.max(0, Math.min(1, (innerHeight - top) / Math.max(1, innerHeight * .38)));
-        el.style.setProperty('--text-shift', `${((1 - progress) * 24).toFixed(1)}px`);
-        el.style.setProperty('--text-opacity', String(.25 + progress * .75));
+        const item = el.closest('.home-stats > div, .press-item');
+        const index = item ? Array.from(item.parentElement?.children || []).indexOf(item) : 0;
+        const delay = Math.min(index, 3) * 0.035;
+        const progress = Math.max(0, Math.min(1, ((height - top) / Math.max(1, height * .55) - delay) / (1 - delay)));
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const distance = el.matches('h1, h2') ? 58 : el.matches('strong, h3') ? 42 : 28;
+        const drift = Math.max(0, Math.min(1, (height * .55 - top) / height)) * 10;
+        el.style.setProperty('--text-shift', `${((1 - eased) * distance - drift).toFixed(1)}px`);
+        el.style.setProperty('--text-opacity', String(.25 + eased * .75));
       });
+      if (portrait) {
+        const bounds = portrait.parentElement!.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (height - bounds.top) / (height + bounds.height)));
+        portrait.style.setProperty('--portrait-shift', `${((.5 - progress) * 7).toFixed(2)}%`);
+      }
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     const setup = () => { reset(); if (!media.matches) { targets.forEach(el => el.classList.add('text-scroll-motion')); update(); } };
