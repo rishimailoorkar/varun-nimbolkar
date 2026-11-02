@@ -13,7 +13,6 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
     const host = root.current;
     if (!host) return;
     const media = matchMedia('(prefers-reduced-motion: reduce)');
-    const elements = Array.from(host.querySelectorAll<HTMLElement>('[data-parallax]'));
     const scene = host.querySelector<HTMLElement>('.home-interlude');
     let frame = 0;
     const update = () => {
@@ -24,24 +23,11 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
         const progress = Math.max(0, Math.min(1, (innerHeight - bounds.top) / (innerHeight + bounds.height)));
         scene.style.setProperty('--image-shift', `${((0.5 - progress) * bounds.height * 0.28).toFixed(1)}px`);
       }
-      const center = innerHeight / 2;
-      for (const element of elements) {
-        const rect = element.getBoundingClientRect();
-        if (rect.bottom < -120 || rect.top > innerHeight + 120) continue;
-        const speed = Number(element.dataset.parallax) || 0;
-        const limit = Number(element.dataset.parallaxLimit) || 36;
-        const offset = Math.max(-limit, Math.min(limit, -(rect.top + rect.height / 2 - center) * speed));
-        element.style.setProperty('--parallax-y', `${offset.toFixed(1)}px`);
-        if (element.matches('h2')) {
-          const progress = Math.max(0, Math.min(1, (innerHeight - rect.top) / (innerHeight * .75)));
-          element.style.setProperty('--type-progress', String(progress));
-        }
-      }
+
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     const setup = () => {
       if (media.matches) {
-        elements.forEach(element => element.style.removeProperty('--parallax-y'));
         scene?.style.removeProperty('--image-shift');
       }
       else schedule();

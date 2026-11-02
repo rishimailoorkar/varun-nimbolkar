@@ -467,3 +467,8 @@
 .home-journey-btn:hover svg {
   transform: translate(2px, -2px);
 }
+/* Consistent scroll-linked text fade; the performance image retains its own parallax. */
+.home-sections [data-parallax]{translate:none;transition:none}
+.home-sections h2[data-parallax]{transform:none;transition:none}
+.text-scroll-motion{translate:0 var(--text-shift,0px)!important;opacity:var(--text-opacity,1);will-change:translate,opacity}
+@media(prefers-reduced-motion:reduce){.text-scroll-motion{translate:none!important;opacity:1!important;will-change:auto}}

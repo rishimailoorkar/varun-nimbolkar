@@ -45,6 +45,33 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const media = matchMedia('(prefers-reduced-motion: reduce)');
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(
+      'main h1, main h2, main h3, main p, .site-footer h2, .site-footer p'
+    )).filter(el => !el.closest('.music-preloader, .home-interlude-caption'));
+    let frame = 0;
+    const reset = () => targets.forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); });
+    const update = () => {
+      frame = 0;
+      if (media.matches) return;
+      targets.forEach(el => {
+        const shift = parseFloat(el.style.getPropertyValue('--text-shift')) || 0;
+        const top = el.getBoundingClientRect().top - shift;
+        const progress = Math.max(0, Math.min(1, (innerHeight - top) / Math.max(1, innerHeight * .38)));
+        el.style.setProperty('--text-shift', `${((1 - progress) * 24).toFixed(1)}px`);
+        el.style.setProperty('--text-opacity', String(.25 + progress * .75));
+      });
+    };
+    const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+    const setup = () => { reset(); if (!media.matches) { targets.forEach(el => el.classList.add('text-scroll-motion')); update(); } };
+    setup();
+    addEventListener('scroll', schedule, { passive: true });
+    addEventListener('resize', schedule);
+    media.addEventListener('change', setup);
+    return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
+  }, [path, hash]);
+
   if (isPressRoute(path, hash)) return <PressPage/>;
   if (path.startsWith("/music")) return <MusicPage/>;
   return <><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>
