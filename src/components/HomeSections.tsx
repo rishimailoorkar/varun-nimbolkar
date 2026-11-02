@@ -115,6 +115,15 @@ export function HomeSections() {
       </div>
     </section>
 
-    <section className="home-press-placeholder" id="press" aria-labelledby="press-title"><div className="temporary-press"><span className="home-kicker home-kicker--plain" data-parallax="0.03">PRESS &amp; MEDIA</span><h2 id="press-title" data-parallax="0.055">In the press.</h2><p data-parallax="0.04">Explore the stories and sounds behind Varun’s music.</p><a href="/varun-nimbolkar-epk.pdf" download data-parallax="0.03">DOWNLOAD PRESS KIT <ArrowUpRight width={19} height={19} aria-hidden="true"/></a></div></section>
+    <section className="home-press" id="press" aria-labelledby="press-title">
+      <div className="home-wide-inner">
+        <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">Press Kit</h2></div><a className="press-view" href="/varun-nimbolkar-epk.pdf" download>Download EPK <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
+        <div className="press-grid">{[
+          { number:'01', date:'September 2026', source:'MID-DAY', title:'Witness this immersive fusion performance in Bandra this week with a sitar', url:'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986' },
+          { number:'02', date:'October 2025', source:'HOMEGROWN MAGAZINE', title:'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling', url:'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling' },
+          { number:'03', date:'September 2025', source:'THE INDIAN MUSIC DIARIES', title:'Derek & The Cats’ “People to Meet, Places to See” is a Record Both You and Your Dad Can Dance To', url:'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/' },
+        ].map(item => <article className="press-item" key={item.number}><div className="press-meta"><span>{item.number}</span><span>{item.date}</span></div><p className="press-source">{item.source}</p><h3>{item.title}</h3><a href={item.url} target="_blank" rel="noopener noreferrer">READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true"/><span className="visually-hidden">: {item.title} (opens in a new tab)</span></a></article>)}</div>
+      </div>
+    </section>
   </div>;
 }
