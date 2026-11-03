@@ -43,6 +43,7 @@ export function Navbar() {
   const isCurrent = (route: string) => {
     const p = location.pathname.toLowerCase();
     const h = location.hash.toLowerCase();
+    if (route === 'Gallery') return p.startsWith('/gallery');
     if (route === 'Music') return p.startsWith('/music');
     if (route === 'Press') return p.startsWith('/press') || p.startsWith('/presspage') || h === '#press' || h === '#presspage';
     if (route === 'Home') return p === '/' && (!h || h === '#home');
@@ -54,13 +55,13 @@ export function Navbar() {
     <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? 'CLOSE −' : 'MENU +'}</button>
     <nav id="main-navigation" aria-label="Main navigation" className={mobile ? 'nav-links open' : 'nav-links'}>
       {['Home', 'About', 'Music', 'Gallery'].map(label => {
-        const href = label === 'Music' ? '/music' : `/#${label.toLowerCase()}`;
+        const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : `/#${label.toLowerCase()}`;
         return <a key={label} href={href} className={isCurrent(label) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(href); }}>{label}</a>;
       })}
       <div className="more-wrap">
         <button ref={moreButton} aria-expanded={more} aria-controls="more-navigation" onClick={() => setMore(!more)}>MORE <NavArrowDown width={18} height={18} aria-hidden="true"/></button>
         {more && <div id="more-navigation" className="dropdown">{['Live', 'Press', 'Contact'].map(label => {
-          const href = label === 'Music' ? '/music' : label === 'Press' ? '/press' : label === 'Contact' ? '/contact' : `/#${label.toLowerCase()}`;
+          const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : label === 'Press' ? '/press' : label === 'Contact' ? '/contact' : `/#${label.toLowerCase()}`;
           return <a key={label} href={href} className={isCurrent(label) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(href); }}>{label}</a>;
         })}</div>}
       </div>

@@ -4,6 +4,7 @@ import '@fontsource/tinos/400.css';
 import '@fontsource/plus-jakarta-sans/400.css';
 import '@fontsource/plus-jakarta-sans/500.css';
 import './styles.css';
+import { GalleryPage } from './components/GalleryPage';
 import { MusicPage } from './components/MusicPage';
 import { PressPage } from './components/PressPage';
 import { Navbar } from './components/Navbar';
@@ -51,7 +52,7 @@ function App() {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
       'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong, .site-footer h2, .site-footer p'
-    )).filter(el => !el.closest('.hero, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
+    )).filter(el => !el.closest('.hero, .gallery-page, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
     // Keep each hero text/CTA composition together, with zero offset at page top.
     const heroGroups = Array.from(document.querySelectorAll<HTMLElement>('.hero-content, .hero-presenting'));
     const portrait = document.querySelector<HTMLElement>('.home-about-image-wrap img');
@@ -104,6 +105,7 @@ function App() {
     return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
   }, [path, hash]);
 
+  if (path.startsWith("/gallery")) return <PagePreloader key="gallery"><GalleryPage/></PagePreloader>;
   if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;
   if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
   if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
