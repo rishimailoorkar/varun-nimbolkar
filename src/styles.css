@@ -546,3 +546,4 @@
 @media(max-width:900px){.booking-journey-layout{grid-template-columns:1fr}.booking-journey-layout .booking-aside>img{max-width:420px;aspect-ratio:4/3}.booking-journey-layout .booking-aside{max-width:620px}}
 @media(max-width:540px){.journey-progress{gap:16px}.journey-fields{grid-template-columns:1fr}.booking-journey-layout .booking-aside>img{width:100%}.journey-step h2{font-size:34px}.journey-checkpoints{gap:4px}}
 .site-footer h2,.site-footer p{translate:none!important;transform:none!important}.footer-cta h2{font-size:clamp(24px,2.1vw,34px)}.footer-cta a{margin-top:4px}
+.booking-journey-layout .booking-aside>img{width:100%;max-width:420px;height:520px;aspect-ratio:auto;object-fit:cover;object-position:52% center}@media(max-width:900px){.booking-journey-layout .booking-aside>img{height:min(55vw,390px);max-width:420px}}@media(max-width:540px){.booking-journey-layout .booking-aside>img{height:300px;max-width:none}}
