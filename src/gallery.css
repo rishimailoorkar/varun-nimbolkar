@@ -35,3 +35,4 @@
 @media(prefers-reduced-motion:reduce){.gallery-page *{scroll-behavior:auto}.gallery-tile img,.gallery-tile-open,.gallery-lightbox-stage img{transition:none}}
 @media(hover:hover) and (pointer:fine){.gallery-page{cursor:var(--cursor-on-light)}.gallery-lightbox{cursor:var(--cursor-on-dark)}}
 .gallery-page>.navbar{position:relative}.gallery-page .menu-toggle{white-space:nowrap}@media(max-width:760px){.gallery-page .navbar>.book-button{display:none}}
+.gallery-lightbox-toolbar button svg,.gallery-lightbox-controls button svg{flex:none;display:block;stroke-width:1.5}.gallery-lightbox-toolbar button span{font-size:inherit;line-height:inherit}

@@ -1,4 +1,4 @@
-import { NavArrowDown, ArrowUpRight } from './Icons';
+import { NavArrowDown, ArrowUpRight, Menu, Close } from './Icons';
 import { useEffect, useRef, useState } from 'react';
 
 export function Navbar() {
@@ -52,7 +52,7 @@ export function Navbar() {
 
   return <header className="navbar" ref={nav} onKeyDown={e => { if (e.key === 'Escape') { setMore(false); setMobile(false); moreButton.current?.focus(); } }}>
     <a className="wordmark" href="/#home" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/#home'); }}>VARUN<br/>NIMBOLKAR</a>
-    <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? 'CLOSE −' : 'MENU +'}</button>
+    <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? <>CLOSE <Close width={17} height={17} aria-hidden="true"/></> : <>MENU <Menu width={17} height={17} aria-hidden="true"/></>}</button>
     <nav id="main-navigation" aria-label="Main navigation" className={mobile ? 'nav-links open' : 'nav-links'}>
       {['Home', 'About', 'Music', 'Gallery'].map(label => {
         const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : `/#${label.toLowerCase()}`;

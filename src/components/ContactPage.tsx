@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, type FormEvent, type ReactNode } from 'react';
 import { Navbar } from './Navbar';
 import { SiteFooter } from './SiteFooter';
-import { ArrowUpRight } from './Icons';
+import { ArrowUpRight, ArrowLeft, ArrowRight } from './Icons';
 
 function Field({ label, children, wide = false }: { label: string; children: ReactNode; wide?: boolean }) {
  return <label className={wide ? 'enquiry-field enquiry-wide' : 'enquiry-field'}><span>{label}</span>{children}</label>;
@@ -48,7 +48,7 @@ export function ContactPage() {
   <div className="journey-step" data-step="1" hidden={step!==1}><h2>{copy.detailsTitle}</h2><p>{copy.detailsIntro}</p><div className="journey-fields"><Field label={copy.date}><input name="date" type="date"/></Field><Field label={copy.location}><input name="location" maxLength={200}/></Field>{copy.budget && <Field label={copy.budget}><input name="budget" placeholder="Amount and currency" maxLength={100}/></Field>}<Field label={copy.organisation}><input name="organisation" autoComplete="organization" maxLength={160}/></Field></div></div>
   <div className="journey-step" data-step="2" hidden={step!==2}><h2>{copy.storyTitle}</h2><p>{copy.storyIntro}</p><Field label={copy.message} wide><textarea name="message" rows={6} required minLength={20} maxLength={5000} placeholder={copy.placeholder}/></Field></div>
   <div className="journey-step" data-step="3" hidden={step!==3}><h2>How can we reach you?</h2><p>{copy.contactIntro}</p><div className="journey-fields"><Field label="Your name *"><input name="name" autoComplete="name" required maxLength={100}/></Field><Field label="Email address *"><input name="email" type="email" autoComplete="email" required maxLength={254}/></Field><Field label="Phone / WhatsApp"><input name="phone" type="tel" autoComplete="tel" maxLength={40}/></Field></div><label className="enquiry-consent enquiry-wide"><input name="consent" type="checkbox" required value="yes"/>You may use these details to respond to this enquiry.</label><div className="enquiry-trap" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>{!ready && <p className="enquiry-notice enquiry-wide">Online enquiries are being connected. For now, please <a href="mailto:varun.nimbolkar@gmail.com">email varun.nimbolkar@gmail.com</a>.</p>}<p role="status" aria-live="polite">{status}</p></div>
-  <div className="journey-actions">{step>0&&<button type="button" className="journey-back" onClick={()=>setStep(step-1)}>← Back</button>}{step<3?<button type="button" className="enquiry-submit" onClick={advance}>Next →</button>:<button className="enquiry-submit" disabled={!ready||sending}>{sending?'Sending…':'Send enquiry →'}</button>}</div>
+  <div className="journey-actions">{step>0&&<button type="button" className="journey-back" onClick={()=>setStep(step-1)}><ArrowLeft width={18} height={18} aria-hidden="true"/>Back</button>}{step<3?<button type="button" className="enquiry-submit" onClick={advance}>Next <ArrowRight width={18} height={18} aria-hidden="true"/></button>:<button className="enquiry-submit" disabled={!ready||sending}>{sending?'Sending…':'Send enquiry'} <ArrowRight width={18} height={18} aria-hidden="true"/></button>}</div>
   </form></div></section>
  </main><SiteFooter/></div>;
 }

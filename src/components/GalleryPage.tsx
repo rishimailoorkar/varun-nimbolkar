@@ -3,7 +3,7 @@ import photos from '../data/gallery.json';
 import { Navbar } from './Navbar';
 import { SiteFooter } from './SiteFooter';
 import { ContactCTA } from './ContactCTA';
-import { ArrowUpRight } from './Icons';
+import { ArrowUpRight, ArrowLeft, ArrowRight, Close } from './Icons';
 import '../gallery.css';
 
 type Photo = typeof photos[number];
@@ -38,12 +38,12 @@ function Lightbox({ photo, index, total, onClose, onStep }: { photo: Photo; inde
  }, []);
  useEffect(() => { setLoaded(false); setError(false); }, [photo.id]);
  return <dialog ref={dialog} className="gallery-lightbox" aria-label="Photo viewer" onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) onClose(); }} onKeyDown={e => { if(e.key === 'Escape') { e.preventDefault(); onClose(); } if(e.key === 'ArrowRight') { e.preventDefault(); onStep(1); } if(e.key === 'ArrowLeft') { e.preventDefault(); onStep(-1); } }}>
-  <div className="gallery-lightbox-toolbar"><span aria-live="polite">{index + 1} / {total}</span><button autoFocus onClick={onClose} aria-label="Close photo viewer">Close <span aria-hidden="true">×</span></button></div>
+  <div className="gallery-lightbox-toolbar"><span aria-live="polite">{index + 1} / {total}</span><button autoFocus onClick={onClose} aria-label="Close photo viewer">Close <Close width={20} height={20} aria-hidden="true"/></button></div>
   <div className="gallery-lightbox-stage">
    {!loaded && !error && <span className="gallery-lightbox-status" role="status">Loading photograph…</span>}
    {error ? <p role="alert">Unable to load this photo. Please try another image.</p> : <img key={photo.id} src={photo.variants[3].src} width={photo.width} height={photo.height} alt={photo.alt} onLoad={() => setLoaded(true)} onError={() => setError(true)} style={{ opacity: loaded ? 1 : 0 }}/>}
   </div>
-  <div className="gallery-lightbox-controls"><button onClick={() => onStep(-1)} aria-label="Previous photo">← Previous</button><span>{photo.categories.join(' / ') || 'Gallery'}</span><button onClick={() => onStep(1)} aria-label="Next photo">Next →</button></div>
+  <div className="gallery-lightbox-controls"><button onClick={() => onStep(-1)} aria-label="Previous photo"><ArrowLeft width={20} height={20} aria-hidden="true"/>Previous</button><span>{photo.categories.join(' / ') || 'Gallery'}</span><button onClick={() => onStep(1)} aria-label="Next photo">Next<ArrowRight width={20} height={20} aria-hidden="true"/></button></div>
  </dialog>;
 }
 export function GalleryPage() {

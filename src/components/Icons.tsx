@@ -7,6 +7,10 @@ const base = { viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strok
 export function ArrowUpRight(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M6 19 19 6M19 6v12.48M19 6H6.52" /></svg>; }
 export function ArrowDown(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M12 3v18m0 0 8.5-8.5M12 21l-8.5-8.5" /></svg>; }
 export function ArrowUp(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M12 21V3m0 0 8.5 8.5M12 3l-8.5 8.5" /></svg>; }
+export function ArrowRight(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M3 12h18m0 0-7-7m7 7-7 7" /></svg>; }
+export function ArrowLeft(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M21 12H3m0 0 7-7m-7 7 7 7" /></svg>; }
+export function Close(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M5 5 19 19M19 5 5 19" /></svg>; }
+export function Menu(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M4 7h16M4 12h16M4 17h16" /></svg>; }
 export function Download(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M6 20h12M12 4v12m0 0 3.5-3.5M12 16l-3.5-3.5" /></svg>; }
 export function NavArrowDown(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="m6 9 6 6 6-6" /></svg>; }
 export function Play(props: IconProps) { return <svg {...base} width={24} height={24} {...props}><path d="M6.906 4.537A.6.6 0 0 0 6 5.053v13.894a.6.6 0 0 0 .906.516l11.723-6.947a.6.6 0 0 0 0-1.032L6.906 4.537Z" /></svg>; }
