@@ -51,15 +51,27 @@ function App() {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
       'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong, .site-footer h2, .site-footer p'
-    )).filter(el => !el.closest('.music-preloader, .home-interlude-caption, .booking-form-wrap'));
+    )).filter(el => !el.closest('.hero, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
+    // Keep each hero text/CTA composition together, with zero offset at page top.
+    const heroGroups = Array.from(document.querySelectorAll<HTMLElement>('.hero-content, .hero-presenting'));
     const portrait = document.querySelector<HTMLElement>('.home-about-image-wrap img');
     let frame = 0;
-    const reset = () => { targets.forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); }); portrait?.style.removeProperty('--portrait-shift'); };
+    const reset = () => { [...targets, ...heroGroups].forEach(el => { el.classList.remove('text-scroll-motion'); el.style.removeProperty('--text-shift'); el.style.removeProperty('--text-opacity'); }); portrait?.style.removeProperty('--portrait-shift'); };
     const update = () => {
       frame = 0;
       if (media.matches) return;
       const height = innerHeight;
       let unsettled = false;
+      heroGroups.forEach(el => {
+        const hero = el.closest('.hero')!;
+        const distance = Math.max(0, -hero.getBoundingClientRect().top);
+        const desired = -Math.min(distance * .12, 70);
+        const shift = parseFloat(el.style.getPropertyValue('--text-shift')) || 0;
+        const next = distance === 0 || Math.abs(desired - shift) < .1 ? desired : shift + (desired - shift) * .16;
+        if (Math.abs(desired - next) > .1) unsettled = true;
+        el.style.setProperty('--text-shift', `${next.toFixed(2)}px`);
+        el.style.setProperty('--text-opacity', '1');
+      });
       targets.forEach(el => {
         const shift = parseFloat(el.style.getPropertyValue('--text-shift')) || 0;
         const top = el.getBoundingClientRect().top - shift;
@@ -84,7 +96,7 @@ function App() {
       if (unsettled) frame = requestAnimationFrame(update);
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
-    const setup = () => { cancelAnimationFrame(frame); frame = 0; reset(); if (!media.matches) { targets.forEach(el => el.classList.add('text-scroll-motion')); update(); } };
+    const setup = () => { cancelAnimationFrame(frame); frame = 0; reset(); if (!media.matches) { [...targets, ...heroGroups].forEach(el => el.classList.add('text-scroll-motion')); update(); } };
     setup();
     addEventListener('scroll', schedule, { passive: true });
     addEventListener('resize', schedule);
