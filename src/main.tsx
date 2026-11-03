@@ -51,7 +51,7 @@ function App() {
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
-      'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong, .site-footer h2, .site-footer p'
+      'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong'
     )).filter(el => !el.closest('.hero, .gallery-page, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
     // Keep each hero text/CTA composition together, with zero offset at page top.
     const heroGroups = Array.from(document.querySelectorAll<HTMLElement>('.hero-content, .hero-presenting'));

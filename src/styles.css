@@ -526,3 +526,23 @@
 .loader-meter{width:min(300px,65vw)}
 .loader-percentage{display:block;margin-top:12px;text-align:right;font-size:13px;font-variant-numeric:tabular-nums;letter-spacing:.08em;color:#68635f}
 .loader-percentage>span{margin-left:3px;font-size:10px}
+/* Four-step booking journey, scoped to the existing contact section. */
+.booking-journey-layout{grid-template-columns:minmax(250px,.85fr) minmax(0,1.7fr);align-items:start;gap:clamp(38px,6vw,95px)}
+.booking-journey-layout .booking-aside>img{max-width:none;aspect-ratio:4/5;object-position:52% center;border-radius:22px}
+.booking-journey-layout .booking-aside p{margin:20px 0 12px}
+.booking-journey{display:block;margin-top:0}
+.journey-progress{display:flex;align-items:center;gap:30px;margin:4px 0 38px;font-variant-numeric:tabular-nums}
+.journey-progress>span{white-space:nowrap;font-size:16px}.journey-progress>span span{color:#999}
+.journey-checkpoints{display:flex;flex:1;gap:9px;align-items:center}
+.journey-checkpoints button{position:relative;flex:1;height:32px;padding:0;border:0;min-width:0;display:flex;align-items:center;justify-content:flex-end;color:#bbb}
+.journey-checkpoints button::before{content:'';position:absolute;left:0;right:0;top:15px;height:4px;border-radius:3px;background:#e7e2de}
+.journey-checkpoints button.reached::before{background:linear-gradient(90deg,#923dff,#df4ba9,#ff8e30)}
+.journey-checkpoints button span{position:relative;z-index:1;display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#e7e2de;color:#333;font-size:11px}
+.journey-checkpoints button.reached span{background:#1a1a1a;color:white}.journey-checkpoints button:disabled{cursor:default}
+.journey-step[hidden]{display:none!important}.journey-step h2{margin:0 0 12px}.journey-step>p{margin:0 0 38px;color:#777;font-size:15px}
+.journey-step>.enquiry-field{margin-bottom:25px}.journey-fields{display:grid;grid-template-columns:1fr 1fr;gap:25px 20px}.journey-step .enquiry-consent{display:flex;margin-top:25px}
+.journey-actions{display:flex;justify-content:flex-end;align-items:center;gap:20px;margin-top:30px}.journey-back{min-height:48px;padding:0 16px;color:#444}
+.footer-cta{gap:28px}.footer-cta h2{line-height:1.12;max-width:100%;overflow-wrap:normal}.footer-cta a{flex:none;position:relative}
+@media(max-width:900px){.booking-journey-layout{grid-template-columns:1fr}.booking-journey-layout .booking-aside>img{max-width:420px;aspect-ratio:4/3}.booking-journey-layout .booking-aside{max-width:620px}}
+@media(max-width:540px){.journey-progress{gap:16px}.journey-fields{grid-template-columns:1fr}.booking-journey-layout .booking-aside>img{width:100%}.journey-step h2{font-size:34px}.journey-checkpoints{gap:4px}}
+.site-footer h2,.site-footer p{translate:none!important;transform:none!important}.footer-cta h2{font-size:clamp(24px,2.1vw,34px)}.footer-cta a{margin-top:4px}
