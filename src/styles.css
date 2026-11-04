@@ -279,8 +279,8 @@
   --cursor-on-light:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='19' fill='none' stroke='%23000' stroke-width='1.5'/%3E%3Ccircle cx='24' cy='24' r='2' fill='%23000'/%3E%3C/svg%3E") 24 24,crosshair;
 }
 @media(hover:hover) and (pointer:fine){
-  body,.hero,.navbar,.home-interlude,.home-press-placeholder,.site-footer,.contact-cta-section,.contact-cta-panel,.music-page-navbar,.music-preloader{cursor:var(--cursor-on-dark)}
-  .home-about,.home-recognition,.home-gallery-placeholder,.home-discography,.music-page-hero,.music-player-section,.contact-cta-section--light,.home-journey-section{cursor:var(--cursor-on-light)}
+  body,.hero,.navbar,.home-interlude,.home-press-placeholder,.site-footer,.contact-cta-section,.contact-cta-panel,.music-page-navbar,.music-preloader,.about-hero,.about-connect{cursor:var(--cursor-on-dark)}
+  .home-about,.home-recognition,.home-gallery-placeholder,.home-discography,.music-page-hero,.music-player-section,.contact-cta-section--light,.home-journey-section,.about-page,.about-bio,.about-tours{cursor:var(--cursor-on-light)}
   .contact-cta-section--light .contact-cta-panel{cursor:var(--cursor-on-dark)}
 }
 /* Press coverage and shared button treatments. */

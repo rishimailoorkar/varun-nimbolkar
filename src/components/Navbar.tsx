@@ -31,7 +31,7 @@ export function Navbar() {
       }
       return;
     }
-    if (to === '/press' || to === '/music' || to === '/' || to === '/presspage') {
+    if (to === '/about' || to === '/gallery' || to === '/press' || to === '/music' || to === '/' || to === '/presspage') {
       history.pushState(null, '', to);
       window.dispatchEvent(new PopStateEvent('popstate'));
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -43,6 +43,7 @@ export function Navbar() {
   const isCurrent = (route: string) => {
     const p = location.pathname.toLowerCase();
     const h = location.hash.toLowerCase();
+    if (route === 'About') return p === '/about' || p.startsWith('/about');
     if (route === 'Gallery') return p.startsWith('/gallery');
     if (route === 'Music') return p.startsWith('/music');
     if (route === 'Press') return p.startsWith('/press') || p.startsWith('/presspage') || h === '#press' || h === '#presspage';
@@ -51,11 +52,11 @@ export function Navbar() {
   };
 
   return <header className="navbar" ref={nav} onKeyDown={e => { if (e.key === 'Escape') { setMore(false); setMobile(false); moreButton.current?.focus(); } }}>
-    <a className="wordmark" href="/#home" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/#home'); }}>VARUN<br/>NIMBOLKAR</a>
+    <a className="wordmark" href="/" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/'); }}>VARUN<br/>NIMBOLKAR</a>
     <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? <>CLOSE <Close width={17} height={17} aria-hidden="true"/></> : <>MENU <Menu width={17} height={17} aria-hidden="true"/></>}</button>
     <nav id="main-navigation" aria-label="Main navigation" className={mobile ? 'nav-links open' : 'nav-links'}>
       {['Home', 'About', 'Music', 'Gallery'].map(label => {
-        const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : `/#${label.toLowerCase()}`;
+        const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : label === 'About' ? '/about' : `/#${label.toLowerCase()}`;
         return <a key={label} href={href} className={isCurrent(label) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(href); }}>{label}</a>;
       })}
       <div className="more-wrap">
