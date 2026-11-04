@@ -8,6 +8,7 @@ import { GalleryPage } from './components/GalleryPage';
 import { MusicPage } from './components/MusicPage';
 import { PressPage } from './components/PressPage';
 import { AboutPage } from './components/AboutPage';
+import { CollabPage } from './components/CollabPage';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { HomeSections } from './components/HomeSections';
@@ -18,6 +19,21 @@ import { PagePreloader } from './components/PagePreloader';
 
 const inverted = location.pathname.startsWith("/color");
 document.documentElement.classList.toggle("color-home", inverted);
+
+function isCollabRoute(pathname: string, hash: string): boolean {
+  const p = pathname.toLowerCase();
+  const h = hash.toLowerCase();
+  return (
+    p === '/collaborations' ||
+    p.startsWith('/collaborations/') ||
+    p === '/collab' ||
+    p.startsWith('/collab/') ||
+    p === '/collaborations-and-production-work' ||
+    p.startsWith('/collaborations-and-production-work/') ||
+    h === '#collaborations' ||
+    h === '#collab'
+  );
+}
 
 function isAboutRoute(pathname: string, hash: string): boolean {
   const p = pathname.toLowerCase();
@@ -118,6 +134,7 @@ function App() {
     return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
   }, [path, hash]);
 
+  if (isCollabRoute(path, hash)) return <PagePreloader key="collab"><CollabPage/></PagePreloader>;
   if (isAboutRoute(path, hash)) return <PagePreloader key="about"><AboutPage/></PagePreloader>;
   if (path.startsWith("/gallery")) return <PagePreloader key="gallery"><GalleryPage/></PagePreloader>;
   if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;

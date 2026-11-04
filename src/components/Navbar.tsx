@@ -31,7 +31,7 @@ export function Navbar() {
       }
       return;
     }
-    if (to === '/about' || to === '/gallery' || to === '/press' || to === '/music' || to === '/' || to === '/presspage') {
+    if (to === '/about' || to === '/collaborations' || to === '/collab' || to === '/gallery' || to === '/press' || to === '/music' || to === '/' || to === '/contact' || to === '/presspage') {
       history.pushState(null, '', to);
       window.dispatchEvent(new PopStateEvent('popstate'));
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -46,7 +46,9 @@ export function Navbar() {
     if (route === 'About') return p === '/about' || p.startsWith('/about');
     if (route === 'Gallery') return p.startsWith('/gallery');
     if (route === 'Music') return p.startsWith('/music');
+    if (route === 'Collaborations' || route === 'Collaborations & Production') return p === '/collaborations' || p.startsWith('/collaborations') || p === '/collab';
     if (route === 'Press') return p.startsWith('/press') || p.startsWith('/presspage') || h === '#press' || h === '#presspage';
+    if (route === 'Contact') return p.startsWith('/contact') || p.startsWith('/book') || h === '#contact';
     if (route === 'Home') return p === '/' && (!h || h === '#home');
     return false;
   };
@@ -61,10 +63,13 @@ export function Navbar() {
       })}
       <div className="more-wrap">
         <button ref={moreButton} aria-expanded={more} aria-controls="more-navigation" onClick={() => setMore(!more)}>MORE <NavArrowDown width={18} height={18} aria-hidden="true"/></button>
-        {more && <div id="more-navigation" className="dropdown">{['Live', 'Press', 'Contact'].map(label => {
-          const href = label === 'Gallery' ? '/gallery' : label === 'Music' ? '/music' : label === 'Press' ? '/press' : label === 'Contact' ? '/contact' : `/#${label.toLowerCase()}`;
-          return <a key={label} href={href} className={isCurrent(label) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(href); }}>{label}</a>;
-        })}</div>}
+        {more && <div id="more-navigation" className="dropdown">{[
+          { label: 'Collaborations & Production', href: '/collaborations', key: 'Collaborations' },
+          { label: 'Press', href: '/press', key: 'Press' },
+          { label: 'Contact', href: '/contact', key: 'Contact' },
+        ].map(item => (
+          <a key={item.key} href={item.href} className={isCurrent(item.key) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(item.href); }}>{item.label}</a>
+        ))}</div>}
       </div>
     </nav>
     <a className="book-button" href="/contact" onClick={e => { e.preventDefault(); navigate('/contact'); }}>BOOK VARUN <ArrowUpRight width={20} height={20} aria-hidden="true" /></a>

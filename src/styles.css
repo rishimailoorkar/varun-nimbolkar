@@ -280,7 +280,7 @@
 }
 @media(hover:hover) and (pointer:fine){
   body,.hero,.navbar,.home-interlude,.home-press-placeholder,.site-footer,.contact-cta-section,.contact-cta-panel,.music-page-navbar,.music-preloader,.about-hero,.about-connect{cursor:var(--cursor-on-dark)}
-  .home-about,.home-recognition,.home-gallery-placeholder,.home-discography,.music-page-hero,.music-player-section,.contact-cta-section--light,.home-journey-section,.about-page,.about-bio,.about-tours{cursor:var(--cursor-on-light)}
+  .home-about,.home-recognition,.home-gallery-placeholder,.home-discography,.music-page-hero,.music-player-section,.contact-cta-section--light,.home-journey-section,.about-page,.about-bio,.about-tours,.collab-page{cursor:var(--cursor-on-light)}
   .contact-cta-section--light .contact-cta-panel{cursor:var(--cursor-on-dark)}
 }
 /* Press coverage and shared button treatments. */
