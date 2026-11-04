@@ -197,7 +197,7 @@ export function AboutPage() {
                 className={`about-tour-tab ${activeTab === 'formats' ? 'active' : ''}`}
                 onClick={() => handleTabClick('formats', 'tour-formats-section')}
               >
-                LIVE FORMATS
+                Live Formats
               </button>
               <button
                 type="button"
@@ -206,7 +206,7 @@ export function AboutPage() {
                 className={`about-tour-tab ${activeTab === 'uk' ? 'active' : ''}`}
                 onClick={() => handleTabClick('uk', 'tour-uk-section')}
               >
-                UK TOUR
+                UK Tour
               </button>
               <button
                 type="button"
@@ -215,7 +215,7 @@ export function AboutPage() {
                 className={`about-tour-tab ${activeTab === 'india' ? 'active' : ''}`}
                 onClick={() => handleTabClick('india', 'tour-india-section')}
               >
-                INDIA TOUR
+                India Tour
               </button>
               <button
                 type="button"
@@ -224,7 +224,7 @@ export function AboutPage() {
                 className={`about-tour-tab ${activeTab === 'featured' ? 'active' : ''}`}
                 onClick={() => handleTabClick('featured', 'tour-featured-section')}
               >
-                FEATURED SHOW
+                Featured Show
               </button>
             </div>
 
@@ -234,7 +234,7 @@ export function AboutPage() {
                 <div className="about-format-thumb">
                   <img
                     src="/images/about/solo-sets.webp"
-                    alt="Artistic sketches of live musical performance"
+                    alt="Varun Nimbolkar performing solo set with electric sitar"
                     width={540}
                     height={360}
                     loading="lazy"
@@ -251,7 +251,7 @@ export function AboutPage() {
                 <div className="about-format-thumb">
                   <img
                     src="/images/about/sitara-devi.webp"
-                    alt="Varun Nimbolkar playing sitar live with sunglasses and full ensemble energy"
+                    alt="The Sitara Devi Project live ensemble performance"
                     width={540}
                     height={360}
                     loading="lazy"

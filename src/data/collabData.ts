@@ -119,3 +119,4 @@ export const AI_INNOVATION: MetricFeature = {
   secondaryUrl: 'https://www.beatoven.ai/about',
   secondaryLabel: 'ABOUT BEATOVEN',
 };
+
