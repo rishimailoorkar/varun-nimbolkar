@@ -35,11 +35,11 @@ export function CollabPage() {
           <div className="collab-hero-inner">
             <div className="collab-brand-kicker">
               <span className="collab-kicker-bar" aria-hidden="true" />
-              <span className="collab-brand-label">VARUN NIMBOLKAR</span>
+              <span className="collab-brand-label">Varun Nimbolkar</span>
             </div>
             <h1 id="collab-hero-heading" className="collab-hero-title">
-              COLLABORATIONS &amp;<br />
-              <em>PRODUCTION WORK</em>
+              Collaborations &amp;<br />
+              <em>Production Work</em>
             </h1>
             <p className="collab-hero-desc">
               A curated showcase of genre-crossing releases, artist features, brand partnerships, and sound design innovations.
@@ -52,10 +52,10 @@ export function CollabPage() {
           <div className="collab-coverage-inner">
             <div className="collab-coverage-left">
               <span className="collab-coverage-dash" aria-hidden="true" />
-              <span>COLLABORATIONS</span>
+              <span>Collaborations</span>
             </div>
             <div className="collab-coverage-right">
-              <span>06 SELECTED PROJECTS</span>
+              <span>06 Selected Projects</span>
             </div>
           </div>
         </section>
