@@ -53,7 +53,19 @@ export function HomeSections() {
           <span className="home-kicker" data-parallax="0.04">MEET VARUN NIMBOLKAR</span>
           <h2 id="home-about-title" data-parallax="0.06">Classical roots.<br/><em>An Evolving Sound.</em></h2>
           <p data-parallax="0.035">A composer, producer, sitar player and vocalist from Pune, India. Varun brings Indian classical roots into conversation with contemporary genres, electronic production and experimental sound.</p>
-          <a className="home-about-button" href="#recognition" data-parallax="0.035">About us <ArrowUpRight width={20} height={20} aria-hidden="true" /></a>
+          <a
+            className="home-about-button"
+            href="/about"
+            onClick={(e) => {
+              e.preventDefault();
+              history.pushState(null, '', '/about');
+              window.dispatchEvent(new PopStateEvent('popstate'));
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            data-parallax="0.035"
+          >
+            About us <ArrowUpRight width={20} height={20} aria-hidden="true" />
+          </a>
           <div className="home-about-meta" data-parallax="0.025"><span>SITAR · VOICE · EXPLORATION</span><span>Pune, India</span></div>
         </div>
       </div>

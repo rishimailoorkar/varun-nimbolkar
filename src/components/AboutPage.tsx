@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Navbar } from './Navbar';
 import { ContactCTA } from './ContactCTA';
 import { SiteFooter } from './SiteFooter';
@@ -27,10 +27,7 @@ const SOCIALS = [
   },
 ];
 
-type TourTab = 'formats' | 'uk' | 'india' | 'featured';
-
 export function AboutPage() {
-  const [activeTab, setActiveTab] = useState<TourTab>('formats');
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,14 +64,6 @@ export function AboutPage() {
       window.removeEventListener('resize', schedule);
     };
   }, []);
-
-  const handleTabClick = (tab: TourTab, sectionId: string) => {
-    setActiveTab(tab);
-    const target = document.getElementById(sectionId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  };
 
   return (
     <div className="about-page">
@@ -114,7 +103,7 @@ export function AboutPage() {
 
             <div className="about-bio-copy">
               <h1 id="about-bio-heading" className="about-bio-title">
-                BIOGRAPHY
+                Biography
               </h1>
 
               <p className="about-bio-lead">
@@ -140,7 +129,7 @@ export function AboutPage() {
         <section className="about-connect" id="listen-and-connect" aria-labelledby="about-connect-heading">
           <div className="about-connect-inner">
             <h2 id="about-connect-heading" className="about-connect-title">
-              LISTEN &amp; CONNECT
+              Listen &amp; Connect
             </h2>
             <p className="about-connect-subtitle">
               Explore Varun's music and follow his journey.
@@ -168,7 +157,7 @@ export function AboutPage() {
           <div className="about-tours-inner">
             <div className="about-tours-header">
               <h2 id="about-tours-heading" className="about-tours-title">
-                TOURS &amp; STAGES
+                Tours &amp; Stages
               </h2>
               <p className="about-tours-desc">
                 Varun combines acoustic and electric sitar with live electronic production, looping, and ambient
@@ -188,46 +177,6 @@ export function AboutPage() {
               />
             </div>
 
-            {/* Navigation Tabs Bar */}
-            <div className="about-tours-nav" role="tablist" aria-label="Tour formats and highlights">
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'formats'}
-                className={`about-tour-tab ${activeTab === 'formats' ? 'active' : ''}`}
-                onClick={() => handleTabClick('formats', 'tour-formats-section')}
-              >
-                Live Formats
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'uk'}
-                className={`about-tour-tab ${activeTab === 'uk' ? 'active' : ''}`}
-                onClick={() => handleTabClick('uk', 'tour-uk-section')}
-              >
-                UK Tour
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'india'}
-                className={`about-tour-tab ${activeTab === 'india' ? 'active' : ''}`}
-                onClick={() => handleTabClick('india', 'tour-india-section')}
-              >
-                India Tour
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === 'featured'}
-                className={`about-tour-tab ${activeTab === 'featured' ? 'active' : ''}`}
-                onClick={() => handleTabClick('featured', 'tour-featured-section')}
-              >
-                Featured Show
-              </button>
-            </div>
-
             {/* Formats Grid: Solo Sets & The Sitara Devi Project */}
             <div className="about-formats-grid" id="tour-formats-section">
               <article className="about-format-card">
@@ -241,7 +190,7 @@ export function AboutPage() {
                   />
                 </div>
                 <span className="about-format-num">01 —</span>
-                <h3 className="about-format-title">SOLO SETS</h3>
+                <h3 className="about-format-title">Solo Sets</h3>
                 <p className="about-format-desc">
                   Intimate ethnic electronica, ambient soundscapes, and live looping.
                 </p>
@@ -258,7 +207,7 @@ export function AboutPage() {
                   />
                 </div>
                 <span className="about-format-num">02 —</span>
-                <h3 className="about-format-title">THE SITARA DEVI PROJECT</h3>
+                <h3 className="about-format-title">The Sitara Devi Project</h3>
                 <p className="about-format-desc">
                   High-energy ensemble performances by The Sitara Devi &amp; her Bois.
                 </p>
@@ -268,27 +217,27 @@ export function AboutPage() {
             {/* Tour Highlights Summary Boxes */}
             <div className="about-tour-boxes" id="tour-india-section">
               <div className="about-tour-summary-card">
-                <span className="about-tour-summary-kicker">UK TOUR — 2026</span>
-                <span className="about-tour-summary-val">MANCHESTER · LONDON</span>
+                <span className="about-tour-summary-kicker">UK Tour — 2026</span>
+                <span className="about-tour-summary-val">Manchester · London</span>
               </div>
               <div className="about-tour-summary-card">
-                <span className="about-tour-summary-kicker">INDIA TOUR — 6 CITIES</span>
-                <span className="about-tour-summary-val">NATIONAL RUN</span>
+                <span className="about-tour-summary-kicker">India Tour — 6 Cities</span>
+                <span className="about-tour-summary-val">National Run</span>
               </div>
             </div>
 
             {/* UK Tour Details Box */}
             <div className="about-tour-detail-card" id="tour-uk-section">
-              <h3 className="about-tour-detail-title">UK TOUR 2026</h3>
+              <h3 className="about-tour-detail-title">UK Tour 2026</h3>
               <div className="about-tour-detail-sections">
                 <div className="about-tour-subblock">
-                  <span className="about-tour-subkicker">THE NEHRU CENTRE</span>
+                  <span className="about-tour-subkicker">The Nehru Centre</span>
                   <p className="about-tour-subtext">
                     90-minute headline solo performance at the cultural wing of the High Commission of India in London.
                   </p>
                 </div>
                 <div className="about-tour-subblock">
-                  <span className="about-tour-subkicker">MAIN STAGES</span>
+                  <span className="about-tour-subkicker">Main Stages</span>
                   <ul className="about-tour-fest-list">
                     <li>Mind Body Spirit Festival 2026</li>
                     <li>Happy Place Festival 2026</li>
@@ -302,7 +251,7 @@ export function AboutPage() {
             <div className="about-featured-show" id="tour-featured-section">
               <div className="about-featured-info">
                 <div>
-                  <h3 className="about-featured-title">MAGNETIC MUSIC AT ZLB</h3>
+                  <h3 className="about-featured-title">Magnetic Music at ZLB</h3>
                   <p className="about-featured-venue">The Leela Palace, Bengaluru</p>
                 </div>
                 <div>

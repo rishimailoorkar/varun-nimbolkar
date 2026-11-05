@@ -143,7 +143,6 @@
   line-height: 1.05;
   color: #111111;
   margin: 0 0 24px;
-  text-transform: uppercase;
 }
 
 .about-bio-lead {
@@ -202,7 +201,6 @@
   font-weight: 400;
   letter-spacing: -0.02em;
   margin: 0 0 16px;
-  text-transform: uppercase;
   color: #ffffff;
 }
 
@@ -267,7 +265,6 @@
   font-weight: 400;
   letter-spacing: -0.025em;
   margin: 0 0 14px;
-  text-transform: uppercase;
   color: #111111;
 }
 
@@ -396,7 +393,6 @@
   letter-spacing: -0.01em;
   color: #111111;
   margin: 0 0 8px;
-  text-transform: uppercase;
 }
 
 .about-format-desc {
@@ -428,7 +424,6 @@
   letter-spacing: 0.16em;
   font-weight: 600;
   color: #444444;
-  text-transform: uppercase;
   margin-bottom: 12px;
 }
 
@@ -437,7 +432,6 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   color: #111111;
-  text-transform: uppercase;
   padding-bottom: 10px;
   border-bottom: 1px solid #111111;
   display: inline-block;
@@ -459,7 +453,6 @@
   letter-spacing: -0.02em;
   color: #111111;
   margin: 0 0 24px;
-  text-transform: uppercase;
 }
 
 .about-tour-detail-sections {
@@ -478,7 +471,6 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #111111;
-  text-transform: uppercase;
   margin-bottom: 10px;
 }
 
@@ -526,7 +518,6 @@
   letter-spacing: -0.015em;
   color: #111111;
   margin: 0 0 6px;
-  text-transform: uppercase;
 }
 
 .about-featured-venue {
