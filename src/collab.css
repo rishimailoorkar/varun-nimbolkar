@@ -12,56 +12,251 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Navbar overrides for clean white header */
+/* Navbar overrides for atmospheric hero like press page */
 .collab-page .navbar {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 25;
-  background: #ffffff;
-  color: #0a0a0a;
-  border-bottom: 1px solid #ebe8e2;
+  z-index: 20;
+  background: transparent;
+  color: #080808;
+}
+
+.collab-page .navbar::after {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .collab-page .navbar a,
 .collab-page .navbar button,
 .collab-page .navbar .wordmark {
-  color: #0a0a0a;
+  color: #080808;
 }
 
-.collab-page .nav-links .active:after {
-  background: #0a0a0a;
+.collab-page .nav-links .active::after {
+  background: #080808;
 }
 
 .collab-page .navbar .book-button {
-  border-color: #0a0a0a;
-  color: #0a0a0a;
+  border-color: #080808;
+  color: #080808;
 }
 
 .collab-page .navbar .book-button:hover {
-  background: #0a0a0a;
+  background: #080808;
   color: #ffffff;
 }
 
 .collab-page .dropdown {
   background: #ffffff;
-  border: 1px solid #e2e0dc;
+  border: 1px solid #e2e2e2;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 .collab-page .dropdown a {
-  color: #0a0a0a;
+  color: #080808;
 }
 
 .collab-page .dropdown a:hover,
 .collab-page .nav-links > a:hover {
-  color: #df42bf;
+  color: #9c41f3;
 }
 
 @media (max-width: 760px) {
+  .collab-page .menu-toggle {
+    color: #080808;
+  }
   .collab-page .nav-links {
     background: #ffffff;
-    border-color: #e5e5e5;
+    border-bottom: 1px solid #e2e2e2;
   }
+  .collab-page .dropdown {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+/* SECTION A: Atmospheric Hero Introduction (matching Press Page) */
+.collab-hero {
+  position: relative;
+  width: 100%;
+  padding-top: calc(var(--nav-height, 100px) + clamp(48px, 5.5vw, 90px));
+  padding-bottom: clamp(38px, 4vw, 60px);
+  background:
+    radial-gradient(ellipse 70% 65% at 52% 28%, rgba(246, 241, 236, 0.9) 0%, rgba(230, 233, 237, 0.45) 50%, transparent 80%),
+    radial-gradient(ellipse 55% 45% at 28% 22%, rgba(216, 220, 225, 0.75) 0%, transparent 75%),
+    radial-gradient(ellipse 65% 50% at 75% 20%, rgba(222, 225, 230, 0.65) 0%, transparent 75%),
+    linear-gradient(180deg, #c9cdd2 0%, #d8dbe0 26%, #eaedef 52%, #f8f9fa 78%, #ffffff 100%);
+  overflow: hidden;
+}
+
+.collab-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 58% 32%, rgba(255, 255, 255, 0.5) 0%, transparent 45%),
+    radial-gradient(circle at 38% 18%, rgba(242, 234, 237, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.75) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.collab-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+@media (max-width: 1200px) {
+  .collab-hero-inner {
+    padding-left: clamp(24px, 7vw, 100px);
+    padding-right: clamp(24px, 7vw, 100px);
+  }
+}
+
+@media (max-width: 600px) {
+  .collab-hero-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.collab-brand-kicker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.collab-kicker-bar {
+  display: block;
+  width: 38px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #9c41f3, #ff8034);
+}
+
+.collab-brand-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #727782;
+}
+
+.collab-hero-title {
+  margin: 0 0 20px 0;
+  font-family: 'Tinos', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 5.8vw, 84px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #16181d;
+}
+
+/* Gallery-style gradient for title */
+.collab-hero-title em {
+  font-style: normal;
+  font-weight: 400;
+  background: linear-gradient(100deg, #983dff, #db4ad6 45%, #ff8900);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.collab-hero-desc {
+  margin: 0;
+  max-width: 600px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(14px, 1.15vw, 16.5px);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #646a74;
+}
+
+/* SECTION B: Coverage / Selected Releases Bar */
+.collab-coverage-bar {
+  background: #ffffff;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0eeea;
+}
+
+@media (max-width: 1200px) {
+  .collab-coverage-bar {
+    padding-left: clamp(24px, 7vw, 100px);
+    padding-right: clamp(24px, 7vw, 100px);
+  }
+}
+
+@media (max-width: 600px) {
+  .collab-coverage-bar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.collab-coverage-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #787d86;
+}
+
+.collab-coverage-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.collab-coverage-dash {
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: #787d86;
+}
+
+.collab-coverage-right {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* SECTION C: Performance Image Section (exact match to press page) */
+.collab-performance-image-section {
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: clamp(50px, 6vw, 90px);
+}
+
+.collab-performance-image-wrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.collab-performance-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.collab-performance-image-wrap:hover .collab-performance-image {
+  transform: scale(1.015);
 }
 
 /* Page Container with 150px desktop padding */
@@ -88,38 +283,12 @@
 }
 
 /* ==========================================================================
-   SECTION 01 — INTRODUCTION
-   ========================================================================== */
-.collab-header {
-  padding-top: clamp(60px, 6.5vw, 96px);
-  padding-bottom: 24px;
-}
-
-.collab-main-title {
-  font-family: 'Tinos', serif;
-  font-size: clamp(44px, 5.5vw, 76px);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  color: #000000;
-  margin: 0 0 32px;
-  text-transform: uppercase;
-}
-
-.collab-header-rule {
-  width: 100%;
-  height: 1px;
-  background-color: #000000;
-  border: none;
-  margin: 0;
-}
-
-/* ==========================================================================
    SECTION 02 — FEATURED PROJECT (THODA SA)
    ========================================================================== */
 .collab-featured-section {
-  padding-top: 24px;
+  padding-top: 36px;
   padding-bottom: clamp(60px, 7vw, 96px);
+  border-top: 1px solid #000000;
 }
 
 .collab-kicker {

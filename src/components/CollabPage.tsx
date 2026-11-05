@@ -29,19 +29,55 @@ export function CollabPage() {
       {/* NAVBAR */}
       <Navbar />
 
-      <main id="top" className="collab-container">
-        {/* SECTION 01 — INTRODUCTION */}
-        <header className="collab-header" id="collab-content">
-          <h1 className="collab-main-title">
-            COLLABORATIONS &amp;<br />
-            PRODUCTION<br />
-            WORK
-          </h1>
-          <hr className="collab-header-rule" aria-hidden="true" />
-        </header>
+      <main id="top">
+        {/* SECTION A — HERO INTRODUCTION (matching Press Page style) */}
+        <section className="collab-hero" aria-labelledby="collab-hero-heading">
+          <div className="collab-hero-inner">
+            <div className="collab-brand-kicker">
+              <span className="collab-kicker-bar" aria-hidden="true" />
+              <span className="collab-brand-label">VARUN NIMBOLKAR</span>
+            </div>
+            <h1 id="collab-hero-heading" className="collab-hero-title">
+              COLLABORATIONS &amp;<br />
+              <em>PRODUCTION WORK</em>
+            </h1>
+            <p className="collab-hero-desc">
+              A curated showcase of genre-crossing releases, artist features, brand partnerships, and sound design innovations.
+            </p>
+          </div>
+        </section>
 
-        {/* SECTION 02 — FEATURED PROJECT */}
-        <section className="collab-featured-section" aria-labelledby="featured-project-heading">
+        {/* SECTION B — COVERAGE BAR */}
+        <section className="collab-coverage-bar" aria-label="Collaborations overview">
+          <div className="collab-coverage-inner">
+            <div className="collab-coverage-left">
+              <span className="collab-coverage-dash" aria-hidden="true" />
+              <span>COLLABORATIONS</span>
+            </div>
+            <div className="collab-coverage-right">
+              <span>06 SELECTED PROJECTS</span>
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION C — PERFORMANCE IMAGE */}
+        <section className="collab-performance-image-section" aria-label="Performance photograph">
+          <div className="collab-performance-image-wrap">
+            <img
+              src="/images/collab/collab-performance.webp"
+              alt="Varun Nimbolkar performing live with sitar on stage"
+              className="collab-performance-image"
+              width="1024"
+              height="682"
+              fetchPriority="high"
+            />
+          </div>
+        </section>
+
+        {/* CONTENT SECTIONS */}
+        <div className="collab-container" id="collab-content">
+          {/* SECTION 02 — FEATURED PROJECT */}
+          <section className="collab-featured-section" aria-labelledby="featured-project-heading">
           <span className="collab-kicker">{FEATURED_PROJECT.projectNumber}</span>
           <div className="collab-featured-grid">
             <a
@@ -316,6 +352,7 @@ export function CollabPage() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       {/* CTA SECTION */}
