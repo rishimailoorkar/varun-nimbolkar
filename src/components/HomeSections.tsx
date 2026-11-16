@@ -64,7 +64,7 @@ export function HomeSections() {
       url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
     },
     {
-      number: '03',
+      number: '06',
       date: '21 September 2026',
       source: 'MID-DAY — THE GUIDE',
       title: 'String Theory',
@@ -165,33 +165,6 @@ export function HomeSections() {
                 <p className="press-source">{item.source}</p>
                 <h3>{item.title}</h3>
 
-                {hasClipping && item.clippingImage && (
-                  <div
-                    className="press-item-media"
-                    onClick={openClipping}
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View full newspaper clipping: ${item.title}`}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        openClipping();
-                      }
-                    }}
-                  >
-                    <img
-                      src={item.clippingImage}
-                      alt={`Newspaper clipping: ${item.title} in ${item.source}`}
-                      className="press-item-clipping-img"
-                      loading="lazy"
-                    />
-                    <span className="press-item-media-zoom" aria-hidden="true">
-                      <ArrowUpRight width={14} height={14} />
-                      <span>View Clipping</span>
-                    </span>
-                  </div>
-                )}
-
                 {hasClipping ? (
                   <button
                     type="button"
@@ -199,7 +172,7 @@ export function HomeSections() {
                     onClick={openClipping}
                     aria-label={`View full newspaper clipping: ${item.title}`}
                   >
-                    <span>VIEW CLIPPING</span>
+                    <span>READ MORE</span>
                     <ArrowUpRight width={15} height={15} aria-hidden="true" />
                   </button>
                 ) : (
