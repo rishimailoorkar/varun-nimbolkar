@@ -171,33 +171,6 @@ export function PressPage() {
                       <span className="press-card-author">By {article.author}</span>
                     )}
 
-                    {hasClipping && article.clippingImage && (
-                      <div
-                        className="press-card-media"
-                        onClick={openClipping}
-                        role="button"
-                        tabIndex={0}
-                        aria-label={`View full newspaper clipping: ${article.headline}`}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            openClipping();
-                          }
-                        }}
-                      >
-                        <img
-                          src={article.clippingImage}
-                          alt={`Newspaper clipping: ${article.headline} — ${article.publication}`}
-                          className="press-card-clipping-img"
-                          loading="lazy"
-                        />
-                        <span className="press-card-media-zoom" aria-hidden="true">
-                          <ArrowUpRight width={15} height={15} />
-                          <span>View Clipping</span>
-                        </span>
-                      </div>
-                    )}
-
                     {article.content && (
                       <p className="press-card-desc">{article.content}</p>
                     )}
