@@ -1,64 +1,88 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight } from './Icons';
 import { Navbar } from './Navbar';
 import { ContactCTA } from './ContactCTA';
 import { SiteFooter } from './SiteFooter';
+import { PressModal, type PressModalData } from './PressModal';
 import '../press.css';
 
-interface PressArticle {
+export interface PressArticle {
   number: string;
   date: string;
   publication: string;
   headline: string;
-  url: string;
+  url?: string;
+  author?: string;
+  content?: string;
+  clippingImage?: string;
 }
 
 const PRESS_ARTICLES: PressArticle[] = [
   {
     number: '01',
-    date: 'September 2026',
-    publication: 'MID-DAY',
-    headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
-    url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+    date: '26 July 2025',
+    publication: 'THE NAVHIND TIMES — ZEST',
+    headline: 'Strings and Stories',
+    author: 'Adithi Sharma',
+    content: 'Feature about the Varun Nimbolkar Collective and its debut performance in Goa.',
+    clippingImage: '/images/press kit/strings-and-stories.webp',
   },
   {
     number: '02',
+    date: '21 September 2026',
+    publication: 'MID-DAY — THE GUIDE',
+    headline: 'String Theory',
+    author: 'Devashish Kamble',
+    content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
+    clippingImage: '/images/press kit/string-theory.webp',
+  },
+  {
+    number: '03',
     date: 'October 2025',
     publication: 'HOMEGROWN MAGAZINE',
     headline: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
     url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
   },
   {
-    number: '03',
+    number: '04',
     date: 'October 2025',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
     url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
   },
   {
-    number: '04',
+    number: '05',
     date: 'January 2024',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
     url: 'https://theindianmusicdiaries.com/varun-nimbolkars-dreams-for-a-living-ep-melds-classical-essence-with-rock-resonance/',
   },
   {
-    number: '05',
+    number: '06',
     date: 'February 2026',
     publication: 'HOMEGROWN MAGAZINE',
     headline: 'Art That Inspires: 7 Homegrown Musicians On The Books That Shaped Their Sound',
     url: 'https://homegrown.co.in/homegrown-creators/art-that-inspires-7-homegrown-musicians-on-the-books-that-shaped-their-sound',
   },
   {
-    number: '06',
+    number: '07',
     date: 'June 2021',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
     url: 'https://theindianmusicdiaries.com/singles-roundup-29-diversify-your-playlist-with-these-latest-tracks/',
   },
+  {
+    number: '08',
+    date: 'September 2026',
+    publication: 'MID-DAY (ONLINE)',
+    headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
+    url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+  },
 ];
 
 export function PressPage() {
+  const [activeClipping, setActiveClipping] = useState<PressModalData | null>(null);
+
   useEffect(() => {
     document.title = 'Press Release — Varun Nimbolkar';
     window.scrollTo(0, 0);
@@ -94,7 +118,7 @@ export function PressPage() {
               <span>COVERAGE</span>
             </div>
             <div className="press-coverage-right">
-              <span>06 FEATURES</span>
+              <span>{String(PRESS_ARTICLES.length).padStart(2, '0')} FEATURES</span>
             </div>
           </div>
         </section>
@@ -113,30 +137,96 @@ export function PressPage() {
           </div>
         </section>
 
-        {/* SECTION D — SIX PRESS ARTICLES */}
+        {/* SECTION D — EIGHT PRESS ARTICLES */}
         <section id="press-articles" className="press-articles-section" aria-label="Press articles grid">
           <div className="press-articles-inner">
             <div className="press-grid">
-              {PRESS_ARTICLES.map((article) => (
-                <article key={article.number} className="press-card">
-                  <div className="press-card-header">
-                    <span className="press-card-number">{article.number}</span>
-                    <span className="press-card-date">{article.date}</span>
-                  </div>
-                  <span className="press-card-pub">{article.publication}</span>
-                  <h2 className="press-card-headline">{article.headline}</h2>
-                  <a
-                    href={article.url}
-                    className="press-card-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Read article: ${article.headline} on ${article.publication} (opens in a new tab)`}
-                  >
-                    <span>READ MORE</span>
-                    <ArrowUpRight width={14} height={14} aria-hidden="true" />
-                  </a>
-                </article>
-              ))}
+              {PRESS_ARTICLES.map((article) => {
+                const hasClipping = Boolean(article.clippingImage);
+
+                const openClipping = () => {
+                  if (article.clippingImage) {
+                    setActiveClipping({
+                      image: article.clippingImage,
+                      title: article.headline,
+                      publication: article.publication,
+                      date: article.date,
+                      author: article.author,
+                      content: article.content,
+                    });
+                  }
+                };
+
+                return (
+                  <article key={article.number} className="press-card">
+                    <div className="press-card-header">
+                      <span className="press-card-number">{article.number}</span>
+                      <span className="press-card-date">{article.date}</span>
+                    </div>
+
+                    <span className="press-card-pub">{article.publication}</span>
+                    <h2 className="press-card-headline">{article.headline}</h2>
+
+                    {article.author && (
+                      <span className="press-card-author">By {article.author}</span>
+                    )}
+
+                    {hasClipping && article.clippingImage && (
+                      <div
+                        className="press-card-media"
+                        onClick={openClipping}
+                        role="button"
+                        tabIndex={0}
+                        aria-label={`View full newspaper clipping: ${article.headline}`}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openClipping();
+                          }
+                        }}
+                      >
+                        <img
+                          src={article.clippingImage}
+                          alt={`Newspaper clipping: ${article.headline} — ${article.publication}`}
+                          className="press-card-clipping-img"
+                          loading="lazy"
+                        />
+                        <span className="press-card-media-zoom" aria-hidden="true">
+                          <ArrowUpRight width={15} height={15} />
+                          <span>View Clipping</span>
+                        </span>
+                      </div>
+                    )}
+
+                    {article.content && (
+                      <p className="press-card-desc">{article.content}</p>
+                    )}
+
+                    {hasClipping ? (
+                      <button
+                        type="button"
+                        className="press-card-link press-card-link--button"
+                        onClick={openClipping}
+                        aria-label={`View full newspaper clipping: ${article.headline}`}
+                      >
+                        <span>VIEW CLIPPING</span>
+                        <ArrowUpRight width={14} height={14} aria-hidden="true" />
+                      </button>
+                    ) : (
+                      <a
+                        href={article.url}
+                        className="press-card-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Read article: ${article.headline} on ${article.publication} (opens in a new tab)`}
+                      >
+                        <span>READ MORE</span>
+                        <ArrowUpRight width={14} height={14} aria-hidden="true" />
+                      </a>
+                    )}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -147,7 +237,12 @@ export function PressPage() {
 
       {/* SECTION F — EXISTING FOOTER */}
       <SiteFooter />
+
+      {/* POPUP LIGHTBOX FOR NEWSPAPER CLIPPINGS */}
+      <PressModal
+        data={activeClipping}
+        onClose={() => setActiveClipping(null)}
+      />
     </div>
   );
 }
-

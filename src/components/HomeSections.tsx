@@ -1,7 +1,8 @@
-import { useEffect, useRef, type RefObject } from 'react';
+import { useEffect, useRef, useState, type RefObject } from 'react';
 import { ArrowUpRight, Play } from './Icons';
 import { SelectedWork } from './SelectedWork';
 import { InstagramJourneySection } from './InstagramJourneySection';
+import { PressModal, type PressModalData } from './PressModal';
 
 const releases = [
   { title: 'Watching her Dance', detail: 'Single / Featured in Rolling Stone India', image: '/images/home/watching-her-dance.png', href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6' },
@@ -45,6 +46,33 @@ function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
 export function HomeSections() {
   const root = useRef<HTMLDivElement>(null);
   useScrollMotion(root);
+  const [modalClipping, setModalClipping] = useState<PressModalData | null>(null);
+
+  const homePressItems = [
+    {
+      number: '01',
+      date: 'September 2026',
+      source: 'MID-DAY',
+      title: 'Witness this immersive fusion performance in Bandra this week with a sitar',
+      url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+    },
+    {
+      number: '02',
+      date: 'October 2025',
+      source: 'HOMEGROWN MAGAZINE',
+      title: 'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling',
+      url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
+    },
+    {
+      number: '03',
+      date: '21 September 2026',
+      source: 'MID-DAY — THE GUIDE',
+      title: 'String Theory',
+      author: 'Devashish Kamble',
+      content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
+      clippingImage: '/images/press kit/string-theory.webp',
+    },
+  ];
   return <div className="home-sections" ref={root}>
     <section className="home-about" id="about" aria-labelledby="home-about-title">
       <div className="home-about-inner">
@@ -112,14 +140,88 @@ export function HomeSections() {
     <section className="home-press" id="press" aria-labelledby="press-title">
       <div className="home-wide-inner">
         <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">Press Kit</h2></div><a className="press-view" href="/press">View All <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
-        <div className="press-grid">{[
-          { number:'01', date:'September 2026', source:'MID-DAY', title:'Witness this immersive fusion performance in Bandra this week with a sitar', url:'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986' },
-          { number:'02', date:'October 2025', source:'HOMEGROWN MAGAZINE', title:'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling', url:'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling' },
-        ].map(item => <article className="press-item" key={item.number}><div className="press-meta"><span>{item.number}</span><span>{item.date}</span></div><p className="press-source">{item.source}</p><h3>{item.title}</h3><a href={item.url} target="_blank" rel="noopener noreferrer">READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true"/><span className="visually-hidden">: {item.title} (opens in a new tab)</span></a></article>)}</div>
+        <div className="press-grid">
+          {homePressItems.map((item) => {
+            const hasClipping = Boolean(item.clippingImage);
+            const openClipping = () => {
+              if (item.clippingImage) {
+                setModalClipping({
+                  image: item.clippingImage,
+                  title: item.title,
+                  publication: item.source,
+                  date: item.date,
+                  author: item.author,
+                  content: item.content,
+                });
+              }
+            };
+
+            return (
+              <article className="press-item" key={item.number}>
+                <div className="press-meta">
+                  <span>{item.number}</span>
+                  <span>{item.date}</span>
+                </div>
+                <p className="press-source">{item.source}</p>
+                <h3>{item.title}</h3>
+
+                {hasClipping && item.clippingImage && (
+                  <div
+                    className="press-item-media"
+                    onClick={openClipping}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View full newspaper clipping: ${item.title}`}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openClipping();
+                      }
+                    }}
+                  >
+                    <img
+                      src={item.clippingImage}
+                      alt={`Newspaper clipping: ${item.title} in ${item.source}`}
+                      className="press-item-clipping-img"
+                      loading="lazy"
+                    />
+                    <span className="press-item-media-zoom" aria-hidden="true">
+                      <ArrowUpRight width={14} height={14} />
+                      <span>View Clipping</span>
+                    </span>
+                  </div>
+                )}
+
+                {hasClipping ? (
+                  <button
+                    type="button"
+                    className="press-item-btn"
+                    onClick={openClipping}
+                    aria-label={`View full newspaper clipping: ${item.title}`}
+                  >
+                    <span>VIEW CLIPPING</span>
+                    <ArrowUpRight width={15} height={15} aria-hidden="true" />
+                  </button>
+                ) : (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true" />
+                    <span className="visually-hidden">: {item.title} (opens in a new tab)</span>
+                  </a>
+                )}
+              </article>
+            );
+          })}
+        </div>
       </div>
     </section>
 
     <InstagramJourneySection />
+
+    {/* Lightbox Modal for Newspaper Clippings */}
+    <PressModal
+      data={modalClipping}
+      onClose={() => setModalClipping(null)}
+    />
 
   </div>;
 }
