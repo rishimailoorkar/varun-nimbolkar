@@ -1,8 +1,13 @@
-import { useEffect, useRef, useState, type RefObject } from 'react';
+import { useEffect, useRef, type RefObject } from 'react';
 import { ArrowUpRight, Play } from './Icons';
 import { SelectedWork } from './SelectedWork';
 import { InstagramJourneySection } from './InstagramJourneySection';
-import { ALL_RELEASES } from '../data/musicData';
+
+const releases = [
+  { title: 'Watching her Dance', detail: 'Single / Featured in Rolling Stone India', image: '/images/home/watching-her-dance.png', href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6' },
+  { title: 'RishiKesh (Child of the Ganges)', detail: 'EP / 2022', image: '/images/home/rishikesh.png', href: 'https://open.spotify.com/search/RishiKesh%20Child%20of%20the%20Ganges%20Varun%20Nimbolkar' },
+  { title: 'The Unposted Letter', detail: 'EP / In collaboration with Saee Tembhekar', image: '/images/home/unposted-letter.png', href: 'https://open.spotify.com/search/The%20Unposted%20Letter%20Varun%20Nimbolkar' },
+];
 
 function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
   useEffect(() => {
@@ -94,58 +99,12 @@ export function HomeSections() {
           <span className="home-kicker home-kicker--plain" data-parallax="0.035">DISCOGRAPHY</span>
           <h2 id="discography-title" data-parallax="0.055">For The<br/><em>Curious Ones</em></h2>
           <p data-parallax="0.035">Records that wander between sitar-driven melody, electronic atmospheres, blues and everything in between.</p>
-          <a
-            className="home-music-button"
-            href="/music"
-            onClick={(e) => {
-              e.preventDefault();
-              history.pushState(null, '', '/music');
-              window.dispatchEvent(new PopStateEvent('popstate'));
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }}
-            data-parallax="0.025"
-          >
-            ENTER THE LISTENING ROOM <Play width={20} height={20} aria-hidden="true" />
-          </a>
+          <a className="home-music-button" href="/music" data-parallax="0.025">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true" /></a>
         </div>
-        <div className="home-albums" role="region" aria-label="Discography releases">
-          {ALL_RELEASES.map(release => (
-            <article className="home-album" key={release.id} data-parallax="0.04">
-              <a
-                href={release.streamUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Listen to ${release.title} on streaming platform`}
-                style={{ display: 'block', overflow: 'hidden' }}
-              >
-                <img
-                  src={release.artwork}
-                  width="408"
-                  height="406"
-                  loading="lazy"
-                  alt={`${release.title} cover artwork`}
-                />
-              </a>
-              <div className="home-album-caption">
-                <div>
-                  <span style={{ fontSize: '11px', letterSpacing: '0.08em', color: '#888', textTransform: 'uppercase' }}>
-                    {release.releaseYear} · {release.type}
-                  </span>
-                  <h3>{release.title}</h3>
-                  <p>{release.detail}</p>
-                </div>
-                <a
-                  href={release.streamUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Open ${release.title} on official streaming platform`}
-                >
-                  <Play width={17} height={17} aria-hidden="true" />
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
+        <div className="home-albums">{releases.map(release => <article className="home-album" key={release.title} data-parallax="0.04">
+          <img src={release.image} width="408" height="406" loading="lazy" alt={`${release.title} cover artwork`} />
+          <div className="home-album-caption"><div><h3>{release.title}</h3><p>{release.detail}</p></div><a href={release.href} target="_blank" rel="noopener noreferrer" aria-label={`Find ${release.title} on Spotify`}><Play width={17} height={17} aria-hidden="true" /></a></div>
+        </article>)}</div>
       </div>
     </section>
 
