@@ -298,6 +298,15 @@
   grid-template-columns: 1fr 1fr;
   gap: clamp(36px, 5.5vw, 76px);
   align-items: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.about-tour-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-tour-item--reversed .about-tour-media {
@@ -402,6 +411,14 @@
 
   .about-tour-item--reversed .about-tour-content {
     order: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-tour-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 
