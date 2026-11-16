@@ -12,11 +12,6 @@ interface InstaImage {
 
 const INSTA_IMAGES: InstaImage[] = [
   {
-    src: '/images/images%20instaa/Screenshot%202026-11-02%20175147.png',
-    alt: 'Varun Nimbolkar - Afro House Vibes Meet Sitar & Sarangi',
-    url: 'https://www.instagram.com/reel/DeUoOb2IBz2/?utm_source=ig_web_copy_link&exln=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
-  },
-  {
     src: '/images/images%20instaa/Screenshot%202026-11-02%20175225.png',
     alt: 'Varun Nimbolkar playing sitar outdoors',
     url: 'https://www.instagram.com/reel/DSY7wViDA6I/?utm_source=ig_web_copy_link&dlrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
@@ -28,7 +23,7 @@ const INSTA_IMAGES: InstaImage[] = [
   },
   {
     src: '/images/images%20instaa/Screenshot%202026-11-02%20175308.png',
-    alt: 'Varun Nimbolkar Band - Magnetic Music Season 04',
+    alt: 'The Sitara Devi Project - Magnetic Music Season 04',
     url: 'https://www.instagram.com/reel/DMk5LJ3tqgF/?utm_source=ig_web_copy_link&srtk=MzRlODBiNWFlZA==',
   },
   {

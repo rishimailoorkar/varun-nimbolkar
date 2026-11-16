@@ -107,7 +107,7 @@ export function AboutPage() {
               </h1>
 
               <p className="about-bio-lead">
-                Varun Nimbolkar, a sitarist whose music merges traditional Indian classical instruments with
+                Varun Nimbolkar, a composer, producer, and sitar player whose music merges traditional Indian classical instruments with
                 electronic beats and ambient sounds, invites listeners into an auditory journey spanning diverse
                 genres and cross-disciplinary collaborations that define contemporary Indian experimental music
                 across global landscapes.
@@ -116,7 +116,7 @@ export function AboutPage() {
               <h2 className="about-bio-subheading">Musical Journey</h2>
 
               <p className="about-bio-text">
-                Born in May 1990 and based in Pune, India, Varun is a pioneering composer, producer, sitar player,
+                Born in May 1990, Varun is a pioneering composer, producer, sitar player,
                 and vocalist. Trained under legendary masters—including over a decade under Ustad Usman Khan, time
                 with Pt. Vijay Koparkar, and mentorship under Pt. Kushal Das—Varun bridges deep-rooted Indian
                 classical traditions with contemporary global genres.
@@ -169,7 +169,7 @@ export function AboutPage() {
             <div className="about-tours-banner-wrap">
               <img
                 src="/images/about/tour-banner.webp"
-                alt="Varun Nimbolkar Band live with illuminated monkey neon backdrop"
+                alt="The Sitara Devi Project live with illuminated monkey neon backdrop"
                 className="about-tours-banner"
                 width={1140}
                 height={440}
@@ -277,7 +277,7 @@ export function AboutPage() {
         </section>
 
         {/* 5. CONTACT CTA */}
-        <ContactCTA light />
+        <ContactCTA light hideSocials />
       </main>
 
       {/* 6. SITE FOOTER */}

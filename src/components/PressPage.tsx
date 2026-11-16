@@ -16,45 +16,45 @@ interface PressArticle {
 const PRESS_ARTICLES: PressArticle[] = [
   {
     number: '01',
+    date: 'September 2026',
+    publication: 'MID-DAY',
+    headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
+    url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+  },
+  {
+    number: '02',
     date: 'October 2025',
     publication: 'HOMEGROWN MAGAZINE',
     headline: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
     url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
   },
   {
-    number: '02',
+    number: '03',
     date: 'October 2025',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
     url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
   },
   {
-    number: '03',
+    number: '04',
     date: 'January 2024',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
     url: 'https://theindianmusicdiaries.com/varun-nimbolkars-dreams-for-a-living-ep-melds-classical-essence-with-rock-resonance/',
   },
   {
-    number: '04',
+    number: '05',
     date: 'February 2026',
     publication: 'HOMEGROWN MAGAZINE',
     headline: 'Art That Inspires: 7 Homegrown Musicians On The Books That Shaped Their Sound',
     url: 'https://homegrown.co.in/homegrown-creators/art-that-inspires-7-homegrown-musicians-on-the-books-that-shaped-their-sound',
   },
   {
-    number: '05',
+    number: '06',
     date: 'June 2021',
     publication: 'THE INDIAN MUSIC DIARIES',
     headline: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
     url: 'https://theindianmusicdiaries.com/singles-roundup-29-diversify-your-playlist-with-these-latest-tracks/',
-  },
-  {
-    number: '06',
-    date: 'Not specified',
-    publication: 'THE INDIAN MUSIC DIARIES',
-    headline: "Derek & The Cats' 'People to Meet, Places to See' is a Record Both You and Your Dad Can Dance To",
-    url: 'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/',
   },
 ];
 

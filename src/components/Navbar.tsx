@@ -54,7 +54,7 @@ export function Navbar() {
   };
 
   return <header className="navbar" ref={nav} onKeyDown={e => { if (e.key === 'Escape') { setMore(false); setMobile(false); moreButton.current?.focus(); } }}>
-    <a className="wordmark" href="/" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/'); }}>VARUN<br/>NIMBOLKAR</a>
+    <a className="wordmark" href="/" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/'); }}>VARUN NIMBOLKAR</a>
     <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? <>CLOSE <Close width={17} height={17} aria-hidden="true"/></> : <>MENU <Menu width={17} height={17} aria-hidden="true"/></>}</button>
     <nav id="main-navigation" aria-label="Main navigation" className={mobile ? 'nav-links open' : 'nav-links'}>
       {['Home', 'About', 'Music', 'Gallery'].map(label => {
@@ -71,6 +71,7 @@ export function Navbar() {
           <a key={item.key} href={item.href} className={isCurrent(item.key) ? 'active' : ''} onClick={e => { e.preventDefault(); navigate(item.href); }}>{item.label}</a>
         ))}</div>}
       </div>
+      <a className="mobile-nav-book" href="/contact" onClick={e => { e.preventDefault(); navigate('/contact'); }}>BOOK VARUN <ArrowUpRight width={17} height={17} aria-hidden="true" /></a>
     </nav>
     <a className="book-button" href="/contact" onClick={e => { e.preventDefault(); navigate('/contact'); }}>BOOK VARUN <ArrowUpRight width={20} height={20} aria-hidden="true" /></a>
   </header>;

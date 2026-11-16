@@ -52,7 +52,7 @@ export function HomeSections() {
         <div className="home-about-copy">
           <span className="home-kicker" data-parallax="0.04">MEET VARUN NIMBOLKAR</span>
           <h2 id="home-about-title" data-parallax="0.06">Classical roots.<br/><em>An Evolving Sound.</em></h2>
-          <p data-parallax="0.035">A composer, producer, sitar player and vocalist from Pune, India. Varun brings Indian classical roots into conversation with contemporary genres, electronic production and experimental sound.</p>
+          <p data-parallax="0.035">A composer, producer, sitar player and vocalist. Varun brings Indian classical roots into conversation with contemporary genres, electronic production and experimental sound.</p>
           <a
             className="home-about-button"
             href="/about"
@@ -66,7 +66,7 @@ export function HomeSections() {
           >
             About us <ArrowUpRight width={20} height={20} aria-hidden="true" />
           </a>
-          <div className="home-about-meta" data-parallax="0.025"><span>SITAR · VOICE · EXPLORATION</span><span>Pune, India</span></div>
+          <div className="home-about-meta" data-parallax="0.025"><span>COMPOSER · PRODUCER · SITAR PLAYER</span></div>
         </div>
       </div>
     </section>
@@ -89,7 +89,7 @@ export function HomeSections() {
     <section className="home-interlude" id="live" aria-label="Varun Nimbolkar performing live">
       <div className="home-interlude-stage">
         <img src="/images/home/performance-parallax.png" width="1440" height="961" loading="lazy" alt="Varun Nimbolkar and a fellow musician performing on stage" />
-        <div className="home-interlude-caption"><span>SITARIST / COMPOSER / PRODUCER</span><span>CLASSICAL ROOTS. ELECTRIC SOUL.</span></div>
+        <div className="home-interlude-caption"><span>COMPOSER / PRODUCER / SITARIST</span><span>CLASSICAL ROOTS. ELECTRIC SOUL.</span></div>
       </div>
     </section>
 
@@ -97,7 +97,7 @@ export function HomeSections() {
       <div className="home-wide-inner">
         <div className="home-discography-intro">
           <span className="home-kicker home-kicker--plain" data-parallax="0.035">DISCOGRAPHY</span>
-          <h2 id="discography-title" data-parallax="0.055">For The<br/><em>Curious One's</em></h2>
+          <h2 id="discography-title" data-parallax="0.055">For The<br/><em>Curious Ones</em></h2>
           <p data-parallax="0.035">Records that wander between sitar-driven melody, electronic atmospheres, blues and everything in between.</p>
           <a className="home-music-button" href="/music" data-parallax="0.025">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true" /></a>
         </div>
@@ -115,7 +115,6 @@ export function HomeSections() {
         <div className="press-grid">{[
           { number:'01', date:'September 2026', source:'MID-DAY', title:'Witness this immersive fusion performance in Bandra this week with a sitar', url:'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986' },
           { number:'02', date:'October 2025', source:'HOMEGROWN MAGAZINE', title:'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling', url:'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling' },
-          { number:'03', date:'September 2025', source:'THE INDIAN MUSIC DIARIES', title:'Derek & The Cats’ “People to Meet, Places to See” is a Record Both You and Your Dad Can Dance To', url:'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/' },
         ].map(item => <article className="press-item" key={item.number}><div className="press-meta"><span>{item.number}</span><span>{item.date}</span></div><p className="press-source">{item.source}</p><h3>{item.title}</h3><a href={item.url} target="_blank" rel="noopener noreferrer">READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true"/><span className="visually-hidden">: {item.title} (opens in a new tab)</span></a></article>)}</div>
       </div>
     </section>

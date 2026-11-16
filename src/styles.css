@@ -66,9 +66,8 @@
 .book-button{border-radius:40px;font-size:12px;letter-spacing:.12em;padding:14px 22px}
 .hero::after{content:'';position:absolute;left:4%;right:4%;bottom:66px;height:1px;background:#ffffff40;z-index:2;pointer-events:none}
 .hero-presenting{position:absolute;z-index:2;left:4%;bottom:126px;color:var(--cream)}
-.hero-presenting>span{display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.22em}
-.hero-presenting>span::before{content:'';width:32px;height:1px;background:var(--cream)}
-.hero-presenting p{font:400 clamp(32px,3.4vw,52px)/.97 Tinos,serif;margin:18px 0 0}
+.hero-presenting p{font:400 clamp(32px,3.4vw,52px)/.97 Tinos,serif;margin:0 0 10px}
+.hero-subtitle{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.85}
 .hero-content{left:auto;right:4%;bottom:100px}
 .hero-content h1{margin-bottom:24px}
 .hero-content .music-button{border-radius:40px;font-size:13px;letter-spacing:.09em;padding:15px 23px;gap:30px}
@@ -83,8 +82,9 @@
   .hero{--hero-image-height:clamp(470px,62svh,560px);min-height:calc(var(--hero-image-height) + 360px)}
   .hero-fallback,.trail-canvas{height:var(--hero-image-height)}
   .readability-overlay{height:calc(var(--hero-image-height) + 10px)}
-  .hero-presenting{left:6%;top:calc(var(--hero-image-height) - 118px);bottom:auto}
-  .hero-presenting>span{font-size:9px}.hero-presenting p{font-size:36px;margin-top:12px}
+  .hero-presenting{left:6%;top:calc(var(--hero-image-height) - 128px);bottom:auto}
+  .hero-presenting p{font-size:36px;margin:0 0 6px}
+  .hero-subtitle{font-size:9.5px;letter-spacing:.14em}
   .hero-content{top:calc(var(--hero-image-height) + 28px);left:6%;right:6%;bottom:auto}
   .hero-content h1{font-size:18px;line-height:1.5;margin-bottom:22px}
   .hero-content .music-button{font-size:12px;padding:14px 21px;min-height:46px}
@@ -549,3 +549,11 @@
 .booking-journey-layout .booking-aside>img{width:100%;max-width:420px;height:520px;aspect-ratio:auto;object-fit:cover;object-position:52% center}@media(max-width:900px){.booking-journey-layout .booking-aside>img{height:min(55vw,390px);max-width:420px}}@media(max-width:540px){.booking-journey-layout .booking-aside>img{height:300px;max-width:none}}
 .selected-work-gallery-link{display:inline-flex;align-items:center;gap:12px;margin:26px 0 30px;padding:12px 22px;border:1px solid currentColor;border-radius:999px;font-size:13px}.selected-work-gallery-link:hover{background:#171717;color:#fff}
 .menu-toggle{align-items:center;gap:6px}.journey-back,.enquiry-submit{display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.wordmark,.music-home-link{font-family:'Plus Jakarta Sans',sans-serif!important;font-size:13px!important;font-weight:600!important;letter-spacing:.14em!important;text-transform:uppercase!important;line-height:1.2!important;white-space:nowrap!important}
+.mobile-nav-book{display:none}
+@media(max-width:760px){
+  .mobile-nav-book{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--cream);border-radius:40px;padding:13px 22px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-top:14px;color:var(--cream)}
+  .mobile-nav-book:hover{background:var(--cream);color:#080808}
+  .music-page .mobile-nav-book{border-color:#161616;color:#161616}
+  .music-page .mobile-nav-book:hover{background:#161616;color:#fff}
+}
