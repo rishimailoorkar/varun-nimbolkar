@@ -13,6 +13,19 @@ export interface CollabProject {
   secondaryLabel?: string;
 }
 
+export interface BrandCollab {
+  id: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  brand: string;
+  description: string;
+  artwork: string;
+  artworkAlt: string;
+  primaryUrl: string;
+  primaryLabel: string;
+}
+
 export const SELECTED_COLLABORATIONS: CollabProject[] = [
   {
     id: 'tienas',
@@ -60,3 +73,17 @@ export const SELECTED_COLLABORATIONS: CollabProject[] = [
     secondaryLabel: 'Press Coverage',
   },
 ];
+
+export const BRAND_COLLABORATION: BrandCollab = {
+  id: 'khaddar-ind',
+  category: 'Brand Collaboration',
+  title: 'Khaddar Ind',
+  subtitle: 'A Varun Nimbolkar Edit',
+  brand: 'Artists & Allies',
+  description:
+    'A conscious brand collaboration celebrating creators who honor tradition while shaping contemporary narratives. Varun’s distinctive musical practice weaves Indian classical foundations with modern acoustic-electronic exploration, storytelling, and cultural dialogue.',
+  artwork: '/images/collab/khaddar-edit-square.webp',
+  artworkAlt: 'Khaddar Ind — A Varun Nimbolkar Edit campaign photography',
+  primaryUrl: 'https://khaddar.shop/community2',
+  primaryLabel: 'Explore Collaboration',
+};

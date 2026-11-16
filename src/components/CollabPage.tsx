@@ -3,7 +3,7 @@ import { Navbar } from './Navbar';
 import { ContactCTA } from './ContactCTA';
 import { SiteFooter } from './SiteFooter';
 import { ArrowUpRight } from './Icons';
-import { SELECTED_COLLABORATIONS } from '../data/collabData';
+import { SELECTED_COLLABORATIONS, BRAND_COLLABORATION } from '../data/collabData';
 import '../collab.css';
 
 export function CollabPage() {
@@ -37,7 +37,7 @@ export function CollabPage() {
               <em>Production Work</em>
             </h1>
             <p className="collab-hero-desc">
-              A curated showcase of genre-crossing releases, artist features, and collaborative productions.
+              A curated showcase of genre-crossing releases, artist features, and brand collaborations.
             </p>
           </div>
         </section>
@@ -50,7 +50,7 @@ export function CollabPage() {
               <span>Collaborations</span>
             </div>
             <div className="collab-coverage-right">
-              <span>04 Selected Projects</span>
+              <span>05 Selected Features</span>
             </div>
           </div>
         </section>
@@ -186,6 +186,48 @@ export function CollabPage() {
                     </div>
                   </article>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          {/* SECTION 03 — BRAND COLLABORATION FEATURE */}
+          <section className="collab-brand-feature-section" aria-labelledby="brand-collab-heading">
+            <hr className="collab-section-divider" aria-hidden="true" />
+            <span className="collab-kicker">{BRAND_COLLABORATION.category}</span>
+            <div className="collab-featured-grid">
+              <a
+                href={BRAND_COLLABORATION.primaryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="collab-artwork-link"
+                aria-label={`Explore ${BRAND_COLLABORATION.title} — ${BRAND_COLLABORATION.subtitle} on Khaddar Ind (opens in a new tab)`}
+              >
+                <img
+                  src={BRAND_COLLABORATION.artwork}
+                  alt={BRAND_COLLABORATION.artworkAlt}
+                  className="collab-featured-artwork"
+                  width={600}
+                  height={600}
+                  loading="lazy"
+                />
+              </a>
+
+              <div className="collab-featured-info">
+                <span className="collab-card-kicker">{BRAND_COLLABORATION.brand}</span>
+                <h2 id="brand-collab-heading" className="collab-featured-title">
+                  {BRAND_COLLABORATION.title}
+                </h2>
+                <p className="collab-card-subtitle">{BRAND_COLLABORATION.subtitle}</p>
+                <p className="collab-featured-desc">{BRAND_COLLABORATION.description}</p>
+                <a
+                  href={BRAND_COLLABORATION.primaryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="collab-link"
+                >
+                  <span>{BRAND_COLLABORATION.primaryLabel}</span>
+                  <ArrowUpRight width={14} height={14} aria-hidden="true" />
+                </a>
               </div>
             </div>
           </section>

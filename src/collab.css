@@ -383,7 +383,11 @@
    SECTION 03 — SELECTED COLLABORATIONS (ASYMMETRIC GRID)
    ========================================================================== */
 .collab-selected-section {
-  padding-bottom: clamp(70px, 8vw, 120px);
+  padding-bottom: clamp(60px, 7vw, 96px);
+}
+
+.collab-brand-feature-section {
+  padding-bottom: clamp(70px, 8vw, 110px);
 }
 
 .collab-asymmetric-grid {

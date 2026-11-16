@@ -27,6 +27,92 @@ const SOCIALS = [
   },
 ];
 
+interface TourHighlight {
+  id: string;
+  order: string;
+  eventName: string;
+  venue?: string;
+  location: string;
+  date?: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+}
+
+const TOUR_HIGHLIGHTS: TourHighlight[] = [
+  {
+    id: 'nehru-centre',
+    order: '01',
+    eventName: 'The Nehru Centre',
+    venue: 'Cultural Wing of the High Commission of India',
+    location: 'London, United Kingdom',
+    date: 'May 2026',
+    description:
+      'A 90-minute headline solo performance exploring Indian classical ragas in dialogue with contemporary ambient looping, guitar pedals, and original electronica.',
+    image: '/images/about/tours/01-nehru-centre.webp',
+    imageAlt: 'Varun Nimbolkar performing solo headline sitar recital at The Nehru Centre London',
+  },
+  {
+    id: 'happy-place',
+    order: '02',
+    eventName: 'Happy Place Festival',
+    venue: 'Festival Main Stage',
+    location: 'London, United Kingdom',
+    date: '2026',
+    description:
+      'A vibrant open-air festival performance bringing expressive sitar textures and dynamic electronic grooves to diverse UK audiences.',
+    image: '/images/about/tours/02-happy-place.webp',
+    imageAlt: 'Varun Nimbolkar live performance with sitar at Happy Place Festival',
+  },
+  {
+    id: 'mind-body-spirit',
+    order: '03',
+    eventName: 'Mind Body Spirit Festival',
+    venue: 'Olympia London',
+    location: 'London, United Kingdom',
+    date: '2026',
+    description:
+      'An immersive solo set weaving transcendent classical ragas with lush ambient soundscapes, curated for deep listening and meditative movement.',
+    image: '/images/about/tours/03-mind-body-spirit.webp',
+    imageAlt: 'Varun Nimbolkar performing meditative sitar set at Mind Body Spirit Festival',
+  },
+  {
+    id: 'world-yoga-festival',
+    order: '04',
+    eventName: 'World Yoga Festival',
+    venue: 'Festival Stage',
+    location: 'United Kingdom',
+    date: '2026',
+    description:
+      'A contemplative live experience integrating deep classical discipline with harmonic ambient soundscapes against tranquil open festival grounds.',
+    image: '/images/about/tours/04-world-yoga-festival.webp',
+    imageAlt: 'Varun Nimbolkar performing sitar at World Yoga Festival UK',
+  },
+  {
+    id: 'magnetic-music',
+    order: '05',
+    eventName: 'Magnetic Music at ZLB',
+    venue: 'ZLB, The Leela Palace',
+    location: 'Bengaluru, India',
+    date: 'Season 04',
+    description:
+      'Featured on the curated series lineup alongside Indian Ocean and Rajasthani Roots, delivering an electric, intimate ensemble performance.',
+    image: '/images/about/tours/05-magnetic-music.webp',
+    imageAlt: 'Varun Nimbolkar ensemble live at Magnetic Music at ZLB, The Leela Palace Bengaluru',
+  },
+  {
+    id: 'india-touring',
+    order: '06',
+    eventName: 'India Touring Highlights',
+    venue: 'Concert Halls & Curated Listening Rooms',
+    location: 'Bengaluru · Mumbai · Goa · Pune',
+    description:
+      'Extensive national touring across six cities, presenting both intimate Solo Sets with live looping and high-energy ensemble shows with The Sitara Devi Project.',
+    image: '/images/about/tours/06-india-tour.webp',
+    imageAlt: 'Audience and stage during Varun Nimbolkar live performance in India',
+  },
+];
+
 export function AboutPage() {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -80,10 +166,11 @@ export function AboutPage() {
           <div className="about-hero-stage" ref={heroRef}>
             <img
               src="/images/about/hero-stage.webp"
-              alt="Varun Nimbolkar performing sitar with live electronics in front of an audience"
+              alt="Varun Nimbolkar performing sitar with live electronics with audience visible"
               className="about-hero-img"
-              width={1920}
-              height={1080}
+              width={2400}
+              height={1603}
+              fetchPriority="high"
             />
           </div>
         </section>
@@ -96,31 +183,31 @@ export function AboutPage() {
                 src="/images/about/bio-varun.webp"
                 alt="Varun Nimbolkar playing sitar indoors"
                 className="about-bio-photo"
-                width={700}
-                height={800}
+                width={1200}
+                height={1500}
               />
             </div>
 
             <div className="about-bio-copy">
-              <h1 id="about-bio-heading" className="about-bio-title">
-                Biography
-              </h1>
+              <div>
+                <h1 id="about-bio-heading" className="about-bio-title">
+                  Biography
+                </h1>
 
-              <p className="about-bio-lead">
-                Varun Nimbolkar, a composer, producer, and sitar player whose music merges traditional Indian classical instruments with
-                electronic beats and ambient sounds, invites listeners into an auditory journey spanning diverse
-                genres and cross-disciplinary collaborations that define contemporary Indian experimental music
-                across global landscapes.
-              </p>
+                <p className="about-bio-lead">
+                  Varun Nimbolkar is a composer, producer, performing sitar player and vocalist. He brings Indian classical training into conversation with electronic music, ambient soundscapes, rock and contemporary grooves.
+                </p>
 
-              <h2 className="about-bio-subheading">Musical Journey</h2>
+                <h2 className="about-bio-subheading">Musical Journey</h2>
 
-              <p className="about-bio-text">
-                Born in May 1990, Varun is a pioneering composer, producer, sitar player,
-                and vocalist. Trained under legendary masters—including over a decade under Ustad Usman Khan, time
-                with Pt. Vijay Koparkar, and mentorship under Pt. Kushal Das—Varun bridges deep-rooted Indian
-                classical traditions with contemporary global genres.
-              </p>
+                <p className="about-bio-text">
+                  His classical foundation includes more than a decade studying under Ustad Usman Khan, along with time with Pt. Vijay Koparkar and mentorship under Pt. Kushal Das. That background informs a practice that moves between acoustic and electric sitar, effects pedals, live looping and original production.
+                </p>
+
+                <p className="about-bio-text">
+                  Across recordings and stages, Varun treats the sitar as a lead voice in evolving musical stories. His independent releases include <em>Bah Bah Black Sheep</em>, <em>Dreams for a Living</em> and <em>Watching Her Dance</em>, bridging classical heritage with a restless contemporary spirit.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -152,7 +239,7 @@ export function AboutPage() {
           </div>
         </section>
 
-        {/* 4. TOURS & STAGES */}
+        {/* 4. TOURS & STAGES — EDITORIAL ALTERNATING REDESIGN */}
         <section className="about-tours" id="tours" aria-labelledby="about-tours-heading">
           <div className="about-tours-inner">
             <div className="about-tours-header">
@@ -161,117 +248,43 @@ export function AboutPage() {
               </h2>
               <p className="about-tours-desc">
                 Varun combines acoustic and electric sitar with live electronic production, looping, and ambient
-                grooves for immersive live experiences.
+                grooves for immersive live concert experiences across the UK and India.
               </p>
             </div>
 
-            {/* Banner stage photo */}
-            <div className="about-tours-banner-wrap">
-              <img
-                src="/images/about/tour-banner.webp"
-                alt="The Sitara Devi Project live with illuminated monkey neon backdrop"
-                className="about-tours-banner"
-                width={1140}
-                height={440}
-                loading="lazy"
-              />
-            </div>
-
-            {/* Formats Grid: Solo Sets & The Sitara Devi Project */}
-            <div className="about-formats-grid" id="tour-formats-section">
-              <article className="about-format-card">
-                <div className="about-format-thumb">
-                  <img
-                    src="/images/about/solo-sets.webp"
-                    alt="Varun Nimbolkar performing solo set with electric sitar"
-                    width={540}
-                    height={360}
-                    loading="lazy"
-                  />
-                </div>
-                <span className="about-format-num">01 —</span>
-                <h3 className="about-format-title">Solo Sets</h3>
-                <p className="about-format-desc">
-                  Intimate ethnic electronica, ambient soundscapes, and live looping.
-                </p>
-              </article>
-
-              <article className="about-format-card">
-                <div className="about-format-thumb">
-                  <img
-                    src="/images/about/sitara-devi.webp"
-                    alt="The Sitara Devi Project live ensemble performance"
-                    width={540}
-                    height={360}
-                    loading="lazy"
-                  />
-                </div>
-                <span className="about-format-num">02 —</span>
-                <h3 className="about-format-title">The Sitara Devi Project</h3>
-                <p className="about-format-desc">
-                  High-energy ensemble performances by The Sitara Devi &amp; her Bois.
-                </p>
-              </article>
-            </div>
-
-            {/* Tour Highlights Summary Boxes */}
-            <div className="about-tour-boxes" id="tour-india-section">
-              <div className="about-tour-summary-card">
-                <span className="about-tour-summary-kicker">UK Tour — 2026</span>
-                <span className="about-tour-summary-val">Manchester · London</span>
-              </div>
-              <div className="about-tour-summary-card">
-                <span className="about-tour-summary-kicker">India Tour — 6 Cities</span>
-                <span className="about-tour-summary-val">National Run</span>
-              </div>
-            </div>
-
-            {/* UK Tour Details Box */}
-            <div className="about-tour-detail-card" id="tour-uk-section">
-              <h3 className="about-tour-detail-title">UK Tour 2026</h3>
-              <div className="about-tour-detail-sections">
-                <div className="about-tour-subblock">
-                  <span className="about-tour-subkicker">The Nehru Centre</span>
-                  <p className="about-tour-subtext">
-                    90-minute headline solo performance at the cultural wing of the High Commission of India in London.
-                  </p>
-                </div>
-                <div className="about-tour-subblock">
-                  <span className="about-tour-subkicker">Main Stages</span>
-                  <ul className="about-tour-fest-list">
-                    <li>Mind Body Spirit Festival 2026</li>
-                    <li>Happy Place Festival 2026</li>
-                    <li>World Yoga Festival 2026</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Featured Show: Magnetic Music at ZLB */}
-            <div className="about-featured-show" id="tour-featured-section">
-              <div className="about-featured-info">
-                <div>
-                  <h3 className="about-featured-title">Magnetic Music at ZLB</h3>
-                  <p className="about-featured-venue">The Leela Palace, Bengaluru</p>
-                </div>
-                <div>
-                  <p className="about-featured-desc">
-                    Featured on the lineup alongside Indian Ocean and Rajasthani Roots as part of the prestigious
-                    Magnetic Music series.
-                  </p>
-                </div>
-              </div>
-
-              <div className="about-featured-photo-wrap">
-                <img
-                  src="/images/about/magnetic-music.webp"
-                  alt="Band performing live on stage at Magnetic Music, Leela Palace Bengaluru"
-                  className="about-featured-photo"
-                  width={1140}
-                  height={480}
-                  loading="lazy"
-                />
-              </div>
+            <div className="about-tours-list">
+              {TOUR_HIGHLIGHTS.map((item, idx) => {
+                const isReversed = idx % 2 === 1;
+                return (
+                  <article
+                    key={item.id}
+                    className={`about-tour-item ${isReversed ? 'about-tour-item--reversed' : ''}`}
+                    aria-labelledby={`tour-heading-${item.id}`}
+                  >
+                    <div className="about-tour-media">
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt}
+                        width={1200}
+                        height={800}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="about-tour-content">
+                      <div className="about-tour-meta-row">
+                        <span className="about-tour-num">{item.order}</span>
+                        {item.date && <span className="about-tour-date">{item.date}</span>}
+                      </div>
+                      <h3 id={`tour-heading-${item.id}`} className="about-tour-item-title">
+                        {item.eventName}
+                      </h3>
+                      {item.venue && <p className="about-tour-venue">{item.venue}</p>}
+                      <p className="about-tour-location">{item.location}</p>
+                      <p className="about-tour-item-desc">{item.description}</p>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -285,4 +298,3 @@ export function AboutPage() {
     </div>
   );
 }
-
