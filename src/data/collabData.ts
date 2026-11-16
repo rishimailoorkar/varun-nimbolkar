@@ -66,7 +66,7 @@ export const SELECTED_COLLABORATIONS: CollabProject[] = [
     artist: 'Derek & The Cats',
     description: "Featured artist on the track 'Maya' from the album People to Meet, Places to See.",
     artwork: '/images/collab/maya.png',
-    artworkAlt: "Maya track artwork from Derek & The Cats' album People to Meet, Places to See",
+    artworkAlt: "People to Meet, Places to See album artwork by Derek & The Cats featuring Maya",
     streamUrl: 'https://www.amazon.com/music/player/artists/B0944N9V1H/varun-nimbolkar',
     streamLabel: 'Listen to Track',
     secondaryUrl: 'https://rollingstoneindia.com/review-rundown-tanmaya-bhatnagar-anoushka-maskey-apoorva-krishna/',
