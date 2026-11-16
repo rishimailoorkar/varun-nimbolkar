@@ -16,6 +16,8 @@ import { SiteFooter } from './components/SiteFooter';
 import { ContactPage } from './components/ContactPage';
 import { ContactCTA } from './components/ContactCTA';
 import { PagePreloader } from './components/PagePreloader';
+import { AudioPlayerProvider } from './context/AudioPlayerContext';
+import { GlobalAudioPlayer } from './components/GlobalAudioPlayer';
 
 const inverted = location.pathname.startsWith("/color");
 document.documentElement.classList.toggle("color-home", inverted);
@@ -134,15 +136,38 @@ function App() {
     return () => { cancelAnimationFrame(frame); removeEventListener('scroll', schedule); removeEventListener('resize', schedule); media.removeEventListener('change', setup); reset(); };
   }, [path, hash]);
 
-  if (isCollabRoute(path, hash)) return <PagePreloader key="collab"><CollabPage/></PagePreloader>;
-  if (isAboutRoute(path, hash)) return <PagePreloader key="about"><AboutPage/></PagePreloader>;
-  if (path.startsWith("/gallery")) return <PagePreloader key="gallery"><GalleryPage/></PagePreloader>;
-  if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;
-  if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
-  if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
-  return <PagePreloader key={path}><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>
-    <HomeSections/>
-    <ContactCTA/>
-  </main><SiteFooter/></PagePreloader>;
+  const renderContent = () => {
+    if (isCollabRoute(path, hash)) return <PagePreloader key="collab"><CollabPage/></PagePreloader>;
+    if (isAboutRoute(path, hash)) return <PagePreloader key="about"><AboutPage/></PagePreloader>;
+    if (path.startsWith("/gallery")) return <PagePreloader key="gallery"><GalleryPage/></PagePreloader>;
+    if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;
+    if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
+    if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
+    return (
+      <PagePreloader key={path}>
+        <a className="skip-link" href="#about">Skip to content</a>
+        <Navbar/>
+        <main id="top">
+          <HeroSection inverted={inverted}/>
+          <HomeSections/>
+          <ContactCTA/>
+        </main>
+        <SiteFooter/>
+      </PagePreloader>
+    );
+  };
+
+  return (
+    <>
+      {renderContent()}
+      <GlobalAudioPlayer currentPath={path} />
+    </>
+  );
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <AudioPlayerProvider>
+      <App />
+    </AudioPlayerProvider>
+  </React.StrictMode>
+);
