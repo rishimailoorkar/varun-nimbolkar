@@ -13,7 +13,7 @@ export function SiteFooter() {
       ].map(([label, url]) => <a key={label} href={url} target="_blank" rel="noopener noreferrer">{label}<ArrowUpRight width={14} height={14} aria-hidden="true"/></a>)}</nav>
       <div className="footer-cta"><h2>Let’s make<br/>something sound</h2><a href="/varun-nimbolkar-epk.pdf" download="Varun-Nimbolkar-EPK.pdf"><Download width={20} height={20} aria-hidden="true"/>Download EPK</a></div>
     </div>
-    <div className="footer-bottom"><span>© {new Date().getFullYear()} VARUN NIMBOLKAR</span><span>THE TUNES WHERE TRADITION MEETS ELECTRONICA.</span><a href="#top">BACK TO TOP <ArrowUp width={17} height={17} aria-hidden="true"/></a></div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} VARUN NIMBOLKAR</span><span>THE TUNES WHERE TRADITION MEETS GENRE-DEFYING AUDACIOUS ELECTRONIC SOUNDS</span><a href="#top">BACK TO TOP <ArrowUp width={17} height={17} aria-hidden="true"/></a></div>
     <div className="footer-art" aria-hidden="true"/>
   </footer>;
 }
