@@ -570,3 +570,12 @@
   .music-page .mobile-nav-book{border-color:#161616;color:#161616}
   .music-page .mobile-nav-book:hover{background:#161616;color:#fff}
 }
+
+.wordmark{display:inline-flex;align-items:center;flex:0 0 auto;text-decoration:none}
+.wordmark-logo{display:block;height:clamp(28px,2.8vw,36px);width:auto;aspect-ratio:164/49;object-fit:contain;transition:opacity .2s ease}
+.wordmark:hover .wordmark-logo,.music-home-link:hover .wordmark-logo{opacity:.85}
+.music-home-link{display:inline-flex;align-items:center}
+.music-home-link .wordmark-logo{display:block;height:clamp(28px,2.8vw,36px);width:auto;aspect-ratio:164/49;object-fit:contain}
+@media(max-width:760px){
+  .wordmark-logo,.music-home-link .wordmark-logo{height:28px}
+}

@@ -54,7 +54,16 @@ export function Navbar() {
   };
 
   return <header className="navbar" ref={nav} onKeyDown={e => { if (e.key === 'Escape') { setMore(false); setMobile(false); moreButton.current?.focus(); } }}>
-    <a className="wordmark" href="/" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/'); }}>VARUN NIMBOLKAR</a>
+    <a className="wordmark" href="/" aria-label="Varun Nimbolkar home" onClick={e => { e.preventDefault(); navigate('/'); }}>
+      <img
+        src="/images/logo.png"
+        srcSet="/images/logo.png 1x, /images/logo@2x.png 2x"
+        alt="Varun Nimbolkar"
+        className="wordmark-logo"
+        width="134"
+        height="40"
+      />
+    </a>
     <button className="menu-toggle" aria-expanded={mobile} aria-controls="main-navigation" onClick={() => setMobile(!mobile)}>{mobile ? <>CLOSE <Close width={17} height={17} aria-hidden="true"/></> : <>MENU <Menu width={17} height={17} aria-hidden="true"/></>}</button>
     <nav id="main-navigation" aria-label="Main navigation" className={mobile ? 'nav-links open' : 'nav-links'}>
       {['Home', 'About', 'Music', 'Gallery'].map(label => {

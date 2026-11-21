@@ -29,6 +29,10 @@
   color: #080808;
 }
 
+.press-page .wordmark-logo {
+  filter: brightness(0);
+}
+
 .press-page .nav-links .active::after {
   background: #080808;
 }
