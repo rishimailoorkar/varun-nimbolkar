@@ -60,7 +60,7 @@ export function CollabPage() {
           <div className="collab-performance-image-wrap">
             <img
               src="/images/collab/collab-performance.webp"
-              alt="Varun Nimbolkar performing live with sitar in stage collaboration with sarangi"
+              alt="Varun Nimbolkar performing live with band ensemble under overhead neon waves"
               className="collab-performance-image"
               width="2400"
               height="1600"

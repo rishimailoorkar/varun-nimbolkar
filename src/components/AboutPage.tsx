@@ -307,7 +307,7 @@ export function AboutPage() {
         </section>
 
         {/* 5. CONTACT CTA */}
-        <ContactCTA light hideSocials />
+        <ContactCTA light />
       </main>
 
       {/* 6. SITE FOOTER */}
