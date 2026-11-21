@@ -106,6 +106,7 @@
 .contact-cta-socials{display:flex;align-items:center;gap:22px;margin-top:43px}
 .contact-cta-socials a{display:inline-flex;flex:none;border-radius:50%;transition:transform .2s,opacity .2s}
 .contact-cta-socials a:hover{transform:translateY(-3px);opacity:.8}
+.contact-cta-socials a:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .contact-cta-socials img{display:block;width:49px;height:49px}
 .contact-cta-action{flex:0 0 30%;max-width:355px}
 .contact-cta-action::before{content:'';display:block;width:52px;height:2px;margin-bottom:21px;background:#fff}

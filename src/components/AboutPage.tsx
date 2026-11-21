@@ -11,9 +11,9 @@ const SOCIALS = [
     icon: '/images/spotify.svg',
   },
   {
-    name: 'Apple Music',
-    href: 'https://music.apple.com/in/artist/varun-nimbolkar/1566186954',
-    icon: '/images/apple-music.svg',
+    name: 'Instagram',
+    href: 'https://www.instagram.com/varun_nimbolkar/',
+    icon: '/images/instagram.svg',
   },
   {
     name: 'YouTube',
@@ -21,9 +21,9 @@ const SOCIALS = [
     icon: '/images/youtube.svg',
   },
   {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/varun_nimbolkar/',
-    icon: '/images/instagram.svg',
+    name: 'Apple Music',
+    href: 'https://music.apple.com/in/artist/varun-nimbolkar/1566186954',
+    icon: '/images/apple-music.svg',
   },
 ];
 
@@ -249,7 +249,7 @@ export function AboutPage() {
                   className="about-connect-link"
                   aria-label={`${soc.name} (opens in a new tab)`}
                 >
-                  <img src={soc.icon} alt="" width={38} height={38} />
+                  <img src={soc.icon} alt="" width={49} height={49} />
                 </a>
               ))}
             </nav>
