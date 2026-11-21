@@ -8,7 +8,6 @@ import '../gallery.css';
 
 type Photo = typeof photos[number];
 
-const FILTERS = ['All', 'Live & Stage', 'Portraits', 'Sitar & Craft', 'Ensemble'];
 const SIZES = '(max-width: 540px) 92vw, (max-width: 900px) 46vw, (max-width: 1280px) 30vw, 22vw';
 
 function Thumbnail({
@@ -299,52 +298,12 @@ function Lightbox({
 }
 
 export function GalleryPage() {
-  const [filter, setFilter] = useState('All');
   const [selected, setSelected] = useState<number | null>(null);
-
-  // Filter photos based on editorial categories
-  const visible = photos.filter(
-    (photo) => filter === 'All' || photo.categories.includes(filter)
-  );
+  const visible = photos;
 
   useEffect(() => {
     document.title = 'Gallery — Varun Nimbolkar';
   }, []);
-
-  // Mouse drag support for category pills
-  const filtersRef = useRef<HTMLDivElement>(null);
-  const isDraggingRef = useRef(false);
-  const startXRef = useRef(0);
-  const scrollLeftRef = useRef(0);
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    const el = filtersRef.current;
-    if (!el) return;
-    isDraggingRef.current = true;
-    startXRef.current = e.pageX - el.offsetLeft;
-    scrollLeftRef.current = el.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    isDraggingRef.current = false;
-  };
-
-  const handleMouseUp = () => {
-    isDraggingRef.current = false;
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDraggingRef.current || !filtersRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - filtersRef.current.offsetLeft;
-    const walk = (x - startXRef.current) * 1.5;
-    filtersRef.current.scrollLeft = scrollLeftRef.current - walk;
-  };
-
-  const handleFilterChange = (category: string) => {
-    setFilter(category);
-    setSelected(null);
-  };
 
   return (
     <div className="gallery-page">
@@ -368,39 +327,10 @@ export function GalleryPage() {
           </div>
         </section>
 
-        {/* STICKY EDITORIAL FILTER BAR & COLLECTION */}
+        {/* CURATED EDITORIAL COLLECTION */}
         <section className="gallery-collection" aria-label="Curated photograph gallery">
-          <div className="gallery-filter-row">
-            <div
-              ref={filtersRef}
-              className="gallery-filters"
-              role="group"
-              aria-label="Filter photographs by category"
-              onMouseDown={handleMouseDown}
-              onMouseLeave={handleMouseLeave}
-              onMouseUp={handleMouseUp}
-              onMouseMove={handleMouseMove}
-            >
-              {FILTERS.map((label) => (
-                <button
-                  key={label}
-                  type="button"
-                  aria-pressed={filter === label}
-                  onClick={() => handleFilterChange(label)}
-                  className={`gallery-filter-btn ${filter === label ? 'gallery-filter-btn--active' : ''}`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
-            <span className="gallery-count" role="status">
-              {visible.length} {visible.length === 1 ? 'photograph' : 'photographs'}
-            </span>
-          </div>
-
           {/* EDITORIAL MASONRY GRID */}
-          <div className="gallery-masonry" key={filter}>
+          <div className="gallery-masonry">
             {visible.map((photo, index) => (
               <Thumbnail
                 key={photo.id}

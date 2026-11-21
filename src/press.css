@@ -260,6 +260,10 @@
   padding-bottom: 0;
 }
 
+.press-card:last-child {
+  border-right: none;
+}
+
 .press-card-media {
   position: relative;
   width: 100%;

@@ -20,6 +20,27 @@ export interface PressArticle {
 const PRESS_ARTICLES: PressArticle[] = [
   {
     number: '01',
+    date: 'September 2026',
+    publication: 'MID-DAY',
+    headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
+    url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+  },
+  {
+    number: '02',
+    date: 'October 2025',
+    publication: 'HOMEGROWN MAGAZINE',
+    headline: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
+    url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
+  },
+  {
+    number: '03',
+    date: 'October 2025',
+    publication: 'THE INDIAN MUSIC DIARIES',
+    headline: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
+    url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
+  },
+  {
+    number: '04',
     date: '26 July 2025',
     publication: 'THE NAVHIND TIMES — ZEST',
     headline: 'Strings and Stories',
@@ -28,34 +49,13 @@ const PRESS_ARTICLES: PressArticle[] = [
     clippingImage: '/images/press kit/strings-and-stories.webp',
   },
   {
-    number: '02',
+    number: '05',
     date: '21 September 2026',
     publication: 'MID-DAY — THE GUIDE',
     headline: 'String Theory',
     author: 'Devashish Kamble',
     content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
     clippingImage: '/images/press kit/string-theory.webp',
-  },
-  {
-    number: '03',
-    date: 'October 2025',
-    publication: 'HOMEGROWN MAGAZINE',
-    headline: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
-    url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
-  },
-  {
-    number: '04',
-    date: 'October 2025',
-    publication: 'THE INDIAN MUSIC DIARIES',
-    headline: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
-    url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
-  },
-  {
-    number: '05',
-    date: 'January 2024',
-    publication: 'THE INDIAN MUSIC DIARIES',
-    headline: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
-    url: 'https://theindianmusicdiaries.com/varun-nimbolkars-dreams-for-a-living-ep-melds-classical-essence-with-rock-resonance/',
   },
   {
     number: '06',
@@ -66,17 +66,10 @@ const PRESS_ARTICLES: PressArticle[] = [
   },
   {
     number: '07',
-    date: 'June 2021',
+    date: 'August 2025',
     publication: 'THE INDIAN MUSIC DIARIES',
-    headline: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
-    url: 'https://theindianmusicdiaries.com/singles-roundup-29-diversify-your-playlist-with-these-latest-tracks/',
-  },
-  {
-    number: '08',
-    date: 'September 2026',
-    publication: 'MID-DAY (ONLINE)',
-    headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
-    url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+    headline: "Derek & The Cats' 'People to Meet, Places to See' is a Record Both You and Your Dad Can Dance To",
+    url: 'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/',
   },
 ];
 
@@ -137,7 +130,7 @@ export function PressPage() {
           </div>
         </section>
 
-        {/* SECTION D — EIGHT PRESS ARTICLES */}
+        {/* SECTION D — SEVEN PRESS ARTICLES */}
         <section id="press-articles" className="press-articles-section" aria-label="Press articles grid">
           <div className="press-articles-inner">
             <div className="press-grid">
