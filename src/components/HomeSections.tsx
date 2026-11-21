@@ -5,9 +5,9 @@ import { InstagramJourneySection } from './InstagramJourneySection';
 import { PressModal, type PressModalData } from './PressModal';
 
 const releases = [
-  { title: 'Watching her Dance', detail: 'Single / Featured in Rolling Stone India', image: '/images/home/watching-her-dance.png', href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6' },
+  { title: 'Watching her Dance', detail: 'EP / 2021', image: '/images/home/watching-her-dance.png', href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6' },
   { title: 'RishiKesh (Child of the Ganges)', detail: 'EP / 2022', image: '/images/home/rishikesh.png', href: 'https://open.spotify.com/search/RishiKesh%20Child%20of%20the%20Ganges%20Varun%20Nimbolkar' },
-  { title: 'The Unposted Letter', detail: 'EP / In collaboration with Saee Tembhekar', image: '/images/home/unposted-letter.png', href: 'https://open.spotify.com/search/The%20Unposted%20Letter%20Varun%20Nimbolkar' },
+  { title: 'The Unposted Letter', detail: 'EP / 2009', image: '/images/home/unposted-letter.png', href: 'https://open.spotify.com/search/The%20Unposted%20Letter%20Varun%20Nimbolkar' },
 ];
 
 function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
@@ -64,7 +64,7 @@ export function HomeSections() {
       url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
     },
     {
-      number: '06',
+      number: '03',
       date: '21 September 2026',
       source: 'MID-DAY — THE GUIDE',
       title: 'String Theory',
@@ -139,7 +139,7 @@ export function HomeSections() {
 
     <section className="home-press" id="press" aria-labelledby="press-title">
       <div className="home-wide-inner">
-        <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">Press Kit</h2></div><a className="press-view" href="/press">View All <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
+        <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">In The Press</h2></div><a className="press-view" href="/press">View All <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
         <div className="press-grid">
           {homePressItems.map((item) => {
             const hasClipping = Boolean(item.clippingImage);

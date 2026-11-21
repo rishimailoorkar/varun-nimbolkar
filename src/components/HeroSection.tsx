@@ -4,7 +4,7 @@ import { HeroAudio } from './HeroAudio';
 import { ArrowDown, Play } from './Icons';
 
 export function HeroContent() {
-  return <div className="hero-content"><span className="accent"/><h1>THE TUNES WHERE TRADITION<br className="desktop-break"/> MEETS ELECTRONICA.</h1><a className="music-button" href="/music">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true"/></a></div>;
+  return <div className="hero-content"><span className="accent"/><h1>THE TUNES WHERE TRADITION<br className="desktop-break"/> MEETS GENRE-DEFYING<br className="desktop-break"/> AUDACIOUS ELECTRONIC SOUNDS</h1><a className="music-button" href="/music">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true"/></a></div>;
 }
 export function ScrollIndicator() {
   return <a className="scroll-indicator" href="#about">SCROLL TO EXPLORE<ArrowDown width={20} height={34} aria-hidden="true"/></a>;
