@@ -11,9 +11,9 @@ export function SiteFooter() {
         ['YouTube', 'https://www.youtube.com/@varunnimbolkar'],
         ['Instagram', 'https://www.instagram.com/varun_nimbolkar/'],
       ].map(([label, url]) => <a key={label} href={url} target="_blank" rel="noopener noreferrer">{label}<ArrowUpRight width={14} height={14} aria-hidden="true"/></a>)}</nav>
-      <div className="footer-tagline"><h2>The tunes where tradition meets genre-defying audacious electronic sounds</h2></div>
+      <div className="footer-tagline"><h2>THE TUNES WHERE TRADITION<br/>MEETS ELECTRONICA</h2></div>
     </div>
-    <div className="footer-bottom"><span>© {new Date().getFullYear()} VARUN NIMBOLKAR</span><a href="#top">BACK TO TOP <ArrowUp width={17} height={17} aria-hidden="true"/></a></div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} VARUN NIMBOLKAR</span><span>THE TUNES WHERE TRADITION MEETS ELECTRONICA</span><a href="#top">BACK TO TOP <ArrowUp width={17} height={17} aria-hidden="true"/></a></div>
     <div className="footer-art" aria-hidden="true"/>
   </footer>;
 }

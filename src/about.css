@@ -27,10 +27,6 @@
   color: #0a0a0a;
 }
 
-.about-page .wordmark-logo {
-  filter: brightness(0);
-}
-
 .about-page .nav-links .active:after {
   background: #0a0a0a;
 }
