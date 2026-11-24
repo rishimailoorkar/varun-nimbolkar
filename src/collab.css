@@ -33,6 +33,10 @@
   color: #080808;
 }
 
+.collab-page .wordmark-logo {
+  filter: brightness(0);
+}
+
 .collab-page .nav-links .active::after {
   background: #080808;
 }

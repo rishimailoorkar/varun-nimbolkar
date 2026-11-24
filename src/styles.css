@@ -557,7 +557,8 @@
 .journey-step>.enquiry-field{margin-bottom:25px}.journey-fields{display:grid;grid-template-columns:1fr 1fr;gap:25px 20px}.journey-step .enquiry-consent{display:flex;margin-top:25px}
 .journey-actions{display:flex;justify-content:flex-end;align-items:center;gap:20px;margin-top:30px}.journey-back{min-height:48px;padding:0 16px;color:#444}
 .footer-tagline{display:flex;flex-direction:column;justify-content:flex-start}
-.footer-tagline h2{font:400 clamp(22px,1.9vw,29px)/1.22 Tinos,serif;margin:0;color:#f7f3eb;letter-spacing:-.02em}
+.footer-tagline h2{font:400 clamp(15px,1.2vw,18px)/1.35 Tinos,serif;margin:0;color:#d8d2d6;letter-spacing:.04em;text-transform:uppercase}
+.footer-bottom-tagline{text-align:center;line-height:1.4}
 @media(max-width:1100px){.footer-tagline{grid-column:auto}}
 @media(max-width:760px){.footer-tagline{grid-column:1/-1}}
 @media(max-width:900px){.booking-journey-layout{grid-template-columns:1fr}.booking-journey-layout .booking-aside>img{max-width:420px;aspect-ratio:4/3}.booking-journey-layout .booking-aside{max-width:620px}}
@@ -576,4 +577,10 @@
 }
 
 .wordmark{display:inline-flex;align-items:center;flex:0 0 auto;text-decoration:none}
+.wordmark-logo{display:block;height:clamp(28px,2.8vw,36px);width:auto;aspect-ratio:164/49;object-fit:contain;transition:opacity .2s ease}
+.wordmark:hover .wordmark-logo,.music-home-link:hover .wordmark-logo{opacity:.85}
 .music-home-link{display:inline-flex;align-items:center}
+.music-home-link .wordmark-logo{display:block;height:clamp(28px,2.8vw,36px);width:auto;aspect-ratio:164/49;object-fit:contain}
+@media(max-width:760px){
+  .wordmark-logo,.music-home-link .wordmark-logo{height:28px}
+}
