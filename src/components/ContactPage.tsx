@@ -40,7 +40,7 @@ export function ContactPage() {
   finally { setSending(false); }
  };
  return <div className="contact-page"><Navbar/><main id="top">
-  <section className="booking-intro"><span className="home-kicker">BOOKINGS & COLLABORATIONS</span><h1>Let’s make<br/><em>something sound.</em></h1><p>For the stage, the studio, or a story waiting to be told.<br/>Bring your vision. Let’s find its sound.</p></section>
+  <section className="booking-intro"><span className="home-kicker">BOOKINGS & COLLABORATIONS</span><h1>Let’s make<br/><em>something sound.</em></h1></section>
   <section className="booking-layout booking-journey-layout" aria-labelledby="enquiry-title"><aside className="booking-aside"><img src="/images/contact-varun.jpg" alt="Varun Nimbolkar performing on sitar under red stage lights" width="1600" height="1067"/><p>Every project starts with a conversation.</p><a className="booking-social booking-email" href="mailto:varun.nimbolkar@gmail.com">varun.nimbolkar@gmail.com <ArrowUpRight width={18} height={18}/></a></aside>
   <div className="booking-form-wrap"><div className="journey-progress"><span>{String(step+1).padStart(2,'0')} <span>/ 04</span></span><div className="journey-checkpoints" aria-label="Enquiry progress">{['The idea','The details','The story','Your details'].map((label,index)=><button key={label} type="button" className={index<=step?'reached':''} aria-label={`Step ${index+1}: ${label}`} aria-current={index===step?'step':undefined} disabled={index>furthest} onClick={()=>setStep(index)}><span>{index<step?'✓':index+1}</span></button>)}</div></div>
   <form onSubmit={submit} className="booking-form booking-journey" ref={formRef}>
