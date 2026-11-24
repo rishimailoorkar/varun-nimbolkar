@@ -212,19 +212,19 @@ export function AboutPage() {
                 </h1>
 
                 <p className="about-bio-lead">
-                  Varun Nimbolkar is an Indian composer, producer &amp; a sitar player who walked away from a 12-year career as a professional Chartered Accountant to build a musical world without borders.
+                  Varun Nimbolkar is an Indian composer, producer and sitar player who left behind a 12-year career as a Chartered Accountant to pursue a musical world without borders.
                 </p>
 
                 <p className="about-bio-text">
-                  Rooted in over 15 years of rigorous Hindustani classical training under maestros Ustad Usman Khan and Pt. Kushal Das and with a brief background in vocals, piano &amp; production, Varun reimagines the sitar for the modern stage. Through his solo electronic IP <em>The Sitara Devi Project</em> and his live ensemble <em>The Sitara Devi &amp; her Bois</em>, he weaves acoustic and electric sitars into ambient as well as heavy electronic soundscapes, drum 'n' bass rhythms, and blues, folk &amp; rock dynamics—turning traditional raagas into cinematic, story-driven experiences.
+                  With over 15 years of Hindustani classical training under maestros Ustad Usman Khan and Pt. Kushal Das, Varun brings a contemporary perspective to the sitar. Through his solo electronic project <em>The Sitara Devi Project</em> and live ensemble <em>The Sitara Devi &amp; Her Bois</em>, he blends traditional raagas with ambient textures, electronic beats, drum 'n' bass, blues, folk and rock.
                 </p>
 
                 <p className="about-bio-text">
-                  From headlining stages across India and releasing his genre-defying EP <em>Bah Bah Black Sheep</em> amongst other releases to touring the UK and Europe at festivals like World Yoga Festival and Mind Body Spirit, Varun crafts music for the fiercely independent and the deeply curious.
+                  From performing across India to touring the UK and Europe, including festivals such as World Yoga Festival and Mind Body Spirit, his music creates cinematic, genre-defying experiences rooted in tradition yet driven by experimentation.
                 </p>
 
                 <p className="about-bio-text">
-                  Always a believer in original creations, he is a storyteller who approaches every composition with equal parts analytical precision and wild artistic rebellion. Offstage, he is a devoted father and a daily practitioner of breath-work and meditation.
+                  An original storyteller at heart, Varun approaches every composition with analytical precision and artistic rebellion.
                 </p>
               </div>
             </div>
