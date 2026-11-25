@@ -138,6 +138,7 @@ function App() {
   if (isAboutRoute(path, hash)) return <PagePreloader key="about"><AboutPage/></PagePreloader>;
   if (path.startsWith("/gallery")) return <PagePreloader key="gallery"><GalleryPage/></PagePreloader>;
   if (path.startsWith("/contact") || path.startsWith("/book")) return <PagePreloader key="contact"><ContactPage/></PagePreloader>;
+  if (path.startsWith("/newmusicplayer")) return <PagePreloader key="newmusicplayer" music><MusicPage recordIsland/></PagePreloader>;
   if (isPressRoute(path, hash)) return <PagePreloader key="press"><PressPage/></PagePreloader>;
   if (path.startsWith("/music")) return <PagePreloader key="music" music><MusicPage/></PagePreloader>;
   return <PagePreloader key={path}><a className="skip-link" href="#about">Skip to content</a><Navbar/><main id="top"><HeroSection inverted={inverted}/>

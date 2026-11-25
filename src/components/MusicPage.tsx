@@ -2,7 +2,7 @@ import { ArrowUpRight, ArrowDown } from './Icons';
 import { useEffect, useRef } from 'react';
 import { SiteFooter } from './SiteFooter';
 import { ContactCTA } from './ContactCTA';
-export function MusicPage() {
+export function MusicPage({ recordIsland = false }: { recordIsland?: boolean }) {
  const frame = useRef<HTMLIFrameElement>(null);
  useEffect(() => {
   document.title = 'Music — Varun Nimbolkar';
@@ -10,7 +10,7 @@ export function MusicPage() {
   const el = frame.current;
   const loaded = () => {
    const body = el?.contentDocument?.body;
-   if (!el || !body || !el.contentDocument?.URL.includes('/music-turntable.html')) return;
+   if (!el || !body || !el.contentDocument?.URL.includes(recordIsland ? '/music-record-island.html' : '/music-turntable.html')) return;
    observer?.disconnect();
    const resize = () => { el.style.height = `${Math.ceil(body.getBoundingClientRect().height)}px`; };
    observer = new ResizeObserver(resize);
@@ -19,11 +19,11 @@ export function MusicPage() {
   };
   el?.addEventListener('load', loaded); loaded();
   return () => { observer?.disconnect(); el?.removeEventListener('load', loaded); };
- }, []);
+ }, [recordIsland]);
  return <main className="music-page-shell" id="top">
   <header className="music-page-navbar"><a href="/" className="music-home-link" aria-label="Return to homepage"><img src="/images/logo.webp" srcSet="/images/logo.webp 1x, /images/logo@2x.webp 2x" alt="Varun Nimbolkar" className="wordmark-logo" width="134" height="40" /></a><span className="music-navbar-label">THE LISTENING ROOM</span><a href="/contact" className="music-exit">BOOK VARUN <ArrowUpRight width={20} height={20} aria-hidden="true" /></a></header>
   <section className="music-page-hero" aria-labelledby="music-page-heading"><span className="music-page-kicker">VARUN NIMBOLKAR / MUSIC</span><h1 id="music-page-heading">Discover the <em>Soul</em><br/>of My <span>Music</span></h1><p>Where classical strings meet a restless electric spirit.</p><a className="music-scroll" href="#music-player">SCROLL TO LISTEN <ArrowDown width={20} height={20} aria-hidden="true" /></a></section>
-  <section id="music-player" className="music-player-section"><iframe ref={frame} title="Interactive turntable and Spotify player" src="/music-turntable.html" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" /></section>
+  <section id="music-player" className="music-player-section"><iframe ref={frame} title={recordIsland ? 'Interactive Record Island music player' : 'Interactive turntable and Spotify player'} src={recordIsland ? '/music-record-island.html' : '/music-turntable.html'} allow="autoplay; encrypted-media; fullscreen; picture-in-picture" /></section>
   <ContactCTA light />
   <SiteFooter />
  </main>;
