@@ -67,10 +67,9 @@
 .book-button{border-radius:40px;font-size:12px;letter-spacing:.12em;padding:14px 22px}
 .hero::after{content:'';position:absolute;left:4%;right:4%;bottom:66px;height:1px;background:#ffffff40;z-index:2;pointer-events:none}
 .hero-presenting{position:absolute;z-index:2;left:4%;bottom:126px;color:var(--cream)}
-.hero-presenting p{font:400 clamp(32px,3.4vw,52px)/.97 Tinos,serif;margin:0 0 10px}
+.hero-presenting p{font:400 clamp(32px,3.4vw,52px)/.97 Tinos,serif;margin:0}
 .hero-subtitle{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);opacity:.85}
-.hero-content{left:auto;right:4%;bottom:100px}
-.hero-content h1{margin-bottom:18px;line-height:1.35}
+.hero-content{position:absolute;left:50%;transform:translateX(-50%);bottom:95px;right:auto;z-index:3;display:flex;justify-content:center}
 .hero-content .music-button{border-radius:40px;font-size:13px;letter-spacing:.09em;padding:15px 23px;gap:30px}
 .sound-toggle{left:4%;bottom:18px;border:0;border-radius:0;background:transparent;backdrop-filter:none;padding:5px 0;font-size:10px;letter-spacing:.18em}
 .sound-toggle:hover{background:transparent;color:var(--cream);opacity:.7}
@@ -80,21 +79,20 @@
 @media(max-width:760px){
   .navbar{padding-inline:6%}.navbar::after{left:6%;right:6%}
   .nav-links{left:0;right:0;top:var(--nav-height);transform:none;gap:5px;font-size:14px}
-  .hero{--hero-image-height:clamp(470px,62svh,560px);min-height:calc(var(--hero-image-height) + 360px)}
+  .hero{--hero-image-height:clamp(470px,62svh,560px);min-height:calc(var(--hero-image-height) + 150px)}
   .hero-fallback,.trail-canvas{height:var(--hero-image-height)}
   .readability-overlay{height:calc(var(--hero-image-height) + 10px)}
-  .hero-presenting{left:6%;top:calc(var(--hero-image-height) - 128px);bottom:auto}
-  .hero-presenting p{font-size:36px;margin:0 0 6px}
+  .hero-presenting{left:6%;top:calc(var(--hero-image-height) - 95px);bottom:auto}
+  .hero-presenting p{font-size:32px;margin:0}
   .hero-subtitle{font-size:9.5px;letter-spacing:.14em}
-  .hero-content{top:calc(var(--hero-image-height) + 28px);left:6%;right:6%;bottom:auto}
-  .hero-content h1{font-size:13.5px;line-height:1.4;margin-bottom:16px}
+  .hero-content{top:calc(var(--hero-image-height) + 24px);left:50%;transform:translateX(-50%);right:auto;bottom:auto;display:flex;justify-content:center}
   .hero-content .music-button{font-size:12px;padding:14px 21px;min-height:46px}
   .hero::after{left:6%;right:6%;bottom:67px}
   .sound-toggle{left:6%;bottom:18px;font-size:9px}
   .scroll-indicator{right:6%;bottom:21px;font-size:9px;letter-spacing:.1em}
   .scroll-indicator svg{width:15px;height:15px}
 }
-@media(max-width:390px){.hero{min-height:calc(var(--hero-image-height) + 380px)}.scroll-indicator{font-size:8px}}
+@media(max-width:390px){.hero{min-height:calc(var(--hero-image-height) + 160px)}.scroll-indicator{font-size:8px}}
 
 /* Shared contact invitation above the footer. */
 .contact-cta-section{padding:clamp(36px,4vw,70px) 4% clamp(46px,5vw,85px);background:#080808;color:#fff}

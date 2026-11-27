@@ -4,7 +4,7 @@ import { HeroAudio } from './HeroAudio';
 import { ArrowDown, Play } from './Icons';
 
 export function HeroContent() {
-  return <div className="hero-content"><span className="accent"/><h1>THE TUNES WHERE TRADITION MEETS<br className="desktop-break"/> GENRE-DEFYING AUDACIOUS ELECTRONIC SOUNDS</h1><a className="music-button" href="/music">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true"/></a></div>;
+  return <div className="hero-content"><a className="music-button" href="/music">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true"/></a></div>;
 }
 export function ScrollIndicator() {
   return <a className="scroll-indicator" href="#about">SCROLL TO EXPLORE<ArrowDown width={20} height={34} aria-hidden="true"/></a>;
@@ -14,7 +14,7 @@ export function HeroSection({ inverted = false }: { inverted?: boolean }) {
   return <section id="home" className="hero" ref={surface} aria-label="Varun Nimbolkar performing with sitar">
     <img className="hero-fallback" src={inverted ? "/images/neon-aligned.webp" : "/images/monochrome.webp"} alt="Varun Nimbolkar seated onstage playing the sitar" fetchPriority="high" width="1672" height="941"/>
     <NoisyTrailCanvas surface={surface} inverted={inverted}/><div className="readability-overlay" aria-hidden="true"/>
-    <div className="hero-presenting"><p>Varun<br/>Nimbolkar</p><span className="hero-subtitle">Composer · Producer · Sitar Player</span></div>
+    <div className="hero-presenting"><p>The Sitara Devi<br/>Project</p></div>
     <HeroContent/><ScrollIndicator/><HeroAudio surface={surface}/>
   </section>;
 }

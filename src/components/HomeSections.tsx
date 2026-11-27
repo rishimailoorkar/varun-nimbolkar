@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react';
 import { ArrowUpRight, Play } from './Icons';
-import { SelectedWork } from './SelectedWork';
 import { InstagramJourneySection } from './InstagramJourneySection';
 import { PressModal, type PressModalData } from './PressModal';
 
@@ -109,15 +108,6 @@ export function HomeSections() {
           <div data-parallax="0.06"><strong>1.3K+</strong><p>Dedicated followers across his independent music catalogue.</p></div>
           <div data-parallax="0.07"><strong>12 MONTHS</strong><p>Nationwide in-store rotation of the single Watching Her Dance through FabIndia.</p></div>
         </div>
-      </div>
-    </section>
-
-    <SelectedWork />
-
-    <section className="home-interlude" id="live" aria-label="Varun Nimbolkar performing live">
-      <div className="home-interlude-stage">
-        <img src="/images/home/performance-parallax.png" width="1440" height="961" loading="lazy" alt="Varun Nimbolkar and a fellow musician performing on stage" />
-        <div className="home-interlude-caption"><span>COMPOSER / PRODUCER / SITARIST</span><span>CLASSICAL ROOTS. ELECTRIC SOUL.</span></div>
       </div>
     </section>
 
