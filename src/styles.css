@@ -169,7 +169,7 @@
 .home-albums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:65px}
 .home-album{min-width:0;overflow:hidden;border:1px solid #e5e0db;border-radius:12px;background:#fff;box-shadow:0 8px 25px #0000000b}
 .home-album>img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
-.home-album-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:79px;padding:15px 16px}
+.home-album-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:84px;padding:15px 16px}
 .home-album-caption h3{margin:0;font:400 clamp(17px,1.6vw,22px)/1.15 Tinos,serif}
 .home-album-caption p{margin:6px 0 0;color:#999;font-size:10px;line-height:1.4}
 .home-album-caption>a{display:grid;flex:none;place-items:center;width:36px;height:36px;border:1px solid #777;border-radius:50%;transition:background .2s,color .2s}

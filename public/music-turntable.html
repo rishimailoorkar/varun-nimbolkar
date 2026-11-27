@@ -189,7 +189,7 @@ button{cursor:pointer;color:inherit;font-family:inherit}button:focus-visible{out
         <div class="arm" id="arm"><div class="headshell"></div></div>
         <div class="avatar"></div>
         <div class="slider"><span></span><span></span></div>
-        <div class="side-text"><strong>Varun</strong><small id="turntableTrack">Watching Her Dance · 1 / 5</small></div>
+        <div class="side-text"><strong>Varun</strong><small id="turntableTrack">Meera · 1 / 10</small></div>
         <button class="play-btn" id="playBtn" aria-label="Toggle turntable">
           <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         </button>
@@ -208,7 +208,7 @@ button{cursor:pointer;color:inherit;font-family:inherit}button:focus-visible{out
       <div id="spotify-player"></div>
       <div class="queue-toolbar" aria-label="Track controls">
         <button class="queue-nav" id="previousTrack" type="button" aria-label="Previous track">&#8592;</button>
-        <div class="queue-now"><strong id="currentTrackTitle">Watching Her Dance</strong><span id="trackPosition">Track 1 of 5</span></div>
+        <div class="queue-now"><strong id="currentTrackTitle">Meera</strong><span id="trackPosition">Track 1 of 10</span></div>
         <button class="queue-nav" id="nextTrack" type="button" aria-label="Next track">&#8594;</button>
       </div>
       <div class="track-queue" id="trackQueue" aria-label="Varun Nimbolkar track queue"></div>
@@ -237,11 +237,16 @@ const trackPosition = document.getElementById('trackPosition');
 const trackQueue = document.getElementById('trackQueue');
 const turntableTrack = document.getElementById('turntableTrack');
 const tracks=[
+  {id:'7lDrYmlCO2YzFSLLzlmyRv',title:'Meera'},
+  {id:'73A1OKz2pcuu7FlPMpglpB',title:'Amrita 2.0'},
+  {id:'4evm9RtGfq6V8kGJEB4qU5',title:"Queen's Bath"},
+  {id:'0Gz7XEiXXFldwytS3MQh7Z',title:'!Okay'},
+  {id:'4rtUWUAqAWLh0jJIdAPRDl',title:'Amrita'},
+  {id:'6djK9hRBbatFZ4EaiVMTB5',title:'Rosemary, For Remembrance'},
+  {id:'1T697gcRlo6nVYzKj6ryNL',title:'Remnants'},
+  {id:'1iIMMjVR4YMSoLkXwI4qLR',title:'Rishikesh (Child of the Ganges)'},
   {id:'6SGGfkRmvRVJzdOimZFEa6',title:'Watching Her Dance'},
-  {id:'7lDrYmlCO2YzFSLLzlmyRv',title:'Spotify Track 02'},
-  {id:'4rtUWUAqAWLh0jJIdAPRDl',title:'Spotify Track 03'},
-  {id:'1xuLfcXNcA3J2qLZGFQ3kB',title:'The Unposted Letter'},
-  {id:'1iIMMjVR4YMSoLkXwI4qLR',title:'Rishikesh (Child of the Ganges)'}
+  {id:'1xuLfcXNcA3J2qLZGFQ3kB',title:'The Unposted Letter'}
 ];
 let currentTrackIndex=0;
 let controller=null,ready=false;

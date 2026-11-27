@@ -4,9 +4,66 @@ import { InstagramJourneySection } from './InstagramJourneySection';
 import { PressModal, type PressModalData } from './PressModal';
 
 const releases = [
-  { title: 'Watching her Dance', detail: 'EP / 2021', image: '/images/home/watching-her-dance.png', href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6' },
-  { title: 'RishiKesh (Child of the Ganges)', detail: 'EP / 2022', image: '/images/home/rishikesh.png', href: 'https://open.spotify.com/search/RishiKesh%20Child%20of%20the%20Ganges%20Varun%20Nimbolkar' },
-  { title: 'The Unposted Letter', detail: 'EP / 2009', image: '/images/home/unposted-letter.png', href: 'https://open.spotify.com/search/The%20Unposted%20Letter%20Varun%20Nimbolkar' },
+  {
+    title: 'Meera',
+    detail: '2026 · Single',
+    image: '/images/discovery%20section/meera.webp',
+    href: 'https://open.spotify.com/track/7lDrYmlCO2YzFSLLzlmyRv?autoplay_ok=1',
+  },
+  {
+    title: 'Amrita 2.0',
+    detail: '2025 · EP – Bah Bah Black Sheep',
+    image: '/images/discovery%20section/amritha%202.0.webp',
+    href: 'https://open.spotify.com/track/73A1OKz2pcuu7FlPMpglpB?autoplay_ok=1',
+  },
+  {
+    title: "Queen's Bath",
+    detail: '2025 · EP – Bah Bah Black Sheep',
+    image: '/images/discovery%20section/queens%20bath.webp',
+    href: 'https://open.spotify.com/track/4evm9RtGfq6V8kGJEB4qU5?autoplay_ok=1',
+  },
+  {
+    title: '!Okay',
+    detail: '2025 · EP – Bah Bah Black Sheep',
+    image: '/images/discovery%20section/!Okay.webp',
+    href: 'https://open.spotify.com/track/0Gz7XEiXXFldwytS3MQh7Z?autoplay_ok=1',
+  },
+  {
+    title: 'Amrita',
+    detail: '2025 · Single / EP track – Bah Bah Black Sheep',
+    image: '/images/discovery%20section/amrita.webp',
+    href: 'https://open.spotify.com/track/4rtUWUAqAWLh0jJIdAPRDl?autoplay_ok=1',
+  },
+  {
+    title: 'Rosemary, For Remembrance',
+    detail: '2023 · Single',
+    image: '/images/discovery%20section/rosemary.webp',
+    href: 'https://open.spotify.com/track/6djK9hRBbatFZ4EaiVMTB5?autoplay_ok=1',
+  },
+  {
+    title: 'Remnants',
+    detail: '2023 · Single – Dreams For A Living',
+    image: '/images/discovery%20section/remnanrts.webp',
+    href: 'https://open.spotify.com/track/1T697gcRlo6nVYzKj6ryNL?autoplay_ok=1',
+  },
+  {
+    title: 'Rishikesh (Child of the Ganges)',
+    detail: '2022 · Single',
+    image: '/images/discovery%20section/rishikesh.webp',
+    href: 'https://open.spotify.com/track/1iIMMjVR4YMSoLkXwI4qLR?autoplay_ok=1',
+  },
+  {
+    title: 'Watching Her Dance',
+    detail: '2021 · Single',
+    image: '/images/discovery%20section/Watching%20her%20dance.webp',
+    href: 'https://open.spotify.com/track/6SGGfkRmvRVJzdOimZFEa6?autoplay_ok=1',
+  },
+  {
+    title: 'The Unposted Letter',
+    detail: '2021 · Single',
+    image: '/images/discovery%20section/the%20unposted%20letter.webp',
+    href: 'https://open.spotify.com/track/1xuLfcXNcA3J2qLZGFQ3kB?autoplay_ok=1',
+  },
 ];
 
 function useScrollMotion(root: RefObject<HTMLDivElement | null>) {
