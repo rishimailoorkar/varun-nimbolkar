@@ -110,7 +110,7 @@ export function HomeSections() {
       source: 'Homegrown Magazine',
       date: 'October 2025',
       title: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20234948.png',
+      image: '/images/press%20kit/Screenshot%202026-11-27%20234948.webp',
       url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
     },
     {
@@ -118,7 +118,7 @@ export function HomeSections() {
       source: 'The Indian Music Diaries',
       date: 'October 2025',
       title: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235023.png',
+      image: '/images/press%20kit/Screenshot%202026-11-27%20235023.webp',
       url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
     },
     {
@@ -126,7 +126,7 @@ export function HomeSections() {
       source: 'The Indian Music Diaries',
       date: 'January 2024',
       title: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
-      image: '/images/press%20kit/dreams-for-a-living.png',
+      image: '/images/press%20kit/dreams-for-a-living.webp',
       url: 'https://theindianmusicdiaries.com/',
     },
     {
@@ -134,7 +134,7 @@ export function HomeSections() {
       source: 'Homegrown Magazine',
       date: 'February 2026',
       title: 'Art That Inspires: 7 Homegrown Musicians On The Books That Shaped Their Sound',
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235120.png',
+      image: '/images/press%20kit/Screenshot%202026-11-27%20235120.webp',
       url: 'https://homegrown.co.in/homegrown-creators/art-that-inspires-7-homegrown-musicians-on-the-books-that-shaped-their-sound',
     },
     {
@@ -142,7 +142,7 @@ export function HomeSections() {
       source: 'The Indian Music Diaries',
       date: 'June 2021',
       title: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
-      image: '/images/press%20kit/singles-roundup.png',
+      image: '/images/press%20kit/singles-roundup.webp',
       url: 'https://theindianmusicdiaries.com/',
     },
     {
@@ -150,7 +150,7 @@ export function HomeSections() {
       source: 'The Indian Music Diaries',
       date: 'Not specified in the supplied PDF',
       title: "Derek & The Cats' 'People to Meet, Places to See' is a Record Both You and Your Dad Can Dance To",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235139.png',
+      image: '/images/press%20kit/Screenshot%202026-11-27%20235139.webp',
       url: 'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/',
     },
   ];

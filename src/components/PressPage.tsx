@@ -24,7 +24,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'October 2025',
     publication: 'Homegrown Magazine',
     headline: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
-    image: '/images/press%20kit/Screenshot%202026-11-27%20234948.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20234948.webp',
     url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
   },
   {
@@ -32,7 +32,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'October 2025',
     publication: 'The Indian Music Diaries',
     headline: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
-    image: '/images/press%20kit/Screenshot%202026-11-27%20235023.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20235023.webp',
     url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
   },
   {
@@ -40,7 +40,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'January 2024',
     publication: 'The Indian Music Diaries',
     headline: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
-    image: '/images/press%20kit/dreams-for-a-living.png',
+    image: '/images/press%20kit/dreams-for-a-living.webp',
     url: 'https://theindianmusicdiaries.com/',
   },
   {
@@ -48,7 +48,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'February 2026',
     publication: 'Homegrown Magazine',
     headline: 'Art That Inspires: 7 Homegrown Musicians On The Books That Shaped Their Sound',
-    image: '/images/press%20kit/Screenshot%202026-11-27%20235120.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20235120.webp',
     url: 'https://homegrown.co.in/homegrown-creators/art-that-inspires-7-homegrown-musicians-on-the-books-that-shaped-their-sound',
   },
   {
@@ -56,7 +56,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'June 2021',
     publication: 'The Indian Music Diaries',
     headline: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
-    image: '/images/press%20kit/singles-roundup.png',
+    image: '/images/press%20kit/singles-roundup.webp',
     url: 'https://theindianmusicdiaries.com/',
   },
   {
@@ -64,7 +64,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'Not specified in the supplied PDF',
     publication: 'The Indian Music Diaries',
     headline: "Derek & The Cats' 'People to Meet, Places to See' is a Record Both You and Your Dad Can Dance To",
-    image: '/images/press%20kit/Screenshot%202026-11-27%20235139.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20235139.webp',
     url: 'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/',
   },
   {
@@ -72,7 +72,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     date: 'September 2026',
     publication: 'Mid-Day',
     headline: 'Witness this immersive fusion performance in Bandra this week with a sitar',
-    image: '/images/press%20kit/Screenshot%202026-11-27%20234929.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20234929.webp',
     url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
   },
   {
@@ -82,7 +82,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     headline: 'Strings and Stories',
     author: 'Adithi Sharma',
     content: 'Feature about the Varun Nimbolkar Collective and its debut performance in Goa.',
-    image: '/images/press%20kit/Screenshot%202026-11-27%20235046.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20235046.webp',
     clippingImage: '/images/press kit/strings-and-stories.webp',
   },
   {
@@ -92,7 +92,7 @@ const PRESS_ARTICLES: PressArticle[] = [
     headline: 'String Theory',
     author: 'Devashish Kamble',
     content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
-    image: '/images/press%20kit/Screenshot%202026-11-27%20235107.png',
+    image: '/images/press%20kit/Screenshot%202026-11-27%20235107.webp',
     clippingImage: '/images/press kit/string-theory.webp',
   },
 ];
