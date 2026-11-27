@@ -17,7 +17,7 @@ function FeaturedPress() {
     if (hovered || focused) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) setActive(index => (index + 1) % featuredArticles.length);
-    }, 9000);
+    }, 5000);
     return () => window.clearInterval(timer);
   }, [hovered, focused]);
 
@@ -26,7 +26,7 @@ function FeaturedPress() {
     onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}>
     <div className="hero-headlines">{featuredArticles.map((article, index) =>
       <div key={article.number} className="hero-headline" aria-hidden={index !== active}>
-        <strong>{article.publication}</strong><p>{article.headline}</p>
+        <strong>{article.publication}</strong><h2>{article.headline}</h2>
       </div>
     )}</div>
     <a href={featuredArticles[active].url} target="_blank" rel="noopener noreferrer"

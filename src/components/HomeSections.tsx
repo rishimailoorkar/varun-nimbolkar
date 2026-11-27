@@ -176,18 +176,16 @@ export function HomeSections() {
           <span className="home-kicker home-kicker--plain" data-parallax="0.035">DISCOGRAPHY</span>
           <h2 id="discography-title" data-parallax="0.055">For The<br/><em>Curious Ones</em></h2>
           <p data-parallax="0.035">Records that wander between sitar-driven melody, electronic atmospheres, blues and everything in between.</p>
+          <a className="home-music-button" href="/music">Enter Music Room <Play width={18} height={18} aria-hidden="true" /></a>
         </div>
         <div id="release-grid" className="home-albums">{releases.slice(firstRelease, firstRelease + 4).map(release => <article className="home-album" key={release.title} data-parallax="0.04">
           <img src={release.image} width="408" height="406" loading="lazy" alt={`${release.title} cover artwork`} />
           <div className="home-album-caption"><div><h3>{release.title}</h3><p>{release.detail}</p></div><a href={release.href} target="_blank" rel="noopener noreferrer" aria-label={`Find ${release.title} on Spotify`}><Play width={17} height={17} aria-hidden="true" /></a></div>
         </article>)}</div>
-        <div className="release-tools">
         <div className="release-pagination">
           <button type="button" disabled={releasePage === 0} aria-controls="release-grid" onClick={() => setReleasePage(releasePage - 1)} aria-label="Previous releases"><ArrowLeft aria-hidden="true" /></button>
           <span role="status">{firstRelease + 1}–{Math.min(firstRelease + 4, releases.length)} of {releases.length}</span>
           <button type="button" disabled={firstRelease + 4 >= releases.length} aria-controls="release-grid" onClick={() => setReleasePage(releasePage + 1)} aria-label="Next releases"><ArrowRight aria-hidden="true" /></button>
-        </div>
-        <a className="home-music-button" href="/music">Enter Music Room <Play width={18} height={18} aria-hidden="true" /></a>
         </div>
       </div>
     </section>
