@@ -597,7 +597,7 @@
 .artist-signature { display: block; font-size: clamp(21px, 1.65vw, 38px); line-height: .94; }
 .hero-editorial {
   position: absolute;
-  inset: 49% 4.4% auto;
+  inset: auto 5.5% 22%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -610,10 +610,10 @@
   letter-spacing: -.045em;
 }
 .project-heading p { margin: 1.45em 0 0; font-size: clamp(12px, 1.05vw, 25px); color: #c3c0bd; text-transform: uppercase; }
-.hero-feature { width: 31%; }
+.hero-feature { width: 30%; }
 .hero-feature::before { content: ''; display: block; width: 3.8vw; height: 2px; background: #a82a37; margin-bottom: 12px; }
 .hero-feature strong { font-size: clamp(11px, 1.1vw, 26px); text-transform: uppercase; letter-spacing: .12em; }
-.hero-feature p { margin: .8em 0 1.2em; font-size: clamp(19px, 1.65vw, 44px); letter-spacing: .06em; }
+.hero-feature p { margin: .65em 0; font-size: clamp(17px, 1.48vw, 38px); line-height: 1.18; letter-spacing: .035em; text-wrap: pretty; }
 .hero-feature a, .release-pagination button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid currentColor; border-radius: 50px; padding: .7em 1.4em; }
 .hero-feature a { font-size: 13px; text-transform: uppercase; }
 .hero .sound-toggle { border: 1px solid #ffffff60; border-radius: 30px; padding: 8px 13px; }
@@ -628,4 +628,19 @@
   .hero-feature { width: 100%; }
   .hero-feature p { margin: 8px 0 12px; }
   .hero .hero-content { position: static; transform: none; align-self: center; margin-top: 24px; }
+}
+
+.hero-headlines { display: grid; }
+.hero-headline { grid-area: 1 / 1; }
+.hero-headline[aria-hidden="true"] { visibility: hidden; }
+.hero-feature a { border: 0; border-radius: 0; padding: 0; text-decoration: underline; text-underline-offset: .45em; }
+.hero::after { display: none; }
+.release-tools { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px 32px; margin-top: 30px; }
+.release-tools .release-pagination { margin: 0; }
+.release-pagination button { width: 44px; height: 44px; padding: 0; }
+.release-pagination svg { width: 19px; height: 19px; }
+@media (min-width: 761px) {
+  .hero .hero-content, .hero .sound-toggle { bottom: 9%; }
+  .hero-editorial { align-items: end; }
+  body:has(.hero-editorial) .navbar .active::after { height: 2px; background: #a82a37; }
 }

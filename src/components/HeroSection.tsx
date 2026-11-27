@@ -1,7 +1,38 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NoisyTrailCanvas } from './NoisyTrailCanvas';
 import { HeroAudio } from './HeroAudio';
 import { ArrowDown, Play } from './Icons';
+
+import { PRESS_ARTICLES } from '../data/press';
+
+const featuredArticles = ['03', '02', '06'].map(number =>
+  PRESS_ARTICLES.find(article => article.number === number)!
+);
+
+function FeaturedPress() {
+  const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  useEffect(() => {
+    if (hovered || focused) return;
+    const timer = window.setInterval(() => {
+      if (!document.hidden) setActive(index => (index + 1) % featuredArticles.length);
+    }, 9000);
+    return () => window.clearInterval(timer);
+  }, [hovered, focused]);
+
+  return <aside className="hero-feature" aria-label="Featured press"
+    onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+    onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}>
+    <div className="hero-headlines">{featuredArticles.map((article, index) =>
+      <div key={article.number} className="hero-headline" aria-hidden={index !== active}>
+        <strong>{article.publication}</strong><p>{article.headline}</p>
+      </div>
+    )}</div>
+    <a href={featuredArticles[active].url} target="_blank" rel="noopener noreferrer"
+      aria-label={`Read more: ${featuredArticles[active].headline}`}>Read more</a>
+  </aside>;
+}
 
 export function HeroContent() {
   return <div className="hero-content"><a className="music-button" href="/music">EXPLORE MUSIC <Play width={20} height={20} aria-hidden="true"/></a></div>;
@@ -16,11 +47,7 @@ export function HeroSection({ inverted = false }: { inverted?: boolean }) {
     <NoisyTrailCanvas surface={surface} inverted={inverted}/><div className="readability-overlay" aria-hidden="true"/>
     <div className="hero-editorial">
       <div className="project-heading"><h1>The Sitara<br/>Devi Project</h1><p>Composer · Producer · Sitar Player</p></div>
-      <aside className="hero-feature" aria-label="Featured press">
-        <strong>{inverted ? 'Mid-Day · The Guide' : 'The Navhind Times · Zest'}</strong>
-        <p>{inverted ? 'String Theory' : 'Strings and Stories'}</p>
-        <a href={inverted ? '/images/press%20kit/string-theory.webp' : '/images/press%20kit/strings-and-stories.webp'}>Read more</a>
-      </aside>
+      <FeaturedPress/>
     </div>
     <HeroContent/><HeroAudio surface={surface}/>
   </section>;
