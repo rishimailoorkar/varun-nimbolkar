@@ -211,7 +211,7 @@ export function AboutPage() {
                   Biography
                 </h1>
 
-                <p className="about-bio-lead">
+                <p className="about-bio-text">
                   Varun Nimbolkar is an Indian composer, producer and sitar player who left behind a 12-year career as a Chartered Accountant to pursue a musical world without borders.
                 </p>
 
