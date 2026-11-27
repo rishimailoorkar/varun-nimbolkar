@@ -12,9 +12,16 @@ export function ScrollIndicator() {
 export function HeroSection({ inverted = false }: { inverted?: boolean }) {
   const surface = useRef<HTMLElement>(null);
   return <section id="home" className="hero" ref={surface} aria-label="Varun Nimbolkar performing with sitar">
-    <img className="hero-fallback" src={inverted ? "/images/neon-aligned.webp" : "/images/monochrome.webp"} alt="Varun Nimbolkar seated onstage playing the sitar" fetchPriority="high" width="1672" height="941"/>
+    <img className="hero-fallback" src={inverted ? "/images/stage-color.webp" : "/images/stage-mono.webp"} alt="Varun Nimbolkar seated onstage playing the sitar" fetchPriority="high" width="2560" height="1424"/>
     <NoisyTrailCanvas surface={surface} inverted={inverted}/><div className="readability-overlay" aria-hidden="true"/>
-    <div className="hero-presenting"><p>The Sitara Devi<br/>Project</p></div>
-    <HeroContent/><ScrollIndicator/><HeroAudio surface={surface}/>
+    <div className="hero-editorial">
+      <div className="project-heading"><h1>The Sitara<br/>Devi Project</h1><p>Composer · Producer · Sitar Player</p></div>
+      <aside className="hero-feature" aria-label="Featured press">
+        <strong>{inverted ? 'Mid-Day · The Guide' : 'The Navhind Times · Zest'}</strong>
+        <p>{inverted ? 'String Theory' : 'Strings and Stories'}</p>
+        <a href={inverted ? '/images/press%20kit/string-theory.webp' : '/images/press%20kit/strings-and-stories.webp'}>Read more</a>
+      </aside>
+    </div>
+    <HeroContent/><HeroAudio surface={surface}/>
   </section>;
 }

@@ -104,7 +104,7 @@ export function NoisyTrailCanvas({ surface, inverted = false }: { surface: RefOb
       el.addEventListener('webglcontextlost', contextLost); el.addEventListener('webglcontextrestored', contextRestored);
       document.addEventListener('visibilitychange', visibility);
       const loader = new THREE.TextureLoader();
-      Promise.all(['/images/monochrome.webp', '/images/neon-aligned.webp'].map(url => loader.loadAsync(url).then(texture => {
+      Promise.all(['/images/stage-mono.webp', '/images/stage-color.webp'].map(url => loader.loadAsync(url).then(texture => {
         if (dead) { texture.dispose(); return texture; }
         texture.minFilter = THREE.LinearFilter; texture.magFilter = THREE.LinearFilter; texture.generateMipmaps = false;
         textures.push(texture); return texture;

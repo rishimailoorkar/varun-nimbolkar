@@ -582,3 +582,50 @@
 @media(max-width:760px){
   .wordmark-logo,.music-home-link .wordmark-logo{height:28px}
 }
+
+@font-face {
+  font-family: 'Dream Avenue';
+  src: url('/fonts/dream-avenue.woff') format('woff');
+  font-display: swap;
+}
+.artist-signature, .footer-wordmark {
+  font-family: 'Dream Avenue', serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+.artist-signature { display: block; font-size: clamp(21px, 1.65vw, 38px); line-height: .94; }
+.hero-editorial {
+  position: absolute;
+  inset: 49% 4.4% auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: #faf8f5;
+}
+.project-heading h1 {
+  margin: 0;
+  font: italic 400 clamp(36px, 3.15vw, 84px)/1.04 Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: -.045em;
+}
+.project-heading p { margin: 1.45em 0 0; font-size: clamp(12px, 1.05vw, 25px); color: #c3c0bd; text-transform: uppercase; }
+.hero-feature { width: 31%; }
+.hero-feature::before { content: ''; display: block; width: 3.8vw; height: 2px; background: #a82a37; margin-bottom: 12px; }
+.hero-feature strong { font-size: clamp(11px, 1.1vw, 26px); text-transform: uppercase; letter-spacing: .12em; }
+.hero-feature p { margin: .8em 0 1.2em; font-size: clamp(19px, 1.65vw, 44px); letter-spacing: .06em; }
+.hero-feature a, .release-pagination button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid currentColor; border-radius: 50px; padding: .7em 1.4em; }
+.hero-feature a { font-size: 13px; text-transform: uppercase; }
+.hero .sound-toggle { border: 1px solid #ffffff60; border-radius: 30px; padding: 8px 13px; }
+.release-pagination { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px; font-size: 14px; }
+.release-pagination button:disabled { opacity: .35; cursor: default; }
+@media (min-width: 761px) { .home-albums { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .hero { display: flex; flex-direction: column; align-items: flex-start; min-height: 0; padding: calc(var(--hero-image-height) - 85px) 6% 95px; }
+  .hero-editorial { position: relative; inset: auto; flex-direction: column; gap: 25px; }
+  .project-heading h1 { font-size: 35px; }
+  .project-heading p { margin-top: 10px; }
+  .hero-feature { width: 100%; }
+  .hero-feature p { margin: 8px 0 12px; }
+  .hero .hero-content { position: static; transform: none; align-self: center; margin-top: 24px; }
+}

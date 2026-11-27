@@ -45,7 +45,7 @@ uniform float uTime,uNoise,uScale,uDistortion,uRgb;
 ${noise}
 void main(){
  // Identical object-fit: cover transform for both registered photographs.
- float imageAspect=1672./941.;float aspect=uSize.x/uSize.y;
+ float imageAspect=2560./1424.;float aspect=uSize.x/uSize.y;
  vec2 crop=aspect>imageAspect?vec2(1.,imageAspect/aspect):vec2(aspect/imageAspect,1.);
  vec2 uv=(vUv-.5)*crop+.5;
  vec4 trail=texture2D(uTrail,vUv);
