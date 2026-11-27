@@ -107,51 +107,26 @@ export function HomeSections() {
   const homePressItems = [
     {
       number: '01',
-      source: 'Homegrown Magazine',
-      date: 'October 2025',
-      title: "Varun Nimbolkar's Indian Experimental Fusion EP Doubles Down On Emotive Storytelling",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20234948.webp',
-      url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
+      date: 'September 2026',
+      source: 'MID-DAY',
+      title: 'Witness this immersive fusion performance in Bandra this week with a sitar',
+      url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
     },
     {
       number: '02',
-      source: 'The Indian Music Diaries',
       date: 'October 2025',
-      title: "Varun Nimbolkar's 'Bah Bah Black Sheep' Sits Comfortably Between Indian Classical and Electronica",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235023.webp',
-      url: 'https://theindianmusicdiaries.com/varun-nimbolkars-bah-bah-black-sheep-sits-comfortably-between-indian-classical-and-electronica/',
+      source: 'HOMEGROWN MAGAZINE',
+      title: 'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling',
+      url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
     },
     {
       number: '03',
-      source: 'The Indian Music Diaries',
-      date: 'January 2024',
-      title: 'Varun Nimbolkar\'s "Dreams For A Living" EP Melds Classical Essence With Rock Resonance',
-      image: '/images/press%20kit/dreams-for-a-living.webp',
-      url: 'https://theindianmusicdiaries.com/',
-    },
-    {
-      number: '04',
-      source: 'Homegrown Magazine',
-      date: 'February 2026',
-      title: 'Art That Inspires: 7 Homegrown Musicians On The Books That Shaped Their Sound',
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235120.webp',
-      url: 'https://homegrown.co.in/homegrown-creators/art-that-inspires-7-homegrown-musicians-on-the-books-that-shaped-their-sound',
-    },
-    {
-      number: '05',
-      source: 'The Indian Music Diaries',
-      date: 'June 2021',
-      title: 'Singles Roundup #29: Diversify Your Playlist With These Latest Tracks',
-      image: '/images/press%20kit/singles-roundup.webp',
-      url: 'https://theindianmusicdiaries.com/',
-    },
-    {
-      number: '06',
-      source: 'The Indian Music Diaries',
-      date: 'Not specified in the supplied PDF',
-      title: "Derek & The Cats' 'People to Meet, Places to See' is a Record Both You and Your Dad Can Dance To",
-      image: '/images/press%20kit/Screenshot%202026-11-27%20235139.webp',
-      url: 'https://theindianmusicdiaries.com/derek-the-cats-people-to-meet-places-to-see-is-a-record-both-you-and-your-dad-can-dance-to/',
+      date: '21 September 2026',
+      source: 'MID-DAY — THE GUIDE',
+      title: 'String Theory',
+      author: 'Devashish Kamble',
+      content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
+      clippingImage: '/images/press kit/string-theory.webp',
     },
   ];
   return <div className="home-sections" ref={root}>
@@ -211,37 +186,51 @@ export function HomeSections() {
 
     <section className="home-press" id="press" aria-labelledby="press-title">
       <div className="home-wide-inner">
-        <div className="press-heading">
-          <div>
-            <span className="home-kicker home-kicker--plain">PRESS AND MEDIA COVERAGE</span>
-            <h2 id="press-title">In the press</h2>
-          </div>
-          <a className="press-view-link" href="/press">View all press &rarr;</a>
-        </div>
-        <div className="home-press-grid">
-          {homePressItems.map((item) => (
-            <a
-              key={item.title}
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="home-press-card"
-            >
-              <div className="home-press-thumb-wrap">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="home-press-thumb"
-                  loading="lazy"
-                />
-              </div>
-              <div className="home-press-info">
-                <span className="home-press-source">{item.source}</span>
-                <span className="home-press-date">{item.date}</span>
-                <h3 className="home-press-title">{item.title}</h3>
-              </div>
-            </a>
-          ))}
+        <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">In The Press</h2></div><a className="press-view" href="/press">View All <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
+        <div className="press-grid">
+          {homePressItems.map((item) => {
+            const hasClipping = Boolean(item.clippingImage);
+            const openClipping = () => {
+              if (item.clippingImage) {
+                setModalClipping({
+                  image: item.clippingImage,
+                  title: item.title,
+                  publication: item.source,
+                  date: item.date,
+                  author: item.author,
+                  content: item.content,
+                });
+              }
+            };
+
+            return (
+              <article className="press-item" key={item.number}>
+                <div className="press-meta">
+                  <span>{item.number}</span>
+                  <span>{item.date}</span>
+                </div>
+                <p className="press-source">{item.source}</p>
+                <h3>{item.title}</h3>
+
+                {hasClipping ? (
+                  <button
+                    type="button"
+                    className="press-item-btn"
+                    onClick={openClipping}
+                    aria-label={`View full newspaper clipping: ${item.title}`}
+                  >
+                    <span>READ MORE</span>
+                    <ArrowUpRight width={15} height={15} aria-hidden="true" />
+                  </button>
+                ) : (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                    READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true" />
+                    <span className="visually-hidden">: {item.title} (opens in a new tab)</span>
+                  </a>
+                )}
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

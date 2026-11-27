@@ -284,24 +284,29 @@
   .contact-cta-section--light .contact-cta-panel{cursor:var(--cursor-on-dark)}
 }
 /* Press coverage and shared button treatments. */
-.home-press{background:#ffffff;color:#111111;padding:clamp(80px,9vw,130px) 0 clamp(90px,10vw,140px)}
-.home-press .press-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(48px,5.5vw,72px)}
-.home-press .press-heading .home-kicker{color:#707070;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px}
-.home-press .press-heading h2{margin:12px 0 0;font:400 clamp(38px,4.4vw,56px)/1.05 Tinos,serif;letter-spacing:-.025em;color:#111111}
-.home-press .press-view-link{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:500;color:#111111;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;transition:opacity .2s ease,transform .2s ease}
-.home-press .press-view-link:hover{opacity:.7;transform:translateX(3px)}
-.home-press-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(40px,5.5vw,84px);row-gap:clamp(36px,4.5vw,56px)}
-.home-press-card{display:flex;align-items:flex-start;gap:clamp(16px,2vw,24px);text-decoration:none;color:inherit;background:none;border:none;padding:0;text-align:left;cursor:pointer;transition:transform .25s ease}
-.home-press-card:hover{transform:translateY(-2px)}
-.home-press-thumb-wrap{flex:0 0 clamp(90px,9vw,120px);width:clamp(90px,9vw,120px);border:1px solid #e8e8e8;border-radius:2px;overflow:hidden;background:#ffffff;box-shadow:0 4px 14px rgba(0,0,0,0.06);transition:box-shadow .25s ease,transform .25s ease}
-.home-press-card:hover .home-press-thumb-wrap{box-shadow:0 8px 22px rgba(0,0,0,0.12);transform:scale(1.02)}
-.home-press-thumb{width:100%;height:auto;display:block;object-fit:cover;object-position:top center}
-.home-press-info{flex:1;min-width:0;display:flex;flex-direction:column}
-.home-press-source{font-family:'Plus Jakarta Sans',sans-serif;font-size:12.5px;color:#707070;line-height:1.4;margin-bottom:2px}
-.home-press-date{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#8c8c8c;line-height:1.4;margin-bottom:10px}
-.home-press-title{font-family:'Tinos',serif;font-size:clamp(17px,1.4vw,21px);font-weight:400;line-height:1.25;color:#111111;margin:0;transition:color .2s ease}
-.home-press-card:hover .home-press-title{color:#555555}
-@media(max-width:860px){.home-press .press-heading{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:40px}.home-press-grid{grid-template-columns:1fr;gap:36px}}
+.home-press{background:#141414;color:#f7f3eb;padding:clamp(88px,11vw,160px) 0 clamp(100px,12vw,175px)}
+.home-press .press-heading{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:65px}
+.home-press .press-heading .home-kicker{color:#b5b0b2}.home-press .press-heading h2{margin:20px 0 0;font:400 clamp(62px,6.5vw,94px)/1 Tinos,serif;letter-spacing:-.03em}
+.home-press .press-view,.home-about-button,.home-music-button,.hero-content .music-button,.book-button,.music-exit,.contact-cta-action>a,.footer-cta a{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:48px;border-radius:999px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;line-height:1.2;letter-spacing:.04em;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
+.home-press .press-view{padding:14px 24px;border:1px solid #eee;color:#fff;white-space:nowrap}.home-press .press-view:hover{background:#fff;color:#111}
+.home-press .press-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #626262}
+.home-press .press-item{padding:56px 40px 36px 0;min-height:260px;display:flex;flex-direction:column}
+.home-press .press-item+.press-item{border-left:1px solid #626262;padding-left:40px}
+.home-press .press-item:last-child{padding-right:0}
+.home-press .press-meta{display:flex;justify-content:space-between;gap:15px;padding-bottom:12px;border-bottom:1px solid #626262;color:#aaa;font-size:11px}
+.home-press .press-source{margin:20px 0 15px;color:#cf59e8;font-size:11px;letter-spacing:.04em}
+.home-press .press-item h3{margin:0 0 20px;font:400 clamp(20px,1.7vw,25px)/1.3 Tinos,serif}
+.home-press .press-item>a,.home-press .press-item-btn{display:inline-flex;align-items:center;gap:5px;color:#bbb;font-size:10px;letter-spacing:.05em;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;text-decoration:none;margin-top:auto}
+.home-press .press-item>a:hover,.home-press .press-item-btn:hover{color:#fff}
+.home-press .press-item-media{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:4px;background:#1a1a1c;margin:0 0 22px;cursor:pointer;border:1px solid rgba(255,255,255,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform .3s cubic-bezier(0.2,0.8,0.2,1),box-shadow .3s cubic-bezier(0.2,0.8,0.2,1)}
+.home-press .press-item-media:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.home-press .press-item-media:focus-visible{outline:2px solid #cf59e8;outline-offset:2px}
+.home-press .press-item-clipping-img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;transition:transform .4s ease}
+.home-press .press-item-media:hover .press-item-clipping-img{transform:scale(1.025)}
+.home-press .press-item-media-zoom{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:999px;background:rgba(10,10,12,0.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;font-size:10px;font-weight:500;letter-spacing:.04em;opacity:0;transform:translateY(3px);transition:opacity .2s ease,transform .2s ease}
+.home-press .press-item-media:hover .press-item-media-zoom,.home-press .press-item-media:focus-visible .press-item-media-zoom{opacity:1;transform:translateY(0)}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.home-press .press-heading{align-items:start;flex-direction:column;margin-bottom:42px}.home-press .press-grid{grid-template-columns:1fr}.home-press .press-item,.home-press .press-item+.press-item{min-height:0;padding:32px 0;border-left:0;border-bottom:1px solid #626262}.home-press .press-item h3{max-width:560px;font-size:23px}}
 
 
 /* ===================================================================   Home Instagram Journey Section ("Follow Me On My Journey")
