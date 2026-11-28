@@ -113,6 +113,8 @@ export function HomeSections() {
       source: 'MID-DAY',
       title: 'Witness this immersive fusion performance in Bandra this week with a sitar',
       url: 'https://www.mid-day.com/mumbai-guide/things-to-do/article/witness-this-immersive-fusion-performance-by-varun-nimbolkar-in-bandra-this-week-with-a-sitar-23650986',
+      clippingImage: '/images/press kit/mid-day-bandra.webp',
+      content: 'Feature about Varun Nimbolkar and his immersive fusion performance in Bandra with sitar and live electronica.',
     },
     {
       number: '02',
@@ -120,6 +122,8 @@ export function HomeSections() {
       source: 'HOMEGROWN MAGAZINE',
       title: 'Varun Nimbolkar’s Indian Experimental Fusion EP Doubles Down On Emotive Storytelling',
       url: 'https://homegrown.co.in/homegrown-creators/varun-nimbolkars-indian-experimental-fusion-ep-doubles-down-on-emotive-storytelling',
+      clippingImage: '/images/press kit/homegrown-bah-bah-black-sheep.webp',
+      content: 'Feature about Varun Nimbolkar’s Indian experimental fusion EP Bah Bah Black Sheep doubling down on emotive storytelling.',
     },
     {
       number: '03',
@@ -128,7 +132,9 @@ export function HomeSections() {
       title: 'String Theory',
       author: 'Devashish Kamble',
       content: 'Feature about Varun Nimbolkar and his fusion music, combining sitar with genres such as Hip-Hop, Afro and Rock.',
-      clippingImage: '/images/press kit/string-theory.webp',
+      url: '/images/press kit/string-theory.webp',
+      clippingImage: '/images/press kit/mid-day-string-theory.webp',
+      modalImage: '/images/press kit/string-theory.webp',
     },
   ];
   return <div className="home-sections" ref={root}>
@@ -196,19 +202,7 @@ export function HomeSections() {
         <div className="press-heading"><div><span className="home-kicker">MEDIA COVERAGE</span><h2 id="press-title">In The Press</h2></div><a className="press-view" href="/press">View All <ArrowUpRight width={20} height={20} aria-hidden="true"/></a></div>
         <div className="press-grid">
           {homePressItems.map((item) => {
-            const hasClipping = Boolean(item.clippingImage);
-            const openClipping = () => {
-              if (item.clippingImage) {
-                setModalClipping({
-                  image: item.clippingImage,
-                  title: item.title,
-                  publication: item.source,
-                  date: item.date,
-                  author: item.author,
-                  content: item.content,
-                });
-              }
-            };
+            const targetUrl = item.url || item.modalImage || item.clippingImage || '#';
 
             return (
               <article className="press-item" key={item.number}>
@@ -216,25 +210,63 @@ export function HomeSections() {
                   <span>{item.number}</span>
                   <span>{item.date}</span>
                 </div>
-                <p className="press-source">{item.source}</p>
-                <h3>{item.title}</h3>
 
-                {hasClipping ? (
-                  <button
-                    type="button"
-                    className="press-item-btn"
-                    onClick={openClipping}
-                    aria-label={`View full newspaper clipping: ${item.title}`}
-                  >
-                    <span>READ MORE</span>
-                    <ArrowUpRight width={15} height={15} aria-hidden="true" />
-                  </button>
-                ) : (
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
-                    READ MORE <ArrowUpRight width={15} height={15} aria-hidden="true" />
-                    <span className="visually-hidden">: {item.title} (opens in a new tab)</span>
-                  </a>
-                )}
+                <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', marginTop: '22px' }}>
+                  {item.clippingImage && (
+                    <a
+                      href={targetUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="press-item-media"
+                      style={{
+                        width: '78px',
+                        minWidth: '78px',
+                        height: '100px',
+                        margin: 0,
+                        borderRadius: '3px',
+                        flexShrink: 0,
+                        display: 'block',
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                      }}
+                      aria-label={`Read article: ${item.title} (opens in a new tab)`}
+                    >
+                      <img
+                        src={item.clippingImage}
+                        alt={`Clipping: ${item.title}`}
+                        className="press-item-clipping-img"
+                        loading="lazy"
+                        width="78"
+                        height="100"
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+                      />
+                      <span className="press-item-media-zoom">
+                        <ArrowUpRight width={10} height={10} aria-hidden="true" />
+                      </span>
+                    </a>
+                  )}
+
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                    <p className="press-source" style={{ margin: '0 0 2px 0', lineHeight: 1.3 }}>{item.source}</p>
+                    <p style={{ fontSize: '11px', color: '#888', margin: '0 0 12px 0', lineHeight: 1.2 }}>{item.date}</p>
+                    <h3 style={{ margin: '0 0 16px 0', lineHeight: 1.3 }}>
+                      <a href={targetUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {item.title}
+                      </a>
+                    </h3>
+
+                    <a
+                      href={targetUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="press-item-btn"
+                      aria-label={`Read article: ${item.title} (opens in a new tab)`}
+                    >
+                      <span>READ MORE</span>
+                      <ArrowUpRight width={15} height={15} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
               </article>
             );
           })}

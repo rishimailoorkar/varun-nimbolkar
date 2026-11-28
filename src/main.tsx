@@ -81,7 +81,7 @@ function App() {
     const media = matchMedia('(prefers-reduced-motion: reduce)');
     const targets = Array.from(document.querySelectorAll<HTMLElement>(
       'main h1, main h2, main h3, main p, .home-kicker, .home-stats strong'
-    )).filter(el => !el.closest('.hero, .gallery-page, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
+    )).filter(el => !el.closest('.hero, .gallery-page, .press-page, .music-preloader, .home-interlude-caption, .booking-form-wrap'));
     // Keep each hero text/CTA composition together, with zero offset at page top.
     const heroGroups = Array.from(document.querySelectorAll<HTMLElement>('.hero-content, .hero-presenting'));
     const portrait = document.querySelector<HTMLElement>('.home-about-image-wrap img');

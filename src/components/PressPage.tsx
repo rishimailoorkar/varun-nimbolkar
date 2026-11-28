@@ -30,7 +30,7 @@ export function PressPage() {
               <span className="press-brand-label">VARUN NIMBOLKAR</span>
             </div>
             <h1 id="press-hero-heading" className="press-hero-title">
-              PRESS RELEASE
+              PRESS <em>RELEASE</em>
             </h1>
             <p className="press-hero-desc">
               A selection of editorial features, music reviews, and cultural conversations from India and beyond.
@@ -70,20 +70,8 @@ export function PressPage() {
           <div className="press-articles-inner">
             <div className="press-grid">
               {PRESS_ARTICLES.map((article) => {
-                const hasClipping = Boolean(article.clippingImage);
-
-                const openClipping = () => {
-                  if (article.clippingImage) {
-                    setActiveClipping({
-                      image: article.clippingImage,
-                      title: article.headline,
-                      publication: article.publication,
-                      date: article.date,
-                      author: article.author,
-                      content: article.content,
-                    });
-                  }
-                };
+                const thumbSrc = article.thumbnailImage || article.clippingImage;
+                const targetUrl = article.url || article.clippingImage || article.thumbnailImage || '#';
 
                 return (
                   <article key={article.number} className="press-card">
@@ -92,39 +80,71 @@ export function PressPage() {
                       <span className="press-card-date">{article.date}</span>
                     </div>
 
-                    <span className="press-card-pub">{article.publication}</span>
-                    <h2 className="press-card-headline">{article.headline}</h2>
+                    <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', marginTop: '12px' }}>
+                      {thumbSrc && (
+                        <a
+                          href={targetUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="press-card-media"
+                          style={{
+                            width: '84px',
+                            minWidth: '84px',
+                            height: '108px',
+                            margin: 0,
+                            borderRadius: '3px',
+                            flexShrink: 0,
+                            display: 'block',
+                            overflow: 'hidden',
+                            cursor: 'pointer',
+                          }}
+                          aria-label={`Read article: ${article.headline} (opens in a new tab)`}
+                        >
+                          <img
+                            src={thumbSrc}
+                            alt={`Clipping: ${article.headline}`}
+                            className="press-card-clipping-img"
+                            loading="lazy"
+                            width="84"
+                            height="108"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
+                          />
+                          <span className="press-card-media-zoom">
+                            <ArrowUpRight width={10} height={10} aria-hidden="true" />
+                          </span>
+                        </a>
+                      )}
 
-                    {article.author && (
-                      <span className="press-card-author">By {article.author}</span>
-                    )}
+                      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
+                        <span className="press-card-pub" style={{ marginBottom: '4px' }}>{article.publication}</span>
+                        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', color: '#8e929b', marginBottom: '12px', display: 'block' }}>{article.date}</span>
+                        <h2 className="press-card-headline" style={{ margin: '0 0 10px 0', flexGrow: 0 }}>
+                          <a href={targetUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                            {article.headline}
+                          </a>
+                        </h2>
 
-                    {article.content && (
-                      <p className="press-card-desc">{article.content}</p>
-                    )}
+                        {article.author && (
+                          <span className="press-card-author" style={{ margin: '0 0 12px 0', display: 'block' }}>By {article.author}</span>
+                        )}
 
-                    {hasClipping ? (
-                      <button
-                        type="button"
-                        className="press-card-link press-card-link--button"
-                        onClick={openClipping}
-                        aria-label={`View full newspaper clipping: ${article.headline}`}
-                      >
-                        <span>VIEW CLIPPING</span>
-                        <ArrowUpRight width={14} height={14} aria-hidden="true" />
-                      </button>
-                    ) : (
-                      <a
-                        href={article.url}
-                        className="press-card-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Read article: ${article.headline} on ${article.publication} (opens in a new tab)`}
-                      >
-                        <span>READ MORE</span>
-                        <ArrowUpRight width={14} height={14} aria-hidden="true" />
-                      </a>
-                    )}
+                        {article.content && (
+                          <p className="press-card-desc" style={{ margin: '0 0 20px 0' }}>{article.content}</p>
+                        )}
+
+                        <a
+                          href={targetUrl}
+                          className="press-card-link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Read article: ${article.headline} on ${article.publication} (opens in a new tab)`}
+                          style={{ marginTop: 'auto' }}
+                        >
+                          <span>READ MORE</span>
+                          <ArrowUpRight width={14} height={14} aria-hidden="true" />
+                        </a>
+                      </div>
+                    </div>
                   </article>
                 );
               })}
